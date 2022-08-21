@@ -1,0 +1,504 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		485A97D1D83BF5CFA42FAED6 /* Pods_Blamarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89B6BA28B76A07840E2E545 /* Pods_Blamarket.framework */; };
+		9B68908428AF13D1001C109E /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68908328AF13D1001C109E /* PasswordResetViewController.swift */; };
+		9B68908628AF13EC001C109E /* PasswordResetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68908528AF13EC001C109E /* PasswordResetViewModel.swift */; };
+		9B6CF9BC28AF262E007FC2AD /* UserConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6CF9BB28AF262E007FC2AD /* UserConst.swift */; };
+		9B6CF9BF28AF2907007FC2AD /* RegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6CF9BE28AF2907007FC2AD /* RegistViewController.swift */; };
+		9B6CF9C128AF2918007FC2AD /* RegistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6CF9C028AF2918007FC2AD /* RegistViewModel.swift */; };
+		9B8DB22928ACA03000E14443 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB22828ACA03000E14443 /* AppDelegate.swift */; };
+		9B8DB22B28ACA03000E14443 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB22A28ACA03000E14443 /* SceneDelegate.swift */; };
+		9B8DB23328ACA03000E14443 /* Blamarket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB23128ACA03000E14443 /* Blamarket.xcdatamodeld */; };
+		9B8DB23528ACA03100E14443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B8DB23428ACA03100E14443 /* Assets.xcassets */; };
+		9B8DB23828ACA03100E14443 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B8DB23628ACA03100E14443 /* LaunchScreen.storyboard */; };
+		9B8DB24928ACA15600E14443 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB24828ACA15600E14443 /* LoginViewController.swift */; };
+		9B8DB24B28ACA45000E14443 /* LoginVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB24A28ACA45000E14443 /* LoginVIewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7EDAE8D42BFCC845F142E9F9 /* Pods-Blamarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blamarket.debug.xcconfig"; path = "Target Support Files/Pods-Blamarket/Pods-Blamarket.debug.xcconfig"; sourceTree = "<group>"; };
+		9B68908328AF13D1001C109E /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
+		9B68908528AF13EC001C109E /* PasswordResetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModel.swift; sourceTree = "<group>"; };
+		9B6CF9BB28AF262E007FC2AD /* UserConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConst.swift; sourceTree = "<group>"; };
+		9B6CF9BE28AF2907007FC2AD /* RegistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistViewController.swift; sourceTree = "<group>"; };
+		9B6CF9C028AF2918007FC2AD /* RegistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistViewModel.swift; sourceTree = "<group>"; };
+		9B8DB22528ACA03000E14443 /* Blamarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blamarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B8DB22828ACA03000E14443 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9B8DB22A28ACA03000E14443 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9B8DB23228ACA03000E14443 /* Blamarket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Blamarket.xcdatamodel; sourceTree = "<group>"; };
+		9B8DB23428ACA03100E14443 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9B8DB23728ACA03100E14443 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9B8DB23928ACA03100E14443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B8DB24828ACA15600E14443 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9B8DB24A28ACA45000E14443 /* LoginVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVIewModel.swift; sourceTree = "<group>"; };
+		B89B6BA28B76A07840E2E545 /* Pods_Blamarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blamarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF2D6162959F0CE278F1BCC0 /* Pods-Blamarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blamarket.release.xcconfig"; path = "Target Support Files/Pods-Blamarket/Pods-Blamarket.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9B8DB22228ACA03000E14443 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				485A97D1D83BF5CFA42FAED6 /* Pods_Blamarket.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		51719F7932C75580D4131C9B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7EDAE8D42BFCC845F142E9F9 /* Pods-Blamarket.debug.xcconfig */,
+				BF2D6162959F0CE278F1BCC0 /* Pods-Blamarket.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9B0A7B9728ACE6DA00EA95FB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9B1B192CB9DB3906DB96D25A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B89B6BA28B76A07840E2E545 /* Pods_Blamarket.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B68908228AF1103001C109E /* PasswordReset */ = {
+			isa = PBXGroup;
+			children = (
+				9B68908328AF13D1001C109E /* PasswordResetViewController.swift */,
+				9B68908528AF13EC001C109E /* PasswordResetViewModel.swift */,
+			);
+			path = PasswordReset;
+			sourceTree = "<group>";
+		};
+		9B6CF9BA28AF2539007FC2AD /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				9B6CF9BB28AF262E007FC2AD /* UserConst.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		9B6CF9BD28AF28EE007FC2AD /* Regist */ = {
+			isa = PBXGroup;
+			children = (
+				9B6CF9BE28AF2907007FC2AD /* RegistViewController.swift */,
+				9B6CF9C028AF2918007FC2AD /* RegistViewModel.swift */,
+			);
+			path = Regist;
+			sourceTree = "<group>";
+		};
+		9B8DB21C28ACA03000E14443 = {
+			isa = PBXGroup;
+			children = (
+				9B8DB22728ACA03000E14443 /* Blamarket */,
+				9B8DB22628ACA03000E14443 /* Products */,
+				51719F7932C75580D4131C9B /* Pods */,
+				9B1B192CB9DB3906DB96D25A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9B8DB22628ACA03000E14443 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B8DB22528ACA03000E14443 /* Blamarket.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9B8DB22728ACA03000E14443 /* Blamarket */ = {
+			isa = PBXGroup;
+			children = (
+				9B6CF9BA28AF2539007FC2AD /* Constants */,
+				9B0A7B9728ACE6DA00EA95FB /* Network */,
+				9B8DB22828ACA03000E14443 /* AppDelegate.swift */,
+				9B8DB22A28ACA03000E14443 /* SceneDelegate.swift */,
+				9B8DB23428ACA03100E14443 /* Assets.xcassets */,
+				9B8DB23628ACA03100E14443 /* LaunchScreen.storyboard */,
+				9B8DB23928ACA03100E14443 /* Info.plist */,
+				9B8DB23128ACA03000E14443 /* Blamarket.xcdatamodeld */,
+				9B6CF9BD28AF28EE007FC2AD /* Regist */,
+				9B68908228AF1103001C109E /* PasswordReset */,
+				9B8DB24C28ACA45A00E14443 /* Login */,
+			);
+			path = Blamarket;
+			sourceTree = "<group>";
+		};
+		9B8DB24C28ACA45A00E14443 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9B8DB24828ACA15600E14443 /* LoginViewController.swift */,
+				9B8DB24A28ACA45000E14443 /* LoginVIewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9B8DB22428ACA03000E14443 /* Blamarket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B8DB23C28ACA03100E14443 /* Build configuration list for PBXNativeTarget "Blamarket" */;
+			buildPhases = (
+				54759CB1CA5E9E808AE16ED7 /* [CP] Check Pods Manifest.lock */,
+				9B8DB22128ACA03000E14443 /* Sources */,
+				9B8DB22228ACA03000E14443 /* Frameworks */,
+				9B8DB22328ACA03000E14443 /* Resources */,
+				6601CA3202C0E7D90399ECA1 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Blamarket;
+			productName = Blamarket;
+			productReference = 9B8DB22528ACA03000E14443 /* Blamarket.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9B8DB21D28ACA03000E14443 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					9B8DB22428ACA03000E14443 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 9B8DB22028ACA03000E14443 /* Build configuration list for PBXProject "Blamarket" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9B8DB21C28ACA03000E14443;
+			productRefGroup = 9B8DB22628ACA03000E14443 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9B8DB22428ACA03000E14443 /* Blamarket */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9B8DB22328ACA03000E14443 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B8DB23828ACA03100E14443 /* LaunchScreen.storyboard in Resources */,
+				9B8DB23528ACA03100E14443 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		54759CB1CA5E9E808AE16ED7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Blamarket-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6601CA3202C0E7D90399ECA1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Blamarket/Pods-Blamarket-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Blamarket/Pods-Blamarket-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Blamarket/Pods-Blamarket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9B8DB22128ACA03000E14443 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B6CF9BC28AF262E007FC2AD /* UserConst.swift in Sources */,
+				9B8DB24928ACA15600E14443 /* LoginViewController.swift in Sources */,
+				9B6CF9BF28AF2907007FC2AD /* RegistViewController.swift in Sources */,
+				9B68908428AF13D1001C109E /* PasswordResetViewController.swift in Sources */,
+				9B8DB23328ACA03000E14443 /* Blamarket.xcdatamodeld in Sources */,
+				9B8DB22928ACA03000E14443 /* AppDelegate.swift in Sources */,
+				9B6CF9C128AF2918007FC2AD /* RegistViewModel.swift in Sources */,
+				9B8DB24B28ACA45000E14443 /* LoginVIewModel.swift in Sources */,
+				9B8DB22B28ACA03000E14443 /* SceneDelegate.swift in Sources */,
+				9B68908628AF13EC001C109E /* PasswordResetViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9B8DB23628ACA03100E14443 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B8DB23728ACA03100E14443 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9B8DB23A28ACA03100E14443 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9B8DB23B28ACA03100E14443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9B8DB23D28ACA03100E14443 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EDAE8D42BFCC845F142E9F9 /* Pods-Blamarket.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DR2C4G73MR;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Blamarket/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yangjs.Blamarket;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9B8DB23E28ACA03100E14443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF2D6162959F0CE278F1BCC0 /* Pods-Blamarket.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DR2C4G73MR;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Blamarket/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yangjs.Blamarket;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9B8DB22028ACA03000E14443 /* Build configuration list for PBXProject "Blamarket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B8DB23A28ACA03100E14443 /* Debug */,
+				9B8DB23B28ACA03100E14443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B8DB23C28ACA03100E14443 /* Build configuration list for PBXNativeTarget "Blamarket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B8DB23D28ACA03100E14443 /* Debug */,
+				9B8DB23E28ACA03100E14443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9B8DB23128ACA03000E14443 /* Blamarket.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9B8DB23228ACA03000E14443 /* Blamarket.xcdatamodel */,
+			);
+			currentVersion = 9B8DB23228ACA03000E14443 /* Blamarket.xcdatamodel */;
+			path = Blamarket.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9B8DB21D28ACA03000E14443 /* Project object */;
+}
