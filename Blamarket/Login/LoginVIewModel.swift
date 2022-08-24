@@ -55,10 +55,10 @@ struct LoginViewModel {
 //            .filter{$1.isEmpty}
 //            .filter { (info: LoginInfo, message: String) -> Single<Bool> in
 //                return Single.create{ observer -> Disposable in
-//                    
+//
 //                }
 //            }
-//            
+//
         
         
         

@@ -13,25 +13,29 @@ import RxGesture
 
 class LoginViewController  : UIViewController{
     let bag = DisposeBag()
-    
-    
+
+
     lazy var idInput : UITextField = {
         let textField = UITextField()
-        textField.placeholder = "    아이디를 입력해주세요"
+        textField.placeholder = "      아이디를 입력해주세요"
         textField.layer.borderWidth = 1.0
         textField.layer.borderColor = UIColor.systemGray.cgColor
         return textField
     }()
-    
+
+
+
     lazy var pwInput : UITextField = {
         let textField = UITextField()
-        textField.placeholder = "    비밀번호를 입력해주세요"
+        textField.placeholder = "      비밀번호"
         textField.layer.borderWidth = 1.0
         textField.layer.borderColor = UIColor.systemGray.cgColor
         textField.isSecureTextEntry = true
         return textField
     }()
-    
+
+
+
     lazy var loginButton : UIButton = {
         let button = UIButton()
         button.setTitle("로그인", for: .normal)
@@ -41,7 +45,7 @@ class LoginViewController  : UIViewController{
         button.layer.borderColor = UIColor.systemBlue.cgColor
         return button
     }()
-    
+
     lazy var registerButton : UIButton = {
         let button = UIButton()
         button.setTitle("회원가입", for: .normal)
@@ -49,10 +53,10 @@ class LoginViewController  : UIViewController{
         button.setTitleColor(UIColor.systemBlue, for: .normal)
         button.layer.borderWidth = 1.0
         button.layer.borderColor = UIColor.systemBlue.cgColor
-        
+
         return button
     }()
-    
+
     lazy var pwResetBtn : UILabel = {
         let label = UILabel()
         label.text = "비밀번호 초기화"
@@ -60,37 +64,37 @@ class LoginViewController  : UIViewController{
         label.textColor = .systemGray
         return label
     }()
-    
-    
-    
+
+
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         attribute()
         layout()
         //bind(MainViewModel())
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func bind(vm:LoginViewModel){
         idInput.rx.text.orEmpty
             .bind(to: vm.id)
             .disposed(by: bag)
-        
+
         pwInput.rx.text.orEmpty
             .bind(to: vm.pw)
             .disposed(by: bag)
-        
+
         loginButton.rx.tap
             .bind(to: vm.loginButtonTapped)
             .disposed(by: bag)
-        
+
         vm.presentAlert
             .emit(to: self.rx.setAlert)
             .disposed(by: bag)
-        
+
         pwResetBtn.rx.tapGesture().when(.recognized)
             .bind{[weak self] _ in
                 guard let self = self else {return }
@@ -99,7 +103,7 @@ class LoginViewController  : UIViewController{
                 passwordRestVC.bind(vm: PasswordResetViewModel())
                 self.navigationController?.pushViewController(passwordRestVC, animated: true)
             }.disposed(by: bag)
-        
+
         registerButton.rx.tap
             .bind{ [weak self] _ in
                 guard let self = self else {return }
@@ -109,16 +113,15 @@ class LoginViewController  : UIViewController{
                 self.navigationController?.pushViewController(registVC, animated: true)
             }.disposed(by: bag)
     }
-    
+
 }
 
 private extension LoginViewController{
     func attribute(){
         self.navigationItem.title  = "로그인"
-        //pwResetBtn.addGestureRecognizer(tapguesture)
-        
+
     }
-    
+
     func layout(){
         [idInput, pwInput, loginButton, registerButton,pwResetBtn].forEach {
             view.addSubview($0)
@@ -128,13 +131,13 @@ private extension LoginViewController{
             make.top.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.leading.trailing.equalToSuperview().inset(10)
         }
-        
+
         pwInput.snp.makeConstraints{
             $0.height.equalTo(50)
             $0.top.equalTo(idInput.snp.bottom).offset(5)
             $0.trailing.leading.equalToSuperview().inset(10)
         }
-        
+
         loginButton.snp.makeConstraints{
             $0.height.equalTo(50)
             $0.top.equalTo(pwInput.snp.bottom).offset(20)
@@ -144,12 +147,14 @@ private extension LoginViewController{
             $0.top.equalTo(loginButton.snp.bottom).offset(10)
             $0.centerX.equalTo(loginButton.snp.centerX)
         }
-        
+
         registerButton.snp.makeConstraints{
             $0.height.equalTo(50)
             $0.top.equalTo(pwResetBtn.snp.bottom).offset(10)
             $0.trailing.leading.equalToSuperview().inset(10)
         }
+
+
     }
 }
 
