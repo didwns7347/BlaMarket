@@ -88,6 +88,7 @@ class LoginViewController  : UIViewController{
             .disposed(by: bag)
 
         loginButton.rx.tap
+            .throttle(.microseconds(500), scheduler: MainScheduler.instance)
             .bind(to: vm.loginButtonTapped)
             .disposed(by: bag)
 
@@ -96,6 +97,7 @@ class LoginViewController  : UIViewController{
             .disposed(by: bag)
 
         pwResetBtn.rx.tapGesture().when(.recognized)
+            .throttle(.microseconds(500), scheduler: MainScheduler.instance)
             .bind{[weak self] _ in
                 guard let self = self else {return }
                 print("password find tapped")
@@ -105,6 +107,7 @@ class LoginViewController  : UIViewController{
             }.disposed(by: bag)
 
         registerButton.rx.tap
+            .throttle(.microseconds(500), scheduler: MainScheduler.instance)
             .bind{ [weak self] _ in
                 guard let self = self else {return }
                 print("register find tapped")
@@ -112,6 +115,15 @@ class LoginViewController  : UIViewController{
                 registVC.bind(vm: RegistViewModel())
                 self.navigationController?.pushViewController(registVC, animated: true)
             }.disposed(by: bag)
+        
+        
+        vm.goMainPage.emit(onNext:{ [weak self] in
+            print("LOGIN SUCCESS")
+            guard let self = self else { return }
+            let mainVC = MainViewController()
+            mainVC.bind(vm: MainViewModel())
+            self.navigationController?.pushViewController(mainVC, animated: true)
+        }).disposed(by: bag)
     }
 
 }

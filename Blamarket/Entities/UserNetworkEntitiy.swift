@@ -10,8 +10,8 @@ protocol Entity : Decodable{
     
 }
 
-struct NetworkModel : Decodable{
-    let status : String
+struct UserNetworkEntity : Decodable{
+    let status : Int
     let message : String
     let result :ResultData
     

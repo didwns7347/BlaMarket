@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		485A97D1D83BF5CFA42FAED6 /* Pods_Blamarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89B6BA28B76A07840E2E545 /* Pods_Blamarket.framework */; };
+		9B5EF32028B6FE83006D0AB8 /* NetworkProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EF31F28B6FE83006D0AB8 /* NetworkProviderImpl.swift */; };
 		9B68908428AF13D1001C109E /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68908328AF13D1001C109E /* PasswordResetViewController.swift */; };
 		9B68908628AF13EC001C109E /* PasswordResetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68908528AF13EC001C109E /* PasswordResetViewModel.swift */; };
 		9B6CF9BC28AF262E007FC2AD /* UserConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6CF9BB28AF262E007FC2AD /* UserConst.swift */; };
@@ -22,6 +23,10 @@
 		9B77FE3B28B5B834000CF701 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B77FE3A28B5B834000CF701 /* Provider.swift */; };
 		9B77FE3D28B5BEA5000CF701 /* Sessionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B77FE3C28B5BEA5000CF701 /* Sessionable.swift */; };
 		9B77FE4028B5C4BA000CF701 /* UserNetworkEntitiy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B77FE3F28B5C4BA000CF701 /* UserNetworkEntitiy.swift */; };
+		9B77FE4228B5F83B000CF701 /* UserEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B77FE4128B5F83B000CF701 /* UserEndPoint.swift */; };
+		9B77FE4528B5FF76000CF701 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B77FE4428B5FF76000CF701 /* LoginModel.swift */; };
+		9B77FE4828B616F9000CF701 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B77FE4728B616F9000CF701 /* MainViewController.swift */; };
+		9B77FE4A28B617A3000CF701 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B77FE4928B617A3000CF701 /* MainViewModel.swift */; };
 		9B8DB22928ACA03000E14443 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB22828ACA03000E14443 /* AppDelegate.swift */; };
 		9B8DB22B28ACA03000E14443 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB22A28ACA03000E14443 /* SceneDelegate.swift */; };
 		9B8DB23328ACA03000E14443 /* Blamarket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB23128ACA03000E14443 /* Blamarket.xcdatamodeld */; };
@@ -32,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		7EDAE8D42BFCC845F142E9F9 /* Pods-Blamarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blamarket.debug.xcconfig"; path = "Target Support Files/Pods-Blamarket/Pods-Blamarket.debug.xcconfig"; sourceTree = "<group>"; };
+		9B5EF31F28B6FE83006D0AB8 /* NetworkProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProviderImpl.swift; sourceTree = "<group>"; };
 		9B68908328AF13D1001C109E /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 		9B68908528AF13EC001C109E /* PasswordResetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModel.swift; sourceTree = "<group>"; };
 		9B6CF9BB28AF262E007FC2AD /* UserConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConst.swift; sourceTree = "<group>"; };
@@ -45,6 +51,10 @@
 		9B77FE3A28B5B834000CF701 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		9B77FE3C28B5BEA5000CF701 /* Sessionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sessionable.swift; sourceTree = "<group>"; };
 		9B77FE3F28B5C4BA000CF701 /* UserNetworkEntitiy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkEntitiy.swift; sourceTree = "<group>"; };
+		9B77FE4128B5F83B000CF701 /* UserEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndPoint.swift; sourceTree = "<group>"; };
+		9B77FE4428B5FF76000CF701 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		9B77FE4728B616F9000CF701 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9B77FE4928B617A3000CF701 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		9B8DB22528ACA03000E14443 /* Blamarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blamarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8DB22828ACA03000E14443 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B8DB22A28ACA03000E14443 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,13 +124,13 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		9B6CF9BD28AF28EE007FC2AD /* Regist */ = {
+		9B6CF9BD28AF28EE007FC2AD /* RegistScene */ = {
 			isa = PBXGroup;
 			children = (
 				9B6CF9BE28AF2907007FC2AD /* RegistViewController.swift */,
 				9B6CF9C028AF2918007FC2AD /* RegistViewModel.swift */,
 			);
-			path = Regist;
+			path = RegistScene;
 			sourceTree = "<group>";
 		};
 		9B725DD128B46D7A002F8BA3 /* Resources */ = {
@@ -144,6 +154,7 @@
 			children = (
 				9B77FE2F28B5AF2F000CF701 /* Requestable.swift */,
 				9B77FE3428B5B543000CF701 /* Responsable.swift */,
+				9B77FE4128B5F83B000CF701 /* UserEndPoint.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -161,6 +172,7 @@
 			children = (
 				9B77FE3A28B5B834000CF701 /* Provider.swift */,
 				9B77FE3C28B5BEA5000CF701 /* Sessionable.swift */,
+				9B5EF31F28B6FE83006D0AB8 /* NetworkProviderImpl.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -171,6 +183,23 @@
 				9B77FE3F28B5C4BA000CF701 /* UserNetworkEntitiy.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		9B77FE4328B5FF5E000CF701 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B77FE4428B5FF76000CF701 /* LoginModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9B77FE4628B616E1000CF701 /* MainScene */ = {
+			isa = PBXGroup;
+			children = (
+				9B77FE4728B616F9000CF701 /* MainViewController.swift */,
+				9B77FE4928B617A3000CF701 /* MainViewModel.swift */,
+			);
+			path = MainScene;
 			sourceTree = "<group>";
 		};
 		9B8DB21C28ACA03000E14443 = {
@@ -194,6 +223,7 @@
 		9B8DB22728ACA03000E14443 /* Blamarket */ = {
 			isa = PBXGroup;
 			children = (
+				9B77FE4328B5FF5E000CF701 /* Model */,
 				9B77FE3E28B5C469000CF701 /* Entities */,
 				9B77FE3128B5B114000CF701 /* Extension */,
 				9B725DD128B46D7A002F8BA3 /* Resources */,
@@ -205,7 +235,8 @@
 				9B8DB23628ACA03100E14443 /* LaunchScreen.storyboard */,
 				9B8DB23928ACA03100E14443 /* Info.plist */,
 				9B8DB23128ACA03000E14443 /* Blamarket.xcdatamodeld */,
-				9B6CF9BD28AF28EE007FC2AD /* Regist */,
+				9B77FE4628B616E1000CF701 /* MainScene */,
+				9B6CF9BD28AF28EE007FC2AD /* RegistScene */,
 				9B68908228AF1103001C109E /* PasswordReset */,
 				9B8DB24C28ACA45A00E14443 /* Login */,
 			);
@@ -335,11 +366,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B77FE4828B616F9000CF701 /* MainViewController.swift in Sources */,
 				9B77FE3528B5B543000CF701 /* Responsable.swift in Sources */,
 				9B6CF9BC28AF262E007FC2AD /* UserConst.swift in Sources */,
 				9B6CF9BF28AF2907007FC2AD /* RegistViewController.swift in Sources */,
 				9B68908428AF13D1001C109E /* PasswordResetViewController.swift in Sources */,
 				9B77FE3B28B5B834000CF701 /* Provider.swift in Sources */,
+				9B5EF32028B6FE83006D0AB8 /* NetworkProviderImpl.swift in Sources */,
+				9B77FE4528B5FF76000CF701 /* LoginModel.swift in Sources */,
 				9B8DB23328ACA03000E14443 /* Blamarket.xcdatamodeld in Sources */,
 				9B8DB22928ACA03000E14443 /* AppDelegate.swift in Sources */,
 				9B77FE4028B5C4BA000CF701 /* UserNetworkEntitiy.swift in Sources */,
@@ -353,6 +387,8 @@
 				9B77FE3328B5B121000CF701 /* Encodable +.swift in Sources */,
 				9B77FE2C28B5AD19000CF701 /* NetworkError.swift in Sources */,
 				9B68908628AF13EC001C109E /* PasswordResetViewModel.swift in Sources */,
+				9B77FE4228B5F83B000CF701 /* UserEndPoint.swift in Sources */,
+				9B77FE4A28B617A3000CF701 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

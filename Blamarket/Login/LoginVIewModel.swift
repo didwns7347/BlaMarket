@@ -9,64 +9,87 @@ import RxCocoa
 import RxSwift
 import Combine
 import Foundation
+import UIKit
 
 
-struct LoginInfo{
-    let id : String
-    let pw : String
-}
+
 struct LoginViewModel {
     var id = PublishRelay<String>()
     var pw = PublishRelay<String>()
     var presentAlert : Signal<Alert>
+    //var loginResult : Single<Result<UserNetworkEntity,Error>>
     //var loginResult : Observable<LoginResult>()
-    
+   
     var loginButtonTapped = PublishRelay<Void>()
+    let loginSuccess : Observable<UserNetworkEntity>
+    let goMainPage : Signal<Void>
+
     init(){
-        let loginInfo = Observable.combineLatest(id,pw){id, pw -> LoginInfo in
-            return LoginInfo(id: id, pw: pw)
+        let loginInfo = Observable.combineLatest(id,pw){id, pw -> LoginModel in
+            return LoginModel(email: id, password: pw)
         }
         
         let loginInputCheck = loginButtonTapped.withLatestFrom(loginInfo)
-            .map{ info -> (info:LoginInfo, message:String) in
-                let id = info.id
-                let pw = info.pw
+            .map{ info -> (info:LoginModel, message:String) in
+                let id = info.email
+                let pw = info.password
                 print("Email = \(id) passwd: = \(pw)")
               
              
                 if id.range(of: UserConst.ID_REGEX, options: .regularExpression) == nil{
-                    return (info:info, message:"이메일 주소를 입력해 주세요")
+                    return (info:info, message:UserConst.ID_INPUT_ERROR)
                 }
                 if pw.range(of: UserConst.PW_REGEX, options: .regularExpression) == nil{
-                    return (info:info, message:"잘못된 비밀번호 입니다.")
+                    return (info:info, message:UserConst.PW_INPUT_ERROR)
                 }
                 return (info:info, message:"")
             }
         
-        self.presentAlert = loginInputCheck
+   
+        let inputError = loginInputCheck
             .filter{!$1.isEmpty}
-            .map{_,message -> (title:String, message: String) in
-                return (title:"실패",message:message)
+            .map{_,message ->String  in
+                return message
             }
-            .asSignal(onErrorSignalWith: .empty())
+         
         
         
-//        var loginResult = loginInputCheck
-//            .filter{$1.isEmpty}
-//            .filter { (info: LoginInfo, message: String) -> Single<Bool> in
-//                return Single.create{ observer -> Disposable in
-//
-//                }
-//            }
-//
+        let loginResult = loginInputCheck
+            .filter{$1.isEmpty}
+            .map{$0.info}
+            .flatMap{ loginInfo -> Single<Result<UserNetworkEntity,Error>> in
+                let endpoint = UserEndPoint.login(email: loginInfo.email, password: loginInfo.password)
+                let userNetwork = NetworkProvider()
+                return userNetwork.request(with: endpoint)
+            }.share()
         
+        loginSuccess = loginResult.compactMap { data -> UserNetworkEntity? in
+            guard case let .success(value) = data else{
+                return nil
+            }
+            return value
+        }
         
+        goMainPage = loginSuccess.map{_ -> () in
+            return ()
+        }.asSignal(onErrorJustReturn: ())
         
+        let loginError = loginResult.compactMap { data -> String? in
+            switch data{
+            case .failure(let error) :
+                return error.localizedDescription
+            default :
+                return nil
+            }
+        }
         
+        self.presentAlert = Observable.merge(inputError,loginError)
+            .map{message -> Alert in
+                return (title:"실패", message:message)
+            }.asSignal(onErrorJustReturn:  (title:"실패", message:"잠시후 다시 시도해 주세요"))
+      
         
-        
-        
-        
+ 
     }
     
     
