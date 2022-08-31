@@ -33,6 +33,10 @@
 		9B8DB23528ACA03100E14443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B8DB23428ACA03100E14443 /* Assets.xcassets */; };
 		9B8DB23828ACA03100E14443 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B8DB23628ACA03100E14443 /* LaunchScreen.storyboard */; };
 		9B8DB24B28ACA45000E14443 /* LoginVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB24A28ACA45000E14443 /* LoginVIewModel.swift */; };
+		9BE2006028BF19C700866D73 /* EmailAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2005F28BF19C700866D73 /* EmailAuthViewController.swift */; };
+		9BE2006228BF19D800866D73 /* EmailAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2006128BF19D800866D73 /* EmailAuthViewModel.swift */; };
+		9BE2006828BF261C00866D73 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2006728BF261C00866D73 /* UIViewController+.swift */; };
+		9BE2006A28BF359300866D73 /* UIButton +.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2006928BF359300866D73 /* UIButton +.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +68,10 @@
 		9B8DB23928ACA03100E14443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B8DB24828ACA15600E14443 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9B8DB24A28ACA45000E14443 /* LoginVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVIewModel.swift; sourceTree = "<group>"; };
+		9BE2005F28BF19C700866D73 /* EmailAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthViewController.swift; sourceTree = "<group>"; };
+		9BE2006128BF19D800866D73 /* EmailAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthViewModel.swift; sourceTree = "<group>"; };
+		9BE2006728BF261C00866D73 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		9BE2006928BF359300866D73 /* UIButton +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton +.swift"; sourceTree = "<group>"; };
 		B89B6BA28B76A07840E2E545 /* Pods_Blamarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blamarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF2D6162959F0CE278F1BCC0 /* Pods-Blamarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blamarket.release.xcconfig"; path = "Target Support Files/Pods-Blamarket/Pods-Blamarket.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,8 +135,8 @@
 		9B6CF9BD28AF28EE007FC2AD /* RegistScene */ = {
 			isa = PBXGroup;
 			children = (
-				9B6CF9BE28AF2907007FC2AD /* RegistViewController.swift */,
-				9B6CF9C028AF2918007FC2AD /* RegistViewModel.swift */,
+				9BE2006428BF19F700866D73 /* Register */,
+				9BE2006328BF19DD00866D73 /* EmailAuthScene */,
 			);
 			path = RegistScene;
 			sourceTree = "<group>";
@@ -163,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				9B77FE3228B5B121000CF701 /* Encodable +.swift */,
+				9BE2006728BF261C00866D73 /* UIViewController+.swift */,
+				9BE2006928BF359300866D73 /* UIButton +.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -235,21 +245,47 @@
 				9B8DB23628ACA03100E14443 /* LaunchScreen.storyboard */,
 				9B8DB23928ACA03100E14443 /* Info.plist */,
 				9B8DB23128ACA03000E14443 /* Blamarket.xcdatamodeld */,
-				9B77FE4628B616E1000CF701 /* MainScene */,
-				9B6CF9BD28AF28EE007FC2AD /* RegistScene */,
-				9B68908228AF1103001C109E /* PasswordReset */,
-				9B8DB24C28ACA45A00E14443 /* Login */,
+				9BE2006528BF25D200866D73 /* Scenes */,
 			);
 			path = Blamarket;
 			sourceTree = "<group>";
 		};
-		9B8DB24C28ACA45A00E14443 /* Login */ = {
+		9B8DB24C28ACA45A00E14443 /* LoginScene */ = {
 			isa = PBXGroup;
 			children = (
 				9B8DB24828ACA15600E14443 /* LoginViewController.swift */,
 				9B8DB24A28ACA45000E14443 /* LoginVIewModel.swift */,
 			);
-			path = Login;
+			path = LoginScene;
+			sourceTree = "<group>";
+		};
+		9BE2006328BF19DD00866D73 /* EmailAuthScene */ = {
+			isa = PBXGroup;
+			children = (
+				9BE2005F28BF19C700866D73 /* EmailAuthViewController.swift */,
+				9BE2006128BF19D800866D73 /* EmailAuthViewModel.swift */,
+			);
+			path = EmailAuthScene;
+			sourceTree = "<group>";
+		};
+		9BE2006428BF19F700866D73 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				9B6CF9BE28AF2907007FC2AD /* RegistViewController.swift */,
+				9B6CF9C028AF2918007FC2AD /* RegistViewModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		9BE2006528BF25D200866D73 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9B77FE4628B616E1000CF701 /* MainScene */,
+				9B6CF9BD28AF28EE007FC2AD /* RegistScene */,
+				9B68908228AF1103001C109E /* PasswordReset */,
+				9B8DB24C28ACA45A00E14443 /* LoginScene */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,10 +403,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B77FE4828B616F9000CF701 /* MainViewController.swift in Sources */,
+				9BE2006028BF19C700866D73 /* EmailAuthViewController.swift in Sources */,
 				9B77FE3528B5B543000CF701 /* Responsable.swift in Sources */,
 				9B6CF9BC28AF262E007FC2AD /* UserConst.swift in Sources */,
 				9B6CF9BF28AF2907007FC2AD /* RegistViewController.swift in Sources */,
 				9B68908428AF13D1001C109E /* PasswordResetViewController.swift in Sources */,
+				9BE2006228BF19D800866D73 /* EmailAuthViewModel.swift in Sources */,
 				9B77FE3B28B5B834000CF701 /* Provider.swift in Sources */,
 				9B5EF32028B6FE83006D0AB8 /* NetworkProviderImpl.swift in Sources */,
 				9B77FE4528B5FF76000CF701 /* LoginModel.swift in Sources */,
@@ -378,6 +416,7 @@
 				9B8DB22928ACA03000E14443 /* AppDelegate.swift in Sources */,
 				9B77FE4028B5C4BA000CF701 /* UserNetworkEntitiy.swift in Sources */,
 				9B6CF9C128AF2918007FC2AD /* RegistViewModel.swift in Sources */,
+				9BE2006A28BF359300866D73 /* UIButton +.swift in Sources */,
 				9B77FE3728B5B6E3000CF701 /* HttpMethod.swift in Sources */,
 				9B8DB24B28ACA45000E14443 /* LoginVIewModel.swift in Sources */,
 				9B77FE3D28B5BEA5000CF701 /* Sessionable.swift in Sources */,
@@ -386,6 +425,7 @@
 				9B77FE3028B5AF2F000CF701 /* Requestable.swift in Sources */,
 				9B77FE3328B5B121000CF701 /* Encodable +.swift in Sources */,
 				9B77FE2C28B5AD19000CF701 /* NetworkError.swift in Sources */,
+				9BE2006828BF261C00866D73 /* UIViewController+.swift in Sources */,
 				9B68908628AF13EC001C109E /* PasswordResetViewModel.swift in Sources */,
 				9B77FE4228B5F83B000CF701 /* UserEndPoint.swift in Sources */,
 				9B77FE4A28B617A3000CF701 /* MainViewModel.swift in Sources */,
@@ -536,7 +576,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -566,7 +606,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

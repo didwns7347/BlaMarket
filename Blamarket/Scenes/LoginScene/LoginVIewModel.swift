@@ -34,8 +34,6 @@ struct LoginViewModel {
                 let id = info.email
                 let pw = info.password
                 print("Email = \(id) passwd: = \(pw)")
-              
-             
                 if id.range(of: UserConst.ID_REGEX, options: .regularExpression) == nil{
                     return (info:info, message:UserConst.ID_INPUT_ERROR)
                 }

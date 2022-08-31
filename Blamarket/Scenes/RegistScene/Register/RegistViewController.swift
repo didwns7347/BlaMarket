@@ -47,7 +47,7 @@ class RegistViewController : UIViewController{
     
     lazy var mailCodeInput : UITextField = {
         let textField = UITextField()
-        textField.placeholder = "      인증코드 입력"
+        textField.placeholder = "인증코드전송"
         textField.layer.borderWidth = 1.0
         textField.layer.borderColor = UIColor.systemGray.cgColor
         return textField
@@ -69,6 +69,7 @@ private extension RegistViewController{
     func attribute()
     {
         view.backgroundColor = .systemBackground
+        
     }
     func layout(){
         

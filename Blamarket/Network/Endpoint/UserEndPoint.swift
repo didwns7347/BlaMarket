@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserEndPoint{
+struct UserEndPoint {
     
     static func login(email:String, password: String) -> Endpoint<UserNetworkEntity>{
         let loginModel = LoginModel(email: email, password: password)

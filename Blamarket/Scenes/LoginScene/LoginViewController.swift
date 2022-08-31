@@ -13,30 +13,34 @@ import RxGesture
 
 class LoginViewController  : UIViewController{
     let bag = DisposeBag()
+    
+    private lazy var loading : UIActivityIndicatorView = {
+        let loading = UIActivityIndicatorView()
+        loading.style = .large
+        return loading
+    }()
+    
 
-
-    lazy var idInput : UITextField = {
+    private lazy var idInput : UITextField = {
         let textField = UITextField()
         textField.placeholder = "      아이디를 입력해주세요"
-        textField.layer.borderWidth = 1.0
-        textField.layer.borderColor = UIColor.systemGray.cgColor
+        textField.borderStyle = .bezel
         return textField
     }()
 
 
 
-    lazy var pwInput : UITextField = {
+    private lazy var pwInput : UITextField = {
         let textField = UITextField()
         textField.placeholder = "      비밀번호"
-        textField.layer.borderWidth = 1.0
-        textField.layer.borderColor = UIColor.systemGray.cgColor
+        textField.borderStyle = .bezel
         textField.isSecureTextEntry = true
         return textField
     }()
 
 
 
-    lazy var loginButton : UIButton = {
+    private lazy var loginButton : UIButton = {
         let button = UIButton()
         button.setTitle("로그인", for: .normal)
         button.backgroundColor = .systemBlue
@@ -46,7 +50,7 @@ class LoginViewController  : UIViewController{
         return button
     }()
 
-    lazy var registerButton : UIButton = {
+    private lazy var registerButton : UIButton = {
         let button = UIButton()
         button.setTitle("회원가입", for: .normal)
         button.tintColor = .systemBlue
@@ -57,7 +61,7 @@ class LoginViewController  : UIViewController{
         return button
     }()
 
-    lazy var pwResetBtn : UILabel = {
+    private lazy var pwResetBtn : UILabel = {
         let label = UILabel()
         label.text = "비밀번호 초기화"
         label.font = .systemFont(ofSize: 10)
@@ -91,6 +95,8 @@ class LoginViewController  : UIViewController{
             .throttle(.microseconds(500), scheduler: MainScheduler.instance)
             .bind(to: vm.loginButtonTapped)
             .disposed(by: bag)
+        
+
 
         vm.presentAlert
             .emit(to: self.rx.setAlert)
@@ -111,9 +117,9 @@ class LoginViewController  : UIViewController{
             .bind{ [weak self] _ in
                 guard let self = self else {return }
                 print("register find tapped")
-                let registVC = RegistViewController()
-                registVC.bind(vm: RegistViewModel())
-                self.navigationController?.pushViewController(registVC, animated: true)
+                let emailAuthVC = EmailAuthViewController()
+                emailAuthVC.bind(vm: EmailAuthViewModel())
+                self.navigationController?.pushViewController(emailAuthVC, animated: true)
             }.disposed(by: bag)
         
         
@@ -122,6 +128,7 @@ class LoginViewController  : UIViewController{
             guard let self = self else { return }
             let mainVC = MainViewController()
             mainVC.bind(vm: MainViewModel())
+            self.loading.rx.isAnimating.onNext(false)
             self.navigationController?.pushViewController(mainVC, animated: true)
         }).disposed(by: bag)
     }
@@ -135,9 +142,13 @@ private extension LoginViewController{
     }
 
     func layout(){
-        [idInput, pwInput, loginButton, registerButton,pwResetBtn].forEach {
+        [idInput, pwInput, loginButton, registerButton,pwResetBtn,loading].forEach {
             view.addSubview($0)
         }
+        loading.snp.makeConstraints{
+            $0.centerX.centerY.equalToSuperview()
+        }
+        
         idInput.snp.makeConstraints { make in
             make.height.equalTo(50)
             make.top.equalTo(view.safeAreaLayoutGuide).inset(20)
@@ -170,15 +181,3 @@ private extension LoginViewController{
     }
 }
 
-typealias Alert = (title:String, message:String?)
-
-extension Reactive where Base : LoginViewController{
-    var setAlert : Binder<Alert> {
-        return Binder(base){ base , data in
-            let alertController = UIAlertController(title: data.title, message: data.message, preferredStyle: .alert)
-            let action = UIAlertAction(title: "확인", style: .cancel)
-            alertController.addAction(action)
-            base.present(alertController, animated:true , completion: nil)
-        }
-    }
-}
