@@ -15,28 +15,35 @@ struct EmailAuthViewModel
     let sendCode = PublishRelay<Void>()
     let inputValid = PublishRelay<String>()
     let inputInvalid = PublishRelay<Alert>()
+    
+    
     init(){
+        print("init")
+        inputEmail.subscribe{
+            print($0)
+        }.disposed(by: bag)
+        
+        sendCode.bind(onNext: {print("tappedddddddd")}).disposed(by: bag)
+        
+        
         sendCode.withLatestFrom(inputEmail)
-            .filter(EmailAuthViewModel.checkEmailPolicy)
+            .filter{$0.isEmailFormat()}
             .bind(to: inputValid)
             .disposed(by: bag)
         
         sendCode.withLatestFrom(inputEmail)
             .filter{
-                EmailAuthViewModel.checkEmailPolicy(email: $0) == false
+                print($0)
+                return $0.isEmailFormat() == false
             }
             .map{ _ -> Alert in
-                return (title:"",message:UserConst.ID_INPUT_ERROR)
+                return (title:"실패",message:UserConst.ID_INPUT_ERROR)
             }
             .bind(to:inputInvalid)
             .disposed(by: bag)
-        
-        
+ 
     }
-    /**
-        인풋이 이메일인지 확인.
-     */
-    static func checkEmailPolicy(email:String)-> Bool{
-        return email.range(of: UserConst.ID_REGEX, options: .regularExpression) != nil
-    }
+    
+
+
 }

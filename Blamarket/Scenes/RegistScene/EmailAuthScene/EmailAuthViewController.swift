@@ -29,23 +29,33 @@ final class EmailAuthViewController: UIViewController{
     private lazy var sendAuthCodeButton : UIButton = {
         let button = UIButton()
         button.setTitle("전송", for: .normal)
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = ColorConst.MAIN_COLOR
         return button
     }()
     
     private lazy var checkAuthCode : UIButton = {
         let button = UIButton()
         button.setTitle("확인", for: .normal)
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = ColorConst.MAIN_COLOR
         return button
     }()
     
     func bind(vm:EmailAuthViewModel){
+        
         sendAuthCodeButton.rx.tap
-            .bind(onNext: {[weak self] in
-                self?.sendAuthCodeButton.isHidden = true
-                self?.checkAuthCode.isHidden = false
-            }).disposed(by: bag)
+            .bind(onNext: { _ in
+                vm.sendCode.accept(())
+            })
+            .disposed(by: bag)
+        
+        vm.inputValid.bind(onNext: { [weak self] _ in
+            self?.sendAuthCodeButton.isHidden = true
+            self?.checkAuthCode.isHidden = false
+        }).disposed(by: bag)
+
+        self.emailTextField.rx.text.orEmpty
+            .bind(to: vm.inputEmail)
+            .disposed(by: bag)
         
         vm.inputInvalid
             .bind(to: self.rx.setAlert)

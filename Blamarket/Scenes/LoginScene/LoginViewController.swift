@@ -43,20 +43,20 @@ class LoginViewController  : UIViewController{
     private lazy var loginButton : UIButton = {
         let button = UIButton()
         button.setTitle("로그인", for: .normal)
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = ColorConst.MAIN_COLOR
         button.tintColor = .white
         button.layer.borderWidth = 1.0
-        button.layer.borderColor = UIColor.systemBlue.cgColor
+        button.layer.borderColor = ColorConst.MAIN_COLOR.cgColor
         return button
     }()
 
     private lazy var registerButton : UIButton = {
         let button = UIButton()
         button.setTitle("회원가입", for: .normal)
-        button.tintColor = .systemBlue
-        button.setTitleColor(UIColor.systemBlue, for: .normal)
+        button.tintColor = ColorConst.MAIN_COLOR
+        button.setTitleColor(ColorConst.MAIN_COLOR, for: .normal)
         button.layer.borderWidth = 1.0
-        button.layer.borderColor = UIColor.systemBlue.cgColor
+        button.layer.borderColor = ColorConst.MAIN_COLOR.cgColor
 
         return button
     }()
@@ -118,7 +118,8 @@ class LoginViewController  : UIViewController{
                 guard let self = self else {return }
                 print("register find tapped")
                 let emailAuthVC = EmailAuthViewController()
-                emailAuthVC.bind(vm: EmailAuthViewModel())
+                let emailAuthVM = EmailAuthViewModel()
+                emailAuthVC.bind(vm: emailAuthVM)
                 self.navigationController?.pushViewController(emailAuthVC, animated: true)
             }.disposed(by: bag)
         

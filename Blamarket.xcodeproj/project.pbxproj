@@ -37,6 +37,7 @@
 		9BE2006228BF19D800866D73 /* EmailAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2006128BF19D800866D73 /* EmailAuthViewModel.swift */; };
 		9BE2006828BF261C00866D73 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2006728BF261C00866D73 /* UIViewController+.swift */; };
 		9BE2006A28BF359300866D73 /* UIButton +.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2006928BF359300866D73 /* UIButton +.swift */; };
+		9BE2006C28BF4AD000866D73 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2006B28BF4AD000866D73 /* String+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		9BE2006128BF19D800866D73 /* EmailAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthViewModel.swift; sourceTree = "<group>"; };
 		9BE2006728BF261C00866D73 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		9BE2006928BF359300866D73 /* UIButton +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton +.swift"; sourceTree = "<group>"; };
+		9BE2006B28BF4AD000866D73 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		B89B6BA28B76A07840E2E545 /* Pods_Blamarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blamarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF2D6162959F0CE278F1BCC0 /* Pods-Blamarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blamarket.release.xcconfig"; path = "Target Support Files/Pods-Blamarket/Pods-Blamarket.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +175,7 @@
 				9B77FE3228B5B121000CF701 /* Encodable +.swift */,
 				9BE2006728BF261C00866D73 /* UIViewController+.swift */,
 				9BE2006928BF359300866D73 /* UIButton +.swift */,
+				9BE2006B28BF4AD000866D73 /* String+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				9BE2006828BF261C00866D73 /* UIViewController+.swift in Sources */,
 				9B68908628AF13EC001C109E /* PasswordResetViewModel.swift in Sources */,
 				9B77FE4228B5F83B000CF701 /* UserEndPoint.swift in Sources */,
+				9BE2006C28BF4AD000866D73 /* String+.swift in Sources */,
 				9B77FE4A28B617A3000CF701 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
