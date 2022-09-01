@@ -18,19 +18,17 @@ struct EmailAuthViewModel
     
     
     init(){
-        print("init")
+
         inputEmail.subscribe{
             print($0)
         }.disposed(by: bag)
-        
-        sendCode.bind(onNext: {print("tappedddddddd")}).disposed(by: bag)
-        
         
         sendCode.withLatestFrom(inputEmail)
             .filter{$0.isEmailFormat()}
             .bind(to: inputValid)
             .disposed(by: bag)
         
+        //이메일 주소 정책 필터링
         sendCode.withLatestFrom(inputEmail)
             .filter{
                 print($0)

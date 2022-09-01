@@ -12,6 +12,12 @@ import RxCocoa
 
 final class EmailAuthViewController: UIViewController{
     let bag = DisposeBag()
+    private var timer : Timer?
+    #if DEBUG
+    var limitTime = 10
+    #else
+    var limitTime = 180
+    #endif
     private lazy var emailTextField : UITextField = {
         let textField = UITextField()
         textField.placeholder = "가입 이메일을 입력해주세요"
@@ -23,6 +29,7 @@ final class EmailAuthViewController: UIViewController{
         let textField = UITextField()
         textField.placeholder = "인증코드"
         textField.borderStyle = .bezel
+        textField.isEnabled = false
         return textField
     }()
     
@@ -49,8 +56,11 @@ final class EmailAuthViewController: UIViewController{
             .disposed(by: bag)
         
         vm.inputValid.bind(onNext: { [weak self] _ in
-            self?.sendAuthCodeButton.isHidden = true
-            self?.checkAuthCode.isHidden = false
+            guard let self = self else{return}
+            self.sendAuthCodeButton.isHidden = true
+            self.checkAuthCode.isHidden = false
+            self.emailAuthCodeTextField.isEnabled = true
+            self.timerStart()
         }).disposed(by: bag)
 
         self.emailTextField.rx.text.orEmpty
@@ -109,5 +119,25 @@ private extension EmailAuthViewController{
         checkAuthCode.snp.makeConstraints{
             $0.edges.equalTo(sendAuthCodeButton.snp.edges)
         }
+    }
+    
+    func timerStart(){
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block:{t in
+            self.limitTime -= 1
+            print("runTIMER")
+            let minutes = self.limitTime / 60
+            let seconds = self.limitTime % 60
+            if self.limitTime > 0{
+                self.emailAuthCodeTextField.placeholder = String(format: "%02d:%02d", minutes, seconds)
+            }else{
+                self.emailAuthCodeTextField.placeholder = "만료"
+                self.limitTime = 180
+                if self.timer != nil{
+                    print("끝")
+                    self.timer?.invalidate()
+                    self.timer = nil
+                }
+            }
+        } )
     }
 }
