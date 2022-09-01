@@ -9,7 +9,7 @@ import Foundation
 
 struct UserEndPoint {
     
-    static func login(email:String, password: String) -> Endpoint<UserNetworkEntity>{
+    static func login(email:String, password: String) -> Endpoint<UserNetworkEntity<LoginResultData>>{
         let loginModel = LoginModel(email: email, password: password)
         return Endpoint(baseURL: UserConst.USER_SERVER_URL,
                         path: "/user/login",
@@ -18,5 +18,17 @@ struct UserEndPoint {
                         bodyParameters: loginModel,
                         headers: nil,
                         sampleData: nil)
+    }
+    
+    static func requestAuthCode(email:String) -> Endpoint<UserNetworkEntity<[String:String]>>{
+        let queryParameters = ["email":email]
+        return Endpoint(baseURL: UserConst.USER_SERVER_URL,
+                        path:"/user",
+                        method: .get,
+                        queryParameters: queryParameters,
+                        bodyParameters: nil,
+                        headers: nil,
+                        sampleData:nil
+                        )
     }
 }

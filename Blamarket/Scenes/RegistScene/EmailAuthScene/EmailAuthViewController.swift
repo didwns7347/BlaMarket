@@ -55,13 +55,27 @@ final class EmailAuthViewController: UIViewController{
             })
             .disposed(by: bag)
         
-        vm.inputValid.bind(onNext: { [weak self] _ in
-            guard let self = self else{return}
-            self.sendAuthCodeButton.isHidden = true
-            self.checkAuthCode.isHidden = false
-            self.emailAuthCodeTextField.isEnabled = true
-            self.timerStart()
-        }).disposed(by: bag)
+        
+        /**
+         인증코드 서버 전송 성공
+         */
+        vm.requestMailCode.filter{$0.0}
+            .emit(onNext:{[weak self] result in
+                print(result)
+                guard let self = self else{return}
+                self.emailRequsetSuccess()
+            }).disposed(by: bag)
+        
+        /**
+         인증코드 서버전송 실패
+         */
+        vm.requestMailCode
+            .filter{$0.0 == false}
+            .map{ result -> Alert in
+                print(result)
+                return Alert(title:"실패" , message:result.1 ?? "잠시후 다시 시도해 주세요." )
+            }.emit(to: self.rx.setAlert)
+            .disposed(by: bag)
 
         self.emailTextField.rx.text.orEmpty
             .bind(to: vm.inputEmail)
@@ -121,10 +135,17 @@ private extension EmailAuthViewController{
         }
     }
     
+    func emailRequsetSuccess(){
+        self.sendAuthCodeButton.isHidden = true
+        self.checkAuthCode.isHidden = false
+        self.emailAuthCodeTextField.isEnabled = true
+        self.timerStart()
+    }
+    
     func timerStart(){
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block:{t in
             self.limitTime -= 1
-            print("runTIMER")
+            print("Running Timer")
             let minutes = self.limitTime / 60
             let seconds = self.limitTime % 60
             if self.limitTime > 0{

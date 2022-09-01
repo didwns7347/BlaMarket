@@ -6,25 +6,26 @@
 //
 
 import Foundation
-protocol Entity : Decodable{
-    
+protocol Entity {
+    associatedtype Item:Decodable
 }
-
-struct UserNetworkEntity : Decodable{
+// -MARK: 유저 공통 Response데이터 모델
+struct UserNetworkEntity<R:Decodable> : Decodable,Entity{
+    typealias Item = R
     let status : Int
     let message : String
-    let result :ResultData
+    let result : Item
     
 }
-
-struct ResultData : Decodable{
-    let resultData : User
+// -MARK: 로그인 관련 데이터 모델
+struct LoginResultData : Decodable{
+    let resultData : UserInfo
     enum CodingKeys: String,CodingKey{
         case resultData = "data"
     }
 }
 
-struct User: Decodable{
+struct UserInfo: Decodable{
     let email: String
     let company: String
     let name : String
@@ -50,3 +51,5 @@ struct User: Decodable{
     }
 }
 */
+// MARK: 인증코드 전송 관련
+

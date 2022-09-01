@@ -21,7 +21,7 @@ struct LoginViewModel {
     //var loginResult : Observable<LoginResult>()
    
     var loginButtonTapped = PublishRelay<Void>()
-    let loginSuccess : Observable<UserNetworkEntity>
+    let loginSuccess : Observable<UserNetworkEntity<LoginResultData>>
     let goMainPage : Signal<Void>
 
     init(){
@@ -55,13 +55,13 @@ struct LoginViewModel {
         let loginResult = loginInputCheck
             .filter{$1.isEmpty}
             .map{$0.info}
-            .flatMap{ loginInfo -> Single<Result<UserNetworkEntity,Error>> in
+            .flatMap{ loginInfo -> Single<Result<UserNetworkEntity<LoginResultData>,Error>> in
                 let endpoint = UserEndPoint.login(email: loginInfo.email, password: loginInfo.password)
                 let userNetwork = NetworkProvider()
                 return userNetwork.request(with: endpoint)
             }.share()
         
-        loginSuccess = loginResult.compactMap { data -> UserNetworkEntity? in
+        loginSuccess = loginResult.compactMap { data -> UserNetworkEntity<LoginResultData>? in
             guard case let .success(value) = data else{
                 return nil
             }
