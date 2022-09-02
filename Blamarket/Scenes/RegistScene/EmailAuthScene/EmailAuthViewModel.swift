@@ -15,6 +15,7 @@ struct EmailAuthViewModel
     let sendCode = PublishRelay<Void>()
     let inputValid = PublishRelay<String>()
     let inputInvalid = PublishRelay<Alert>()
+    let checkAuthCodeTapped = PublishRelay<Void>()
     
     let requestMailCode : Signal<(Bool,String?)>
     init(){

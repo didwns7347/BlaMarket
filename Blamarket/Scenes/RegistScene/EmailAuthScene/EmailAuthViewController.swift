@@ -11,10 +11,13 @@ import RxSwift
 import RxCocoa
 
 final class EmailAuthViewController: UIViewController{
+    static let AUTHCODE_LENGTH = 6
+    let authCodeInput = PublishRelay<String>()
+    
     let bag = DisposeBag()
     private var timer : Timer?
     #if DEBUG
-    var limitTime = 10
+    var limitTime = 20
     #else
     var limitTime = 180
     #endif
@@ -27,7 +30,7 @@ final class EmailAuthViewController: UIViewController{
     
     private lazy var emailAuthCodeTextField : UITextField = {
         let textField = UITextField()
-        textField.placeholder = "인증코드"
+        textField.placeholder = "인증코드 6자리"
         textField.borderStyle = .bezel
         textField.isEnabled = false
         return textField
@@ -42,8 +45,9 @@ final class EmailAuthViewController: UIViewController{
     
     private lazy var checkAuthCode : UIButton = {
         let button = UIButton()
-        button.setTitle("확인", for: .normal)
+        button.setTitle("인증하기", for: .normal)
         button.backgroundColor = ColorConst.MAIN_COLOR
+        button.isEnabled = false
         return button
     }()
     
@@ -84,6 +88,25 @@ final class EmailAuthViewController: UIViewController{
         vm.inputInvalid
             .bind(to: self.rx.setAlert)
             .disposed(by: bag)
+        
+        emailAuthCodeTextField.rx.text.orEmpty
+            .map{ code -> String in
+                self.limitInpputMaxLength(code, limit:EmailAuthViewController.AUTHCODE_LENGTH)
+            }.bind(to: self.authCodeInput)
+            .disposed(by: bag)
+        
+        #if DEBUG
+        authCodeInput.bind(onNext: {
+            print($0)
+        }).disposed(by: bag)
+        #endif
+        
+        authCodeInput
+            .map{
+                $0.count == EmailAuthViewController.AUTHCODE_LENGTH
+            }
+            .bind(to: checkAuthCode.rx.isEnabled)
+            .disposed(by: bag)
      
     }
     
@@ -106,13 +129,12 @@ private extension EmailAuthViewController{
         self.view.backgroundColor = .systemBackground
         sendAuthCodeButton.setBackgroundColor(.systemGray, for: .highlighted)
         checkAuthCode.setBackgroundColor(.systemGray, for: .highlighted)
+        checkAuthCode.setBackgroundColor(.darkGray, for: .disabled)
         checkAuthCode.isHidden = true
         
     }
     
-    func showCheckAuthButton(){
-        
-    }
+ 
     
     func layout(){
         emailTextField.snp.makeConstraints{ make in
@@ -142,6 +164,15 @@ private extension EmailAuthViewController{
         self.timerStart()
     }
     
+    private func limitInpputMaxLength(_ code : String, limit:Int)->String{
+        if code.count > limit{
+            let index = code.index(code.startIndex, offsetBy: limit)
+            self.emailAuthCodeTextField.text = String(code[..<index])
+            return String(code[..<index])
+        }
+        return code
+    }
+    
     func timerStart(){
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block:{t in
             self.limitTime -= 1
@@ -149,7 +180,7 @@ private extension EmailAuthViewController{
             let minutes = self.limitTime / 60
             let seconds = self.limitTime % 60
             if self.limitTime > 0{
-                self.emailAuthCodeTextField.placeholder = String(format: "%02d:%02d", minutes, seconds)
+                self.emailAuthCodeTextField.placeholder = String(format: "인증코드 6자리        %02d:%02d", minutes, seconds)
             }else{
                 self.emailAuthCodeTextField.placeholder = "만료"
                 self.limitTime = 180
