@@ -23,8 +23,20 @@ struct UserEndPoint {
     static func requestAuthCode(email:String) -> Endpoint<UserNetworkEntity<[String:String]>>{
         let queryParameters = ["email":email]
         return Endpoint(baseURL: UserConst.USER_SERVER_URL,
-                        path:"/user",
+                        path:"/user/auth",
                         method: .get,
+                        queryParameters: queryParameters,
+                        bodyParameters: nil,
+                        headers: nil,
+                        sampleData:nil
+                        )
+    }
+    
+    static func requestCheckAuthCode(code:String)->Endpoint<UserNetworkEntity<[String:String]>>{
+        let queryParameters = ["authCode":code]
+        return Endpoint(baseURL: UserConst.USER_SERVER_URL,
+                        path:"/user/auth",
+                        method: .put,
                         queryParameters: queryParameters,
                         bodyParameters: nil,
                         headers: nil,

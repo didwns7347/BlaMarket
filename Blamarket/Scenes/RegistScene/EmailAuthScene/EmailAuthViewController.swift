@@ -54,6 +54,7 @@ final class EmailAuthViewController: UIViewController{
     func bind(vm:EmailAuthViewModel){
         
         sendAuthCodeButton.rx.tap
+            .throttle(.microseconds(500), scheduler: MainScheduler.instance)
             .bind(onNext: { _ in
                 vm.sendCode.accept(())
             })
@@ -107,6 +108,37 @@ final class EmailAuthViewController: UIViewController{
             }
             .bind(to: checkAuthCode.rx.isEnabled)
             .disposed(by: bag)
+        
+        /**
+         이메일 인증 인풋값 바인드
+         */
+        authCodeInput.bind(to: vm.authCodeInput).disposed(by: bag)
+        checkAuthCode.rx.tap
+            .throttle(.microseconds(500), scheduler: MainScheduler.instance)
+            .bind(to: vm.checkAuthCodeTapped).disposed(by: bag)
+        
+        //인증 성공
+        vm.requestCheckAuthCode
+            .filter{$0.0}
+            .emit(onNext:{ [weak self] _ in
+                let registVC = RegistViewController()
+                registVC.bind(vm: RegistViewModel())
+                self?.navigationController?.pushViewController(registVC, animated: true)
+                self?.timerFinish()
+            }) 
+            .disposed(by: bag)
+        
+        //인증 실패
+        vm.requestCheckAuthCode
+            .filter{$0.0 == false}
+            .map{ [weak self] result -> Alert in
+                self?.timerFinish()
+                self?.authCodeFailed()
+                return Alert(title:"실패" , message:result.1 ?? "잠시후 다시 시도해 주세요." )
+            }
+            .emit(to: self.rx.setAlert)
+            .disposed(by: bag)
+        
      
     }
     
@@ -192,4 +224,20 @@ private extension EmailAuthViewController{
             }
         } )
     }
+    
+    func timerFinish(){
+        self.limitTime = 0
+    }
+    
+    func authCodeFailed(){
+        self.emailAuthCodeTextField.text = ""
+        self.emailAuthCodeTextField.placeholder = "인증코드"
+        self.sendAuthCodeButton.setTitle("재전송", for: .normal)
+        self.sendAuthCodeButton.isHidden = false
+        self.checkAuthCode.isHidden = true
+        self.emailAuthCodeTextField.isEnabled = false
+
+        
+    }
+    
 }

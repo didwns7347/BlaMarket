@@ -8,6 +8,7 @@
 import RxCocoa
 import RxSwift
 import UIKit
+import Alamofire
 typealias Alert = (title:String, message:String?)
 
 extension Reactive where Base : UIViewController{
@@ -17,6 +18,18 @@ extension Reactive where Base : UIViewController{
             let action = UIAlertAction(title: "확인", style: .cancel)
             alertController.addAction(action)
             base.present(alertController, animated:true , completion: nil)
+        }
+    }
+    
+    var completeAlert :Binder<Alert>{
+        return Binder(base){base ,data in
+            let alertController = UIAlertController(title: data.title, message: data.message, preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .cancel){ action in
+                base.navigationController?.popViewController(animated: true)
+            }
+            alertController.addAction(action)
+            base.present(alertController, animated:true , completion: nil)
+            
         }
     }
 }
