@@ -122,7 +122,10 @@ final class EmailAuthViewController: UIViewController{
             .filter{$0.0}
             .emit(onNext:{ [weak self] _ in
                 let registVC = RegistViewController()
-                registVC.bind(vm: RegistViewModel())
+                guard let email = self?.emailTextField.text else {
+                    return
+                }
+                registVC.bind(vm: RegistViewModel(authEmail: email))
                 self?.navigationController?.pushViewController(registVC, animated: true)
                 self?.timerFinish()
             }) 

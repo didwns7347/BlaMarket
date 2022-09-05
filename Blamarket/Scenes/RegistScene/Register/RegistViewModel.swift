@@ -6,8 +6,14 @@
 //
 
 import Foundation
-
+import RxCocoa
+import RxSwift
 
 struct RegistViewModel {
+    let email : Observable<String>
+    
+    init(authEmail : String){
+        email = Observable.just(authEmail)
+    }
     
 }
