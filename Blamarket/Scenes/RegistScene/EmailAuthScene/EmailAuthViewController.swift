@@ -54,7 +54,7 @@ final class EmailAuthViewController: UIViewController{
     func bind(vm:EmailAuthViewModel){
         
         sendAuthCodeButton.rx.tap
-            .throttle(.microseconds(500), scheduler: MainScheduler.instance)
+            //.throttle(.microseconds(500), scheduler: MainScheduler.instance)
             .bind(onNext: { _ in
                 vm.sendCode.accept(())
             })
@@ -121,13 +121,16 @@ final class EmailAuthViewController: UIViewController{
         vm.requestCheckAuthCode
             .filter{$0.0}
             .emit(onNext:{ [weak self] _ in
-                let registVC = RegistViewController()
-                guard let email = self?.emailTextField.text else {
+                guard let self = self, let email = self.emailTextField.text else {
                     return
                 }
-                registVC.bind(vm: RegistViewModel(authEmail: email))
-                self?.navigationController?.pushViewController(registVC, animated: true)
-                self?.timerFinish()
+                let registVC = RegistViewController()
+               
+            
+                registVC.bind(vm: vm.registerViewModel)
+                vm.registerViewModel.email.onNext(email)
+                self.navigationController?.pushViewController(registVC, animated: true)
+                self.timerFinish()
             }) 
             .disposed(by: bag)
         

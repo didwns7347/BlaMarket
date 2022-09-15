@@ -24,6 +24,9 @@ struct EmailAuthViewModel
     
     let requestMailCode : Signal<(Bool,String?)>
     let requestCheckAuthCode : Signal<(Bool,String?)>
+    
+    let registerViewModel = RegistViewModel()
+   
     init(){
         sendCode.withLatestFrom(inputEmail)
             .filter{$0.isEmailFormat()}

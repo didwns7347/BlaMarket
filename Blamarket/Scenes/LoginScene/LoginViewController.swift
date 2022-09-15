@@ -118,8 +118,8 @@ class LoginViewController  : UIViewController{
                 guard let self = self else {return }
                 print("register find tapped")
                 let emailAuthVC = EmailAuthViewController()
-                let emailAuthVM = EmailAuthViewModel()
-                emailAuthVC.bind(vm: emailAuthVM)
+             
+                emailAuthVC.bind(vm: vm.emailAuthViewModel)
                 self.navigationController?.pushViewController(emailAuthVC, animated: true)
             }.disposed(by: bag)
         

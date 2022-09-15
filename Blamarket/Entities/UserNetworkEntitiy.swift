@@ -52,4 +52,15 @@ struct UserInfo: Decodable{
 }
 */
 // MARK: 인증코드 전송 관련
-
+// MARK: 회원가입 관련
+struct User: Decodable{
+    let email: String?
+    let name: String?
+    let company: String?
+}
+struct RegistResultData: Decodable{
+    let resultData : User?
+    enum CodingKeys: String,CodingKey{
+        case resultData = "data"
+    }
+}

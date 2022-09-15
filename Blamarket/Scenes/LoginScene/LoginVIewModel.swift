@@ -23,7 +23,7 @@ struct LoginViewModel {
     var loginButtonTapped = PublishRelay<Void>()
     let loginSuccess : Observable<UserNetworkEntity<LoginResultData>>
     let goMainPage : Signal<Void>
-
+    let emailAuthViewModel = EmailAuthViewModel()
     init(){
         let loginInfo = Observable.combineLatest(id,pw){id, pw -> LoginModel in
             return LoginModel(email: id, password: pw)

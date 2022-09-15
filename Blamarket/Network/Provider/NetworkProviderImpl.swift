@@ -40,6 +40,9 @@ class NetworkProvider : Provider{
             .asSingle()
     }
     private func checkError(with response: HTTPURLResponse, _ data: Data)->Result<Data,Error>{
+        #if DEBUG
+        print("responseData = \n\(data.prettyPrintedJSONString ?? "FAILED")")
+        #endif
         guard (200...299).contains(response.statusCode) else{
             return .failure(NetworkError.invalidHttpStatusCode(response.statusCode))
         }

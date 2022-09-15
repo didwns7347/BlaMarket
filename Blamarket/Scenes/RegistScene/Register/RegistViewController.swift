@@ -59,9 +59,40 @@ class RegistViewController : UIViewController{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     func bind(vm:RegistViewModel){
+        print(vm.self)
         vm.email
             .bind(to: self.emailLabel.rx.text)
+            .disposed(by: bag)
+        
+        nickNameInput.rx.text.orEmpty
+            .bind(to: vm.nicknameInput)
+            .disposed(by: bag)
+      
+        pwInput.rx.text.orEmpty
+            .bind(to: vm.pwInput)
+            .disposed(by: bag)
+        
+        pwCheckInput.rx.text.orEmpty
+            .bind(to: vm.pwCheckInput)
+            .disposed(by: bag)
+        
+        
+        submitButton.rx.tap
+            .bind(to: vm.submitButtonTapped)
+            .disposed(by: bag)
+        
+        vm.inputUnvalid
+            .bind(to: self.rx.setAlert)
+            .disposed(by: bag)
+        
+        vm.requestRegistResult
+            .filter{$0.0 == false}
+            .map{ result -> Alert in
+                return Alert(title:"실패" , message:result.1 ?? "잠시후 다시 시도해 주세요." )
+            }
+            .emit(to: self.rx.setAlert)
             .disposed(by: bag)
     }
 }
@@ -69,10 +100,12 @@ private extension RegistViewController{
     func attribute()
     {
         view.backgroundColor = .systemBackground
+        self.title = "회원가입"
         [emailLabel, pwInput, pwCheckInput,
          nickNameInput, submitButton].forEach{
             view.addSubview($0)
         }
+        submitButton.setBackgroundColor(.systemGray, for: .highlighted)
     }
     func layout(){
         emailLabel.snp.makeConstraints{
