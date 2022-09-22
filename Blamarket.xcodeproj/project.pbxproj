@@ -18,6 +18,8 @@
 		9B10604928DC346800CB9A60 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10604728DC346800CB9A60 /* CategoryListViewController.swift */; };
 		9B10604C28DC34FE00CB9A60 /* RegisterItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10604B28DC34FE00CB9A60 /* RegisterItemModel.swift */; };
 		9B10604E28DC394C00CB9A60 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10604D28DC394C00CB9A60 /* Category.swift */; };
+		9B10605128DC45CD00CB9A60 /* RxUITextViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10605028DC45CD00CB9A60 /* RxUITextViewDelegateProxy.swift */; };
+		9B10605328DC472600CB9A60 /* Reactive + .swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10605228DC472600CB9A60 /* Reactive + .swift */; };
 		9B12F7B328D82A3C00207003 /* RegistItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12F7B228D82A3C00207003 /* RegistItemViewController.swift */; };
 		9B12F7B528D82A4B00207003 /* RegistItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12F7B428D82A4B00207003 /* RegistItemViewModel.swift */; };
 		9B12F7B728D8393200207003 /* ItemImageCollecteionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12F7B628D8393200207003 /* ItemImageCollecteionViewCell.swift */; };
@@ -68,6 +70,8 @@
 		9B10604728DC346800CB9A60 /* CategoryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
 		9B10604B28DC34FE00CB9A60 /* RegisterItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterItemModel.swift; sourceTree = "<group>"; };
 		9B10604D28DC394C00CB9A60 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		9B10605028DC45CD00CB9A60 /* RxUITextViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUITextViewDelegateProxy.swift; sourceTree = "<group>"; };
+		9B10605228DC472600CB9A60 /* Reactive + .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive + .swift"; sourceTree = "<group>"; };
 		9B12F7B228D82A3C00207003 /* RegistItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistItemViewController.swift; sourceTree = "<group>"; };
 		9B12F7B428D82A4B00207003 /* RegistItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistItemViewModel.swift; sourceTree = "<group>"; };
 		9B12F7B628D8393200207003 /* ItemImageCollecteionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImageCollecteionViewCell.swift; sourceTree = "<group>"; };
@@ -177,6 +181,14 @@
 			path = CategoryViewController;
 			sourceTree = "<group>";
 		};
+		9B10604F28DC45AA00CB9A60 /* DelegateProxy */ = {
+			isa = PBXGroup;
+			children = (
+				9B10605028DC45CD00CB9A60 /* RxUITextViewDelegateProxy.swift */,
+			);
+			path = DelegateProxy;
+			sourceTree = "<group>";
+		};
 		9B12F7B128D82A2100207003 /* RegistItemScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +280,7 @@
 				9BE2006928BF359300866D73 /* UIButton +.swift */,
 				9BE2006B28BF4AD000866D73 /* String+.swift */,
 				9B5E43DD28D2EE020020908F /* Data+.swift */,
+				9B10605228DC472600CB9A60 /* Reactive + .swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -329,6 +342,7 @@
 		9B8DB22728ACA03000E14443 /* Blamarket */ = {
 			isa = PBXGroup;
 			children = (
+				9B10604F28DC45AA00CB9A60 /* DelegateProxy */,
 				9B77FE4328B5FF5E000CF701 /* Model */,
 				9B77FE3E28B5C469000CF701 /* Entities */,
 				9B77FE3128B5B114000CF701 /* Extension */,
@@ -506,6 +520,7 @@
 				9B77FE3528B5B543000CF701 /* Responsable.swift in Sources */,
 				9B6CF9BC28AF262E007FC2AD /* UserConst.swift in Sources */,
 				9B6CF9BF28AF2907007FC2AD /* RegistViewController.swift in Sources */,
+				9B10605128DC45CD00CB9A60 /* RxUITextViewDelegateProxy.swift in Sources */,
 				9B68908428AF13D1001C109E /* PasswordResetViewController.swift in Sources */,
 				9BE2006228BF19D800866D73 /* EmailAuthViewModel.swift in Sources */,
 				9B12F7B728D8393200207003 /* ItemImageCollecteionViewCell.swift in Sources */,
@@ -540,6 +555,7 @@
 				9B77FE2C28B5AD19000CF701 /* NetworkError.swift in Sources */,
 				9BE2006828BF261C00866D73 /* UIViewController+.swift in Sources */,
 				9B68908628AF13EC001C109E /* PasswordResetViewModel.swift in Sources */,
+				9B10605328DC472600CB9A60 /* Reactive + .swift in Sources */,
 				9B77FE4228B5F83B000CF701 /* UserEndPoint.swift in Sources */,
 				9B5E43DE28D2EE020020908F /* Data+.swift in Sources */,
 				9BE2006C28BF4AD000866D73 /* String+.swift in Sources */,

@@ -58,6 +58,8 @@ struct RegistItemViewModel{
             .map{$0?.isEmpty ?? true}
             .startWith(true)
             .map{$0 ? ["- 내용을 입력해주세요"]:[]}
+        
+        
         let errorMsg = Observable
             .combineLatest(titleMSG,
                            categoryMSG,
@@ -66,6 +68,7 @@ struct RegistItemViewModel{
         
         self.presentAlert = submitButtonTapped
             .withLatestFrom(errorMsg){ $1 }
+            .filter{$0.isEmpty == false}
             .map(model.setAlert)
             .asSignal(onErrorSignalWith: .empty())
         
@@ -77,6 +80,7 @@ struct RegistItemViewModel{
                 return categoryViewModel
             }
             .asDriver(onErrorDriveWith: .empty())
+        
         imageListDrive = imageListSubject.asDriver(onErrorJustReturn: [nil])
         
         

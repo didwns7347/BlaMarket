@@ -11,7 +11,11 @@ import RxCocoa
 
 class DetailWriteFormCell : UITableViewCell{
     let disposeBag = DisposeBag()
-    let contentInputView = UITextView()
+    let contentInputView : UITextView = {
+        let textView = UITextView()
+        textView.textColor = .placeholderText
+        return textView
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -22,6 +26,22 @@ class DetailWriteFormCell : UITableViewCell{
         contentInputView.rx.text
             .bind(to:viewModel.contentValue)
             .disposed(by: disposeBag)
+        
+        contentInputView.rx.didBeginEditing.subscribe(onNext:{
+            guard self.contentInputView.textColor == .placeholderText else{
+                return
+            }
+            self.contentInputView.textColor = .label
+            self.contentInputView.text = ""
+        }).disposed(by: disposeBag)
+        
+        contentInputView.rx.didEndEditing
+            .subscribe(onNext:{
+                if self.contentInputView.text.isEmpty{
+                    self.contentInputView.text = "내용을 기입 하세요"
+                    self.contentInputView.textColor = .placeholderText
+                }
+            }).disposed(by: disposeBag)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
