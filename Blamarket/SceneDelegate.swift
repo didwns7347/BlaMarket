@@ -11,14 +11,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var loginVM = LoginViewModel()
-
+    //TEST
+    var registVM = RegistItemViewModel()
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-        let rootViewController = LoginViewController()
-        rootViewController.bind(vm: loginVM)
+//        let rootViewController = LoginViewController()
+//        rootViewController.bind(vm: loginVM)
+        let registVC = RegistItemViewController()
+        registVC.bind(viewModel: registVM)
         window?.backgroundColor = .systemBackground
-        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+        window?.rootViewController = UINavigationController(rootViewController: registVC)
         window?.makeKeyAndVisible()
     }
 

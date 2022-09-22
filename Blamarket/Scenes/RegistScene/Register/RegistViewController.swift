@@ -94,6 +94,28 @@ class RegistViewController : UIViewController{
             }
             .emit(to: self.rx.setAlert)
             .disposed(by: bag)
+        
+        vm.requestRegistResult
+            .filter{$0.0}
+            .emit(onNext:{[weak self] _ in
+                guard let self = self, let navigationController = self.navigationController else {
+                    return
+                }
+                let viewControllerStack = navigationController.viewControllers
+                print("viewControllerStack: \(viewControllerStack)")
+                self.dismiss(animated: true) {
+                    for viewController in viewControllerStack {
+                        if let vc = viewController as? LoginViewController {
+                            // 출력해보자
+                            print("✅ vc : \(vc)")
+                            vc.title = "회원가입 완료"
+                            navigationController.popToViewController(vc, animated: true)
+                        }
+                    }
+                }
+                
+                
+            }).disposed(by: bag)
     }
 }
 private extension RegistViewController{

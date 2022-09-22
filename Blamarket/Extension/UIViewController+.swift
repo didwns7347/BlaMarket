@@ -32,4 +32,10 @@ extension Reactive where Base : UIViewController{
             
         }
     }
+    
+    var startLoading : Binder<Bool>{
+        return Binder(base){base, isStart in
+            
+        }
+    }
 }

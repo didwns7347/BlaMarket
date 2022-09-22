@@ -12,10 +12,12 @@ class NetworkProvider : Provider{
     let session : URLSession
     init(session: URLSession = URLSession.shared){
         self.session = session
+
     }
     
     func request(_ url: URL) -> Single<Result<Data, Error>> {
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        request.timeoutInterval = TimeInterval(10)
         return session.rx.response(request:request)
             .map(self.checkError).asSingle()
     }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 struct UserConst{
-    static let USER_SERVER_URL = "https://28753bf1-f222-4072-ad13-a996aa2c0202.mock.pstmn.io"
+    static let USER_SERVER_URL = "http://61.78.131.130:8080"
     static let ID_REGEX = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     static let PW_REGEX =  "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8}"
     static let ID_INPUT_ERROR = "근무중인 회사 이메일 주소를 입력해 주세요"

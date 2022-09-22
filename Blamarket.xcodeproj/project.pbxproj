@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		485A97D1D83BF5CFA42FAED6 /* Pods_Blamarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89B6BA28B76A07840E2E545 /* Pods_Blamarket.framework */; };
+		9B12F7B328D82A3C00207003 /* RegistItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12F7B228D82A3C00207003 /* RegistItemViewController.swift */; };
+		9B12F7B528D82A4B00207003 /* RegistItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12F7B428D82A4B00207003 /* RegistItemViewModel.swift */; };
+		9B12F7B728D8393200207003 /* ItemImageCollecteionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12F7B628D8393200207003 /* ItemImageCollecteionViewCell.swift */; };
 		9B5E43DE28D2EE020020908F /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E43DD28D2EE020020908F /* Data+.swift */; };
+		9B5E43E128D31C850020908F /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E43E028D31C850020908F /* PostCell.swift */; };
 		9B5EF32028B6FE83006D0AB8 /* NetworkProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5EF31F28B6FE83006D0AB8 /* NetworkProviderImpl.swift */; };
 		9B68908428AF13D1001C109E /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68908328AF13D1001C109E /* PasswordResetViewController.swift */; };
 		9B68908628AF13EC001C109E /* PasswordResetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B68908528AF13EC001C109E /* PasswordResetViewModel.swift */; };
@@ -44,7 +48,11 @@
 
 /* Begin PBXFileReference section */
 		7EDAE8D42BFCC845F142E9F9 /* Pods-Blamarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blamarket.debug.xcconfig"; path = "Target Support Files/Pods-Blamarket/Pods-Blamarket.debug.xcconfig"; sourceTree = "<group>"; };
+		9B12F7B228D82A3C00207003 /* RegistItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistItemViewController.swift; sourceTree = "<group>"; };
+		9B12F7B428D82A4B00207003 /* RegistItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistItemViewModel.swift; sourceTree = "<group>"; };
+		9B12F7B628D8393200207003 /* ItemImageCollecteionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImageCollecteionViewCell.swift; sourceTree = "<group>"; };
 		9B5E43DD28D2EE020020908F /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
+		9B5E43E028D31C850020908F /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		9B5EF31F28B6FE83006D0AB8 /* NetworkProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProviderImpl.swift; sourceTree = "<group>"; };
 		9B68908328AF13D1001C109E /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 		9B68908528AF13EC001C109E /* PasswordResetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModel.swift; sourceTree = "<group>"; };
@@ -113,12 +121,30 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		9B12F7B128D82A2100207003 /* RegistItemScene */ = {
+			isa = PBXGroup;
+			children = (
+				9B12F7B228D82A3C00207003 /* RegistItemViewController.swift */,
+				9B12F7B428D82A4B00207003 /* RegistItemViewModel.swift */,
+				9B12F7B628D8393200207003 /* ItemImageCollecteionViewCell.swift */,
+			);
+			path = RegistItemScene;
+			sourceTree = "<group>";
+		};
 		9B1B192CB9DB3906DB96D25A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				B89B6BA28B76A07840E2E545 /* Pods_Blamarket.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B5E43DF28D31C670020908F /* PostsScene */ = {
+			isa = PBXGroup;
+			children = (
+				9B5E43E028D31C850020908F /* PostCell.swift */,
+			);
+			path = PostsScene;
 			sourceTree = "<group>";
 		};
 		9B68908228AF1103001C109E /* PasswordReset */ = {
@@ -141,8 +167,8 @@
 		9B6CF9BD28AF28EE007FC2AD /* RegistScene */ = {
 			isa = PBXGroup;
 			children = (
-				9BE2006428BF19F700866D73 /* Register */,
 				9BE2006328BF19DD00866D73 /* EmailAuthScene */,
+				9BE2006428BF19F700866D73 /* Register */,
 			);
 			path = RegistScene;
 			sourceTree = "<group>";
@@ -289,6 +315,8 @@
 		9BE2006528BF25D200866D73 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				9B12F7B128D82A2100207003 /* RegistItemScene */,
+				9B5E43DF28D31C670020908F /* PostsScene */,
 				9B77FE4628B616E1000CF701 /* MainScene */,
 				9B6CF9BD28AF28EE007FC2AD /* RegistScene */,
 				9B68908228AF1103001C109E /* PasswordReset */,
@@ -418,6 +446,7 @@
 				9B6CF9BF28AF2907007FC2AD /* RegistViewController.swift in Sources */,
 				9B68908428AF13D1001C109E /* PasswordResetViewController.swift in Sources */,
 				9BE2006228BF19D800866D73 /* EmailAuthViewModel.swift in Sources */,
+				9B12F7B728D8393200207003 /* ItemImageCollecteionViewCell.swift in Sources */,
 				9B77FE3B28B5B834000CF701 /* Provider.swift in Sources */,
 				9B5EF32028B6FE83006D0AB8 /* NetworkProviderImpl.swift in Sources */,
 				9B77FE4528B5FF76000CF701 /* LoginModel.swift in Sources */,
@@ -427,10 +456,13 @@
 				9B6CF9C128AF2918007FC2AD /* RegistViewModel.swift in Sources */,
 				9BE2006A28BF359300866D73 /* UIButton +.swift in Sources */,
 				9B77FE3728B5B6E3000CF701 /* HttpMethod.swift in Sources */,
+				9B5E43E128D31C850020908F /* PostCell.swift in Sources */,
 				9B8DB24B28ACA45000E14443 /* LoginVIewModel.swift in Sources */,
 				9B77FE3D28B5BEA5000CF701 /* Sessionable.swift in Sources */,
+				9B12F7B528D82A4B00207003 /* RegistItemViewModel.swift in Sources */,
 				9B8DB22B28ACA03000E14443 /* SceneDelegate.swift in Sources */,
 				9B6B3CE128D069FE00F79D57 /* RegisterModel.swift in Sources */,
+				9B12F7B328D82A3C00207003 /* RegistItemViewController.swift in Sources */,
 				9B725DD628B49C2C002F8BA3 /* LoginViewController.swift in Sources */,
 				9B77FE3028B5AF2F000CF701 /* Requestable.swift in Sources */,
 				9B77FE3328B5B121000CF701 /* Encodable +.swift in Sources */,
@@ -583,6 +615,8 @@
 				DEVELOPMENT_TEAM = DR2C4G73MR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Blamarket/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = test;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = test;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -613,6 +647,8 @@
 				DEVELOPMENT_TEAM = DR2C4G73MR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Blamarket/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = test;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = test;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

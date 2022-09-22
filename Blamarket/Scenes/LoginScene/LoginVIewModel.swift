@@ -14,6 +14,8 @@ import UIKit
 
 
 struct LoginViewModel {
+    let bag = DisposeBag()
+    
     var id = PublishRelay<String>()
     var pw = PublishRelay<String>()
     var presentAlert : Signal<Alert>
@@ -22,8 +24,10 @@ struct LoginViewModel {
    
     var loginButtonTapped = PublishRelay<Void>()
     let loginSuccess : Observable<UserNetworkEntity<LoginResultData>>
-    let goMainPage : Signal<Void>
+    let goMainPage : Signal<Bool>
     let emailAuthViewModel = EmailAuthViewModel()
+    
+    let loginInputCheckSuccess = PublishRelay<Bool>()
     init(){
         let loginInfo = Observable.combineLatest(id,pw){id, pw -> LoginModel in
             return LoginModel(email: id, password: pw)
@@ -42,7 +46,13 @@ struct LoginViewModel {
                 }
                 return (info:info, message:"")
             }
-        
+        loginInputCheck
+            .map{
+                $0.message.isEmpty
+            }.filter{$0}
+            .bind(to: loginInputCheckSuccess)
+            .disposed(by: bag)
+    
    
         let inputError = loginInputCheck
             .filter{!$1.isEmpty}
@@ -68,9 +78,9 @@ struct LoginViewModel {
             return value
         }
         
-        goMainPage = loginSuccess.map{_ -> () in
-            return ()
-        }.asSignal(onErrorJustReturn: ())
+        goMainPage = loginSuccess.map{_ -> Bool in
+            return true
+        }.asSignal(onErrorJustReturn: false)
         
         let loginError = loginResult.compactMap { data -> String? in
             switch data{

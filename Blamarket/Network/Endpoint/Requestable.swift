@@ -20,7 +20,7 @@ extension Requestable{
     func getUrlRequest() throws -> URLRequest{
         let url = try url()
         var urlRequest = URLRequest(url: url)
-        
+        urlRequest.timeoutInterval = TimeInterval(1)
         if let bodyParameters = try bodyParameters?.toDictionary(){
             if !bodyParameters.isEmpty{
                 urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: bodyParameters)

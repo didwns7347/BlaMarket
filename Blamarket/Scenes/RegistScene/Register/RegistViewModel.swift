@@ -11,6 +11,7 @@ import RxSwift
 
 struct RegistViewModel {
     let bag = DisposeBag()
+    //let loginVM = LoginViewModel()
   
     let nicknameInput = PublishRelay<String>()
     let pwInput = PublishRelay<String>()
@@ -29,11 +30,7 @@ struct RegistViewModel {
         PublishRelay.combineLatest(nicknameInput,pwInput,pwCheckInput,email)
             .bind(to: inputs)
             .disposed(by: bag)
-        
-   
-        
-        
-        
+
         submitButtonTapped.bind(onNext: {
             print("tapped !!")
         }).disposed(by: bag)
@@ -65,7 +62,7 @@ struct RegistViewModel {
             .map{result -> (Bool, String?) in
                 switch result{
                 case .success(let data):
-                    if data.status == 200, data.message == UserConst.SUCCESS{
+                    if data.status == 200{
                         return (true,nil)
                     }else{
                         return (false, data.message)

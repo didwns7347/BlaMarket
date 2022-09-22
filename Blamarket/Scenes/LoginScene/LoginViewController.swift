@@ -14,6 +14,8 @@ import RxGesture
 class LoginViewController  : UIViewController{
     let bag = DisposeBag()
     
+    var titleLabelText : String?
+    
     private lazy var loading : UIActivityIndicatorView = {
         let loading = UIActivityIndicatorView()
         loading.style = .large
@@ -27,7 +29,15 @@ class LoginViewController  : UIViewController{
         textField.borderStyle = .bezel
         return textField
     }()
-
+    
+    private lazy var indicator : UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.style = .large
+        
+        indicator.hidesWhenStopped = true
+        indicator.stopAnimating()
+        return indicator
+    }()
 
 
     private lazy var pwInput : UITextField = {
@@ -96,10 +106,20 @@ class LoginViewController  : UIViewController{
             .bind(to: vm.loginButtonTapped)
             .disposed(by: bag)
         
+        vm.loginInputCheckSuccess
+            .bind(to: indicator.rx.isAnimating)
+            .disposed(by: bag)
+        
+        
 
 
         vm.presentAlert
             .emit(to: self.rx.setAlert)
+            .disposed(by: bag)
+        
+        vm.presentAlert
+            .map{ _ in false}
+            .emit(to: indicator.rx.isAnimating)
             .disposed(by: bag)
 
         pwResetBtn.rx.tapGesture().when(.recognized)
@@ -124,7 +144,9 @@ class LoginViewController  : UIViewController{
             }.disposed(by: bag)
         
         
-        vm.goMainPage.emit(onNext:{ [weak self] in
+        vm.goMainPage
+            .filter{$0 == true}
+            .emit(onNext:{ [weak self] _ in
             print("LOGIN SUCCESS")
             guard let self = self else { return }
             let mainVC = MainViewController()
@@ -138,12 +160,16 @@ class LoginViewController  : UIViewController{
 
 private extension LoginViewController{
     func attribute(){
-        self.navigationItem.title  = "로그인"
-
+        self.navigationItem.title  = self.titleLabelText ?? "로그인"
+        
+        #if DEBUG
+        idInput.text = "test1@naver.com"
+        pwInput.text = "Abcd1234@"
+        #endif
     }
 
     func layout(){
-        [idInput, pwInput, loginButton, registerButton,pwResetBtn,loading].forEach {
+        [idInput, pwInput, loginButton, registerButton,pwResetBtn,loading,indicator].forEach {
             view.addSubview($0)
         }
         loading.snp.makeConstraints{
@@ -177,7 +203,10 @@ private extension LoginViewController{
             $0.top.equalTo(pwResetBtn.snp.bottom).offset(10)
             $0.trailing.leading.equalToSuperview().inset(10)
         }
-
+        
+        indicator.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+        }
 
     }
 }
