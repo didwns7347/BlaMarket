@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		485A97D1D83BF5CFA42FAED6 /* Pods_Blamarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89B6BA28B76A07840E2E545 /* Pods_Blamarket.framework */; };
+		9B10603928DC337200CB9A60 /* TitleTextFieldCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10603728DC337200CB9A60 /* TitleTextFieldCellViewModel.swift */; };
+		9B10603A28DC337200CB9A60 /* TitleTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10603828DC337200CB9A60 /* TitleTextFieldCell.swift */; };
+		9B10603E28DC33AF00CB9A60 /* PriceTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10603C28DC33AF00CB9A60 /* PriceTextFieldCell.swift */; };
+		9B10603F28DC33AF00CB9A60 /* PriceTextFieldCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10603D28DC33AF00CB9A60 /* PriceTextFieldCellViewModel.swift */; };
+		9B10604328DC33F900CB9A60 /* DetailWriteFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10604128DC33F900CB9A60 /* DetailWriteFormCell.swift */; };
+		9B10604428DC33F900CB9A60 /* DetailWriteFormCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10604228DC33F900CB9A60 /* DetailWriteFormCellViewModel.swift */; };
+		9B10604828DC346800CB9A60 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10604628DC346800CB9A60 /* CategoryViewModel.swift */; };
+		9B10604928DC346800CB9A60 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10604728DC346800CB9A60 /* CategoryListViewController.swift */; };
+		9B10604C28DC34FE00CB9A60 /* RegisterItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10604B28DC34FE00CB9A60 /* RegisterItemModel.swift */; };
+		9B10604E28DC394C00CB9A60 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10604D28DC394C00CB9A60 /* Category.swift */; };
 		9B12F7B328D82A3C00207003 /* RegistItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12F7B228D82A3C00207003 /* RegistItemViewController.swift */; };
 		9B12F7B528D82A4B00207003 /* RegistItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12F7B428D82A4B00207003 /* RegistItemViewModel.swift */; };
 		9B12F7B728D8393200207003 /* ItemImageCollecteionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12F7B628D8393200207003 /* ItemImageCollecteionViewCell.swift */; };
@@ -48,6 +58,16 @@
 
 /* Begin PBXFileReference section */
 		7EDAE8D42BFCC845F142E9F9 /* Pods-Blamarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blamarket.debug.xcconfig"; path = "Target Support Files/Pods-Blamarket/Pods-Blamarket.debug.xcconfig"; sourceTree = "<group>"; };
+		9B10603728DC337200CB9A60 /* TitleTextFieldCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTextFieldCellViewModel.swift; sourceTree = "<group>"; };
+		9B10603828DC337200CB9A60 /* TitleTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTextFieldCell.swift; sourceTree = "<group>"; };
+		9B10603C28DC33AF00CB9A60 /* PriceTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceTextFieldCell.swift; sourceTree = "<group>"; };
+		9B10603D28DC33AF00CB9A60 /* PriceTextFieldCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceTextFieldCellViewModel.swift; sourceTree = "<group>"; };
+		9B10604128DC33F900CB9A60 /* DetailWriteFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailWriteFormCell.swift; sourceTree = "<group>"; };
+		9B10604228DC33F900CB9A60 /* DetailWriteFormCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailWriteFormCellViewModel.swift; sourceTree = "<group>"; };
+		9B10604628DC346800CB9A60 /* CategoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		9B10604728DC346800CB9A60 /* CategoryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
+		9B10604B28DC34FE00CB9A60 /* RegisterItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterItemModel.swift; sourceTree = "<group>"; };
+		9B10604D28DC394C00CB9A60 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9B12F7B228D82A3C00207003 /* RegistItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistItemViewController.swift; sourceTree = "<group>"; };
 		9B12F7B428D82A4B00207003 /* RegistItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistItemViewModel.swift; sourceTree = "<group>"; };
 		9B12F7B628D8393200207003 /* ItemImageCollecteionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImageCollecteionViewCell.swift; sourceTree = "<group>"; };
@@ -121,12 +141,53 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		9B10603628DC32DE00CB9A60 /* TitleTextFeildCell */ = {
+			isa = PBXGroup;
+			children = (
+				9B10603828DC337200CB9A60 /* TitleTextFieldCell.swift */,
+				9B10603728DC337200CB9A60 /* TitleTextFieldCellViewModel.swift */,
+			);
+			path = TitleTextFeildCell;
+			sourceTree = "<group>";
+		};
+		9B10603B28DC337900CB9A60 /* PriceTextFiledCell */ = {
+			isa = PBXGroup;
+			children = (
+				9B10603C28DC33AF00CB9A60 /* PriceTextFieldCell.swift */,
+				9B10603D28DC33AF00CB9A60 /* PriceTextFieldCellViewModel.swift */,
+			);
+			path = PriceTextFiledCell;
+			sourceTree = "<group>";
+		};
+		9B10604028DC33BF00CB9A60 /* DetailWriteFormCell */ = {
+			isa = PBXGroup;
+			children = (
+				9B10604128DC33F900CB9A60 /* DetailWriteFormCell.swift */,
+				9B10604228DC33F900CB9A60 /* DetailWriteFormCellViewModel.swift */,
+			);
+			path = DetailWriteFormCell;
+			sourceTree = "<group>";
+		};
+		9B10604528DC344A00CB9A60 /* CategoryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9B10604728DC346800CB9A60 /* CategoryListViewController.swift */,
+				9B10604628DC346800CB9A60 /* CategoryViewModel.swift */,
+			);
+			path = CategoryViewController;
+			sourceTree = "<group>";
+		};
 		9B12F7B128D82A2100207003 /* RegistItemScene */ = {
 			isa = PBXGroup;
 			children = (
+				9B10604528DC344A00CB9A60 /* CategoryViewController */,
+				9B10604028DC33BF00CB9A60 /* DetailWriteFormCell */,
+				9B10603B28DC337900CB9A60 /* PriceTextFiledCell */,
+				9B10603628DC32DE00CB9A60 /* TitleTextFeildCell */,
 				9B12F7B228D82A3C00207003 /* RegistItemViewController.swift */,
 				9B12F7B428D82A4B00207003 /* RegistItemViewModel.swift */,
 				9B12F7B628D8393200207003 /* ItemImageCollecteionViewCell.swift */,
+				9B10604B28DC34FE00CB9A60 /* RegisterItemModel.swift */,
 			);
 			path = RegistItemScene;
 			sourceTree = "<group>";
@@ -224,6 +285,7 @@
 		9B77FE3E28B5C469000CF701 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				9B10604D28DC394C00CB9A60 /* Category.swift */,
 				9B77FE3F28B5C4BA000CF701 /* UserNetworkEntitiy.swift */,
 			);
 			path = Entities;
@@ -447,6 +509,8 @@
 				9B68908428AF13D1001C109E /* PasswordResetViewController.swift in Sources */,
 				9BE2006228BF19D800866D73 /* EmailAuthViewModel.swift in Sources */,
 				9B12F7B728D8393200207003 /* ItemImageCollecteionViewCell.swift in Sources */,
+				9B10604928DC346800CB9A60 /* CategoryListViewController.swift in Sources */,
+				9B10604828DC346800CB9A60 /* CategoryViewModel.swift in Sources */,
 				9B77FE3B28B5B834000CF701 /* Provider.swift in Sources */,
 				9B5EF32028B6FE83006D0AB8 /* NetworkProviderImpl.swift in Sources */,
 				9B77FE4528B5FF76000CF701 /* LoginModel.swift in Sources */,
@@ -454,6 +518,7 @@
 				9B8DB22928ACA03000E14443 /* AppDelegate.swift in Sources */,
 				9B77FE4028B5C4BA000CF701 /* UserNetworkEntitiy.swift in Sources */,
 				9B6CF9C128AF2918007FC2AD /* RegistViewModel.swift in Sources */,
+				9B10604428DC33F900CB9A60 /* DetailWriteFormCellViewModel.swift in Sources */,
 				9BE2006A28BF359300866D73 /* UIButton +.swift in Sources */,
 				9B77FE3728B5B6E3000CF701 /* HttpMethod.swift in Sources */,
 				9B5E43E128D31C850020908F /* PostCell.swift in Sources */,
@@ -461,11 +526,17 @@
 				9B77FE3D28B5BEA5000CF701 /* Sessionable.swift in Sources */,
 				9B12F7B528D82A4B00207003 /* RegistItemViewModel.swift in Sources */,
 				9B8DB22B28ACA03000E14443 /* SceneDelegate.swift in Sources */,
+				9B10604328DC33F900CB9A60 /* DetailWriteFormCell.swift in Sources */,
+				9B10603F28DC33AF00CB9A60 /* PriceTextFieldCellViewModel.swift in Sources */,
+				9B10603A28DC337200CB9A60 /* TitleTextFieldCell.swift in Sources */,
+				9B10603928DC337200CB9A60 /* TitleTextFieldCellViewModel.swift in Sources */,
 				9B6B3CE128D069FE00F79D57 /* RegisterModel.swift in Sources */,
 				9B12F7B328D82A3C00207003 /* RegistItemViewController.swift in Sources */,
+				9B10603E28DC33AF00CB9A60 /* PriceTextFieldCell.swift in Sources */,
 				9B725DD628B49C2C002F8BA3 /* LoginViewController.swift in Sources */,
 				9B77FE3028B5AF2F000CF701 /* Requestable.swift in Sources */,
 				9B77FE3328B5B121000CF701 /* Encodable +.swift in Sources */,
+				9B10604C28DC34FE00CB9A60 /* RegisterItemModel.swift in Sources */,
 				9B77FE2C28B5AD19000CF701 /* NetworkError.swift in Sources */,
 				9BE2006828BF261C00866D73 /* UIViewController+.swift in Sources */,
 				9B68908628AF13EC001C109E /* PasswordResetViewModel.swift in Sources */,
@@ -473,6 +544,7 @@
 				9B5E43DE28D2EE020020908F /* Data+.swift in Sources */,
 				9BE2006C28BF4AD000866D73 /* String+.swift in Sources */,
 				9B77FE4A28B617A3000CF701 /* MainViewModel.swift in Sources */,
+				9B10604E28DC394C00CB9A60 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
