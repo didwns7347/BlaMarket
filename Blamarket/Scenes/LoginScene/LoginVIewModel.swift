@@ -70,7 +70,7 @@ struct LoginViewModel {
                 let userNetwork = NetworkProvider()
                 return userNetwork.request(with: endpoint)
             }.share()
-        
+     
         loginSuccess = loginResult.compactMap { data -> UserNetworkEntity<LoginResultData>? in
             guard case let .success(value) = data else{
                 return nil

@@ -17,7 +17,7 @@ class NetworkProvider : Provider{
     
     func request(_ url: URL) -> Single<Result<Data, Error>> {
         var request = URLRequest(url: url)
-        request.timeoutInterval = TimeInterval(10)
+        request.timeoutInterval = TimeInterval(300)
         return session.rx.response(request:request)
             .map(self.checkError).asSingle()
     }
@@ -25,10 +25,10 @@ class NetworkProvider : Provider{
     //endPoint 와 Response가 같은경우 -> 파싱할데이터를 endPoint파라메터를 통해 주입받음.
     func request<R:Decodable, E: RequestResponsable>(with endPoint: E) -> Single<Result<R, Error>>  where E.Response == R {
     
-        guard let requset = try? endPoint.getUrlRequest() else {
+        guard var requset = try? endPoint.getUrlRequest() else {
             return .just(.failure(NetworkError.urlError))
         }
-        
+        requset.timeoutInterval = TimeInterval(300)
         return session.rx.response(request: requset)
             .map(checkError)
             .map{ result -> Result<R,Error> in

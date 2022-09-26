@@ -17,7 +17,7 @@ final class EmailAuthViewController: UIViewController{
     let bag = DisposeBag()
     private var timer : Timer?
     #if DEBUG
-    var limitTime = 20
+    var limitTime = 60
     #else
     var limitTime = 180
     #endif
@@ -218,7 +218,7 @@ private extension EmailAuthViewController{
             let minutes = self.limitTime / 60
             let seconds = self.limitTime % 60
             if self.limitTime > 0{
-                self.emailAuthCodeTextField.placeholder = String(format: "인증코드 6자리        %02d:%02d", minutes, seconds)
+                self.emailAuthCodeTextField.placeholder = String(format: "인증코드 입력        %02d:%02d", minutes, seconds)
             }else{
                 self.emailAuthCodeTextField.placeholder = "만료"
                 self.limitTime = 180

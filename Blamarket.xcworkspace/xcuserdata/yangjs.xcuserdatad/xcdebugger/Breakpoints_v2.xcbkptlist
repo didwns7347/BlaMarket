@@ -7,69 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D9177A20-A92F-4777-9FFF-45D5E4D9855B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Blamarket/Extension/Data+.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "prettyPrintedJSONString"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "D9177A20-A92F-4777-9FFF-45D5E4D9855B - 9ade1e0fe53963f2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Foundation.Data.prettyPrintedJSONString.getter : Swift.Optional&lt;__C.NSString&gt;"
-                  moduleName = "Blamarket"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yangjs/Desktop/%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A1%E1%84%86%E1%85%A1%E1%84%8F%E1%85%A6%E1%86%BA/Blamarket/Blamarket/Extension/Data+.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "1272">
-               </Location>
-               <Location
-                  uuid = "D9177A20-A92F-4777-9FFF-45D5E4D9855B - 9ade1e0fe53963f2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Foundation.Data.prettyPrintedJSONString.getter : Swift.Optional&lt;__C.NSString&gt;"
-                  moduleName = "Blamarket"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yangjs/Desktop/%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A1%E1%84%86%E1%85%A1%E1%84%8F%E1%85%A6%E1%86%BA/Blamarket/Blamarket/Extension/Data+.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "1528">
-               </Location>
-               <Location
-                  uuid = "D9177A20-A92F-4777-9FFF-45D5E4D9855B - 9ade1e0fe53963f2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Foundation.Data.prettyPrintedJSONString.getter : Swift.Optional&lt;__C.NSString&gt;"
-                  moduleName = "Blamarket"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yangjs/Desktop/%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A1%E1%84%86%E1%85%A1%E1%84%8F%E1%85%A6%E1%86%BA/Blamarket/Blamarket/Extension/Data+.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "1640">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "0946169E-88F3-4997-9C1D-BE601EA9A57E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -81,6 +18,22 @@
             endingLineNumber = "2"
             landmarkName = "unknown"
             landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0A7639E7-7877-45A9-919F-4317FFFB37B0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blamarket/Scenes/LoginScene/LoginVIewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "init()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -29,7 +29,7 @@ class Endpoint<R> : RequestResponsable{
           method: HttpMethod = .get,
           queryParameters: Encodable? = nil,
           bodyParameters: Encodable? = nil,
-          headers: [String: String]? = [:],
+          headers: [String: String]? = nil,
           sampleData: Data? = nil) {
          self.baseURL = baseURL
          self.path = path
