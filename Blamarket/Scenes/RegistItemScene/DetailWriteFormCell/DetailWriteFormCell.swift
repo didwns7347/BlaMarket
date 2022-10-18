@@ -23,7 +23,7 @@ class DetailWriteFormCell : UITableViewCell{
         layout()
     }
     func bind(_ viewModel : DetailWriteFormCellViewModel){
-        contentInputView.rx.text
+        contentInputView.rx.text.orEmpty
             .bind(to:viewModel.contentValue)
             .disposed(by: disposeBag)
         

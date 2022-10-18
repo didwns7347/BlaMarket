@@ -6,22 +6,41 @@
 //
 
 import UIKit
-
+enum MainVC {
+    case loginVC
+    case boardVC
+    case testVC
+}
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var loginVM = LoginViewModel()
+    var mainVM = MainViewModel()
     //TEST
     var registVM = RegistItemViewModel()
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-        let rootViewController = LoginViewController()
-        rootViewController.bind(vm: loginVM)
-//        let registVC = RegistItemViewController()
-//        registVC.bind(viewModel: registVM)
+   
+        switch self.selectMainView(){
+        case .loginVC:
+            let rootViewController = LoginViewController()
+            rootViewController.bind(vm: loginVM)
+            window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+        case .boardVC:
+            let rootViewController = MainViewController()
+            rootViewController.bind(vm: mainVM)
+            window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+        default:
+            let rootViewController = LoginViewController()
+            rootViewController.bind(vm: loginVM)
+            window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+        }
+      
+//        let rootViewController = RegistItemViewController()
+//        rootViewController.bind(viewModel: registVM)
         window?.backgroundColor = .systemBackground
-        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+       
         window?.makeKeyAndVisible()
     }
 
@@ -59,3 +78,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate{
+    func selectMainView() -> MainVC{
+        #if DEBUG
+        return MainVC.boardVC
+        #endif
+        if isAutoLoginAvailable(){
+            return MainVC.boardVC
+        }else{
+            return MainVC.loginVC
+        }
+    }
+    
+    func isAutoLoginAvailable()->Bool{
+        guard let lastLoginDate = UserDefaults.standard.object(forKey: UserConst.LAST_LOGIN_DATE) as? Date
+        else{
+            return false
+        }
+        
+        var dateComponentDay = DateComponents()
+        dateComponentDay.day = UserConst.Login_Alive_Time
+        let expireDate = Calendar.current.date(byAdding: dateComponentDay, to: lastLoginDate) ?? Date()
+        //만료된경우 토큰값 삭제.
+        if expireDate <= Date(){
+            KeyChainManager.removedataInKeyChain(key: UserConst.Authorize_key)
+            return false
+        }
+        return true
+    }
+
+}

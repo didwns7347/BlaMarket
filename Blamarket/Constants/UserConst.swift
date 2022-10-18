@@ -17,6 +17,12 @@ struct UserConst{
     //Network 관련
     static let Login_Path = "/login"
     static let RequestAuth_Code_Path = ""
+    static let LAST_LOGIN_DATE = "lastLoginDate"
+    //자동로그인 7주일기준
+    static let Login_Alive_Time = 7
+    //키체인 로그인 토큰
+    static let Authorize_key = "Authorize"
+    static let Company = "companyName"
 }
 struct ColorConst{
     static let MAIN_COLOR = UIColor.systemBlue

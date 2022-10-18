@@ -46,12 +46,13 @@ struct UserEndPoint {
     
     static func register(nickname:String, email:String, pw: String)->Endpoint<UserNetworkEntity<RegistResultData>>{
         let body = ["email":email, "password":pw, "name":nickname]
+        let header = ["Content-Type":"application/json"]
         return Endpoint(baseURL: UserConst.USER_SERVER_URL,
-                        path: "/user/",
+                        path: "/user",
                         method: .post,
                         queryParameters: nil,
                         bodyParameters: body,
-                        headers: nil,
+                        headers: header,
                         sampleData: nil
                         )
         

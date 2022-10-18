@@ -121,6 +121,10 @@ class RegistItemViewController : UIViewController{
         self.imageListSubject.subscribe { providers in
             viewModel.imageListSubject.on(providers)
         }.disposed(by: disposeBag)
+        
+        self.imageListSubject
+            .bind(to: viewModel.imageListSubject)
+            .disposed(by: disposeBag)
             
         
     }

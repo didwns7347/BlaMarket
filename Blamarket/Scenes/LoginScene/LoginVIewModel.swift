@@ -75,6 +75,7 @@ struct LoginViewModel {
             guard case let .success(value) = data else{
                 return nil
             }
+            UserDefaults.standard.set(Date(), forKey: UserConst.LAST_LOGIN_DATE)
             return value
         }
         

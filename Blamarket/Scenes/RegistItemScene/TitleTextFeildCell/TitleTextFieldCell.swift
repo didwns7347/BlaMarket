@@ -27,7 +27,7 @@ class TitleTextFieldCell : UITableViewCell{
     }
     
     func bind(vm : TitleTextFieldCellViewModel){
-        titleInputField.rx.text
+        titleInputField.rx.text.orEmpty
             .bind(to:vm.titleText)
             .disposed(by: disposeBag)
     }

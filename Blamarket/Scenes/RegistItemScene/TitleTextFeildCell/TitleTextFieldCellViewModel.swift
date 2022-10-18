@@ -7,5 +7,5 @@
 
 import RxCocoa
 struct TitleTextFieldCellViewModel{
-    let titleText = PublishRelay<String?>()
+    let titleText = PublishRelay<String>()
 }

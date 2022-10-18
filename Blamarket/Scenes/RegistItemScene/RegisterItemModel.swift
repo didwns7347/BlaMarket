@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 struct RegisterItemModel{
     func setAlert(errorMessage:[String])->(title:String, message:String?){
         let title = errorMessage.isEmpty ? "성공":"실패"

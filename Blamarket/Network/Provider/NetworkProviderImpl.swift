@@ -7,8 +7,9 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 class NetworkProvider : Provider{
-    
+    let bag = DisposeBag()
     let session : URLSession
     init(session: URLSession = URLSession.shared){
         self.session = session
@@ -29,7 +30,8 @@ class NetworkProvider : Provider{
             return .just(.failure(NetworkError.urlError))
         }
         requset.timeoutInterval = TimeInterval(300)
-        return session.rx.response(request: requset)
+        
+        let result = session.rx.response(request: requset)
             .map(checkError)
             .map{ result -> Result<R,Error> in
                 switch result{
@@ -40,6 +42,9 @@ class NetworkProvider : Provider{
                 }
             }
             .asSingle()
+        //result.catchErrorJustReturn(Result.)
+    
+        return result
     }
     private func checkError(with response: HTTPURLResponse, _ data: Data)->Result<Data,Error>{
         #if DEBUG

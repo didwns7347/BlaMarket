@@ -64,3 +64,8 @@ struct RegistResultData: Decodable{
         case resultData = "data"
     }
 }
+
+struct CommonResultData : Decodable{
+    let status:String
+    let message:String
+}

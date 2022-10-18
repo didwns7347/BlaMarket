@@ -11,4 +11,5 @@ target 'Blamarket' do
   pod 'RxCocoa', '6.5.0'
 	pod 'RxAlamofire'
 	pod 'SnapKit', '~> 5.6.0'
+  pod 'Kingfisher', '~> 7.0'
 end

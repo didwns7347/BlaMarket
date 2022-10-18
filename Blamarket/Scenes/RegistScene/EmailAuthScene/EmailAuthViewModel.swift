@@ -61,7 +61,8 @@ struct EmailAuthViewModel
                 let userNetwork = NetworkProvider()
                 return userNetwork.request(with: endpoint)
             }.share()
-//        requestAuthCodeResult.catchAndReturn(<#T##element: Result<UserNetworkEntity<[String : String]>, Error>##Result<UserNetworkEntity<[String : String]>, Error>#>)
+        //requestAuthCodeResult.catchAndReturn(Result.failure(NetworkError.unknownError))
+        
         requestMailCode = requestAuthCodeResult
             .map { result  -> (Bool,String?) in
                 switch result{
@@ -86,6 +87,12 @@ struct EmailAuthViewModel
                 let userNetwork = NetworkProvider()
                 return userNetwork.request(with: endPoint)
             }.share()
+        
+        checkAuthCodeResult.catchAndReturn(Result.failure(NetworkError.unknownError))
+            .subscribe(onNext:{ _ in
+                print("UNKNOWN ERROR!!")
+            })
+            .disposed(by: bag)
         
         self.requestCheckAuthCode = checkAuthCodeResult
             .map { result  -> (Bool,String?) in

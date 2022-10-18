@@ -9,7 +9,9 @@ import UIKit
 import RxCocoa
 import RxSwift
 import PhotosUI
-struct RegistItemViewModel{
+final class RegistItemViewModel{
+    let bag = DisposeBag()
+    let model = RegisterItemModel()
     //let defaultImageList = [UIImage(systemName: "camera")!]
     let titleTextFieldCellViewModel = TitleTextFieldCellViewModel()
     let priceTextFieldCellViewModel = PriceTextFieldCellViewModel()
@@ -26,7 +28,11 @@ struct RegistItemViewModel{
     let itemSelected = PublishRelay<Int>()
     let submitButtonTapped = PublishRelay<Void>()
     
-    let model = RegisterItemModel()
+    //서버전송
+    let selectedImages = BehaviorSubject<[NSItemProvider]>(value: [])
+    let imageLoadedCompleted = PublishSubject<[UIImage]>()
+    
+   
     init(){
         let title = Observable.just("글 제목")
         let categoryViewModel = CategoryViewModel()
@@ -43,7 +49,7 @@ struct RegistItemViewModel{
             }.asDriver(onErrorDriveWith:.empty())
         let titleMSG = titleTextFieldCellViewModel
             .titleText
-            .map{$0?.isEmpty ?? true}
+            .map{$0.isEmpty}
             .startWith(true)
             .map{ $0 ? ["- 글 제목을 입력해 주세요"]:[]}
         
@@ -83,6 +89,34 @@ struct RegistItemViewModel{
         
         imageListDrive = imageListSubject.asDriver(onErrorJustReturn: [nil])
         
+        let postDatas = Observable.combineLatest(
+            selectedImages,titleTextFieldCellViewModel.titleText, categoryViewModel.selectedCategory,
+            priceTextFieldCellViewModel.priceValue, detailWriteFormCellViewModel.contentValue)
+            .map{ [weak self] info -> PostModel in
+                //guard let self = self else{return}
+                let postModel = PostModel(title: info.1 ,
+                                      category: info.2.name,
+                                      contents: info.3,
+                                      imageProviders: info.0,
+                                      price: info.4)
+                guard let self = self else { return postModel}
+                postModel.loadedImagesSubject.bind(to: self.imageLoadedCompleted).disposed(by: self.bag)
+                return postModel
+            }
+        
+       
+
+        let  submitData = submitButtonTapped.withLatestFrom(Observable.combineLatest(postDatas,errorMsg))
+            .filter{$0.1.isEmpty}
+            .map{$0.0}
+//
+        let postItemResult = Observable.combineLatest(submitData,imageLoadedCompleted)
+            .flatMap{ (postModel,images) -> Single<Result<CommonResultData,Error>> in
+                let endpoint = PostEndPoint.post(postModel: postModel , images: images)
+                let provider = NetworkProvider()
+                return provider.request(with: endpoint)
+            }.share()
+
         
     }
     

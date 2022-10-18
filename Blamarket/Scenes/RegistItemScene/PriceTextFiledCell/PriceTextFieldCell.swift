@@ -40,7 +40,7 @@ class PriceTextFieldCell : UITableViewCell{
             .bind(to: viewModel.freeShareButtonTapped)
             .disposed(by:disposeBag)
         
-        priceInputField.rx.text
+        priceInputField.rx.text.orEmpty
             .bind(to:viewModel.priceValue)
             .disposed(by: disposeBag)
     }
