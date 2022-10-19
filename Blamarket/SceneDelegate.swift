@@ -32,19 +32,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let mainVC = MainViewController()
             mainVC.bind(vm: mainVM)
+            
             let chatVC = ChatListViewController()
             let userInfoVC = UserInfoViewConroller()
             
-            let rootViewController = tbc
+
             let imgSize = CGSize(width: 30, height: 30)
             mainVC.tabBarItem = UITabBarItem(title: "게시판",image:UIImage(named: "047-house.png")!.imageResized(to:imgSize),tag: 0)
             chatVC.tabBarItem = UITabBarItem(title: "채팅", image:UIImage(named: "098-message.png")!.imageResized(to: imgSize), tag: 0)
             userInfoVC.tabBarItem = UITabBarItem(title: "내 정보", image: UIImage(named:"011-user.png")!.imageResized(to: imgSize), tag: 0)
-            tbc.setViewControllers([chatVC,mainVC,userInfoVC], animated: false)
+            tbc.setViewControllers([chatVC,UINavigationController(rootViewController: mainVC),userInfoVC], animated: false)
             tbc.selectedIndex = 1
             
           
-            window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+            window?.rootViewController = tbc
         default:
             let rootViewController = LoginViewController()
             rootViewController.bind(vm: loginVM)
