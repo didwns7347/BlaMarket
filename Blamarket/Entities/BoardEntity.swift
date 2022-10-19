@@ -16,7 +16,7 @@ struct BoardNetworkEntity<R:Decodable> : Decodable,Entity{
     
 }
 
-struct BoardEntity : Decodable{
+struct PostEntity : Decodable{
     let id: Int
     let title : String
     let content : String

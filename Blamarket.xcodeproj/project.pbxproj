@@ -26,6 +26,15 @@
 		9B24BE8A28E3D8D600EB26BB /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B24BE8928E3D8D600EB26BB /* PostModel.swift */; };
 		9B2A269F28F6A4150041B96D /* KeychinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A269E28F6A4150041B96D /* KeychinManager.swift */; };
 		9B2A26A128F6A5280041B96D /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A26A028F6A5280041B96D /* LogManager.swift */; };
+		9B39D13528FF7D73009F4267 /* CommonToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B39D13428FF7D73009F4267 /* CommonToolbar.swift */; };
+		9B39D14328FFB78F009F4267 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B39D14228FFB78F009F4267 /* ChatListViewController.swift */; };
+		9B39D14528FFB79F009F4267 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B39D14428FFB79F009F4267 /* ChatListViewModel.swift */; };
+		9B39D14728FFB7AB009F4267 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B39D14628FFB7AB009F4267 /* UserInfoViewController.swift */; };
+		9B39D14928FFB7B7009F4267 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B39D14828FFB7B7009F4267 /* UserInfoViewModel.swift */; };
+		9B39D15028FFBB27009F4267 /* 011-user.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B39D14F28FFBB27009F4267 /* 011-user.png */; };
+		9B39D15228FFBB2F009F4267 /* 047-house.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B39D15128FFBB2F009F4267 /* 047-house.png */; };
+		9B39D15428FFBB39009F4267 /* 098-message.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B39D15328FFBB39009F4267 /* 098-message.png */; };
+		9B39D15628FFC140009F4267 /* UIImage + .swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B39D15528FFC140009F4267 /* UIImage + .swift */; };
 		9B3B723428E2CCD600A76984 /* PostEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B723328E2CCD600A76984 /* PostEndPoint.swift */; };
 		9B5E43DE28D2EE020020908F /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E43DD28D2EE020020908F /* Data+.swift */; };
 		9B5E43E128D31C850020908F /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E43E028D31C850020908F /* PostCell.swift */; };
@@ -86,6 +95,15 @@
 		9B24BE8928E3D8D600EB26BB /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		9B2A269E28F6A4150041B96D /* KeychinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychinManager.swift; sourceTree = "<group>"; };
 		9B2A26A028F6A5280041B96D /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		9B39D13428FF7D73009F4267 /* CommonToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonToolbar.swift; sourceTree = "<group>"; };
+		9B39D14228FFB78F009F4267 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
+		9B39D14428FFB79F009F4267 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
+		9B39D14628FFB7AB009F4267 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		9B39D14828FFB7B7009F4267 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
+		9B39D14F28FFBB27009F4267 /* 011-user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "011-user.png"; sourceTree = "<group>"; };
+		9B39D15128FFBB2F009F4267 /* 047-house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "047-house.png"; sourceTree = "<group>"; };
+		9B39D15328FFBB39009F4267 /* 098-message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "098-message.png"; sourceTree = "<group>"; };
+		9B39D15528FFC140009F4267 /* UIImage + .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + .swift"; sourceTree = "<group>"; };
 		9B3B723328E2CCD600A76984 /* PostEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEndPoint.swift; sourceTree = "<group>"; };
 		9B5E43DD28D2EE020020908F /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		9B5E43E028D31C850020908F /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
@@ -172,6 +190,7 @@
 		9B1047D628F947C600760E08 /* ToolbarView */ = {
 			isa = PBXGroup;
 			children = (
+				9B39D13428FF7D73009F4267 /* CommonToolbar.swift */,
 			);
 			path = ToolbarView;
 			sourceTree = "<group>";
@@ -252,6 +271,34 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		9B39D14028FFB760009F4267 /* ChatScene */ = {
+			isa = PBXGroup;
+			children = (
+				9B39D14228FFB78F009F4267 /* ChatListViewController.swift */,
+				9B39D14428FFB79F009F4267 /* ChatListViewModel.swift */,
+			);
+			path = ChatScene;
+			sourceTree = "<group>";
+		};
+		9B39D14128FFB76C009F4267 /* UserInfoScene */ = {
+			isa = PBXGroup;
+			children = (
+				9B39D14628FFB7AB009F4267 /* UserInfoViewController.swift */,
+				9B39D14828FFB7B7009F4267 /* UserInfoViewModel.swift */,
+			);
+			path = UserInfoScene;
+			sourceTree = "<group>";
+		};
+		9B39D14A28FFBA92009F4267 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				9B39D14F28FFBB27009F4267 /* 011-user.png */,
+				9B39D15128FFBB2F009F4267 /* 047-house.png */,
+				9B39D15328FFBB39009F4267 /* 098-message.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
 		9B5E43DF28D31C670020908F /* PostsScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +336,7 @@
 		9B725DD128B46D7A002F8BA3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9B39D14A28FFBA92009F4267 /* icons */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -322,6 +370,7 @@
 				9BE2006B28BF4AD000866D73 /* String+.swift */,
 				9B5E43DD28D2EE020020908F /* Data+.swift */,
 				9B10605228DC472600CB9A60 /* Reactive + .swift */,
+				9B39D15528FFC140009F4267 /* UIImage + .swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -438,6 +487,8 @@
 		9BE2006528BF25D200866D73 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				9B39D14128FFB76C009F4267 /* UserInfoScene */,
+				9B39D14028FFB760009F4267 /* ChatScene */,
 				9B1047D628F947C600760E08 /* ToolbarView */,
 				9B12F7B128D82A2100207003 /* RegistItemScene */,
 				9B5E43DF28D31C670020908F /* PostsScene */,
@@ -510,6 +561,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B6AFBDF28FD372A0024597B /* MainTableViewCell.xib in Resources */,
+				9B39D15228FFBB2F009F4267 /* 047-house.png in Resources */,
+				9B39D15028FFBB27009F4267 /* 011-user.png in Resources */,
+				9B39D15428FFBB39009F4267 /* 098-message.png in Resources */,
 				9B8DB23828ACA03100E14443 /* LaunchScreen.storyboard in Resources */,
 				9B8DB23528ACA03100E14443 /* Assets.xcassets in Resources */,
 			);
@@ -568,18 +622,21 @@
 				9B24BE8A28E3D8D600EB26BB /* PostModel.swift in Sources */,
 				9BE2006028BF19C700866D73 /* EmailAuthViewController.swift in Sources */,
 				9B77FE3528B5B543000CF701 /* Responsable.swift in Sources */,
+				9B39D14328FFB78F009F4267 /* ChatListViewController.swift in Sources */,
 				9B6CF9BC28AF262E007FC2AD /* UserConst.swift in Sources */,
 				9B6CF9BF28AF2907007FC2AD /* RegistViewController.swift in Sources */,
 				9B2A26A128F6A5280041B96D /* LogManager.swift in Sources */,
 				9B6AFBE328FD3F0F0024597B /* BoardEntity.swift in Sources */,
 				9B10605128DC45CD00CB9A60 /* RxUITextViewDelegateProxy.swift in Sources */,
 				9B68908428AF13D1001C109E /* PasswordResetViewController.swift in Sources */,
+				9B39D13528FF7D73009F4267 /* CommonToolbar.swift in Sources */,
 				9BE2006228BF19D800866D73 /* EmailAuthViewModel.swift in Sources */,
 				9B12F7B728D8393200207003 /* ItemImageCollecteionViewCell.swift in Sources */,
 				9B10604928DC346800CB9A60 /* CategoryListViewController.swift in Sources */,
 				9B10604828DC346800CB9A60 /* CategoryViewModel.swift in Sources */,
 				9B77FE3B28B5B834000CF701 /* Provider.swift in Sources */,
 				9B5EF32028B6FE83006D0AB8 /* NetworkProviderImpl.swift in Sources */,
+				9B39D14528FFB79F009F4267 /* ChatListViewModel.swift in Sources */,
 				9B3B723428E2CCD600A76984 /* PostEndPoint.swift in Sources */,
 				9B77FE4528B5FF76000CF701 /* LoginModel.swift in Sources */,
 				9B8DB23328ACA03000E14443 /* Blamarket.xcdatamodeld in Sources */,
@@ -594,10 +651,12 @@
 				9B6AFBE128FD3AB10024597B /* MainTableView.swift in Sources */,
 				9B77FE3D28B5BEA5000CF701 /* Sessionable.swift in Sources */,
 				9B12F7B528D82A4B00207003 /* RegistItemViewModel.swift in Sources */,
+				9B39D15628FFC140009F4267 /* UIImage + .swift in Sources */,
 				9B8DB22B28ACA03000E14443 /* SceneDelegate.swift in Sources */,
 				9B2A269F28F6A4150041B96D /* KeychinManager.swift in Sources */,
 				9B10604328DC33F900CB9A60 /* DetailWriteFormCell.swift in Sources */,
 				9B10603F28DC33AF00CB9A60 /* PriceTextFieldCellViewModel.swift in Sources */,
+				9B39D14728FFB7AB009F4267 /* UserInfoViewController.swift in Sources */,
 				9B10603A28DC337200CB9A60 /* TitleTextFieldCell.swift in Sources */,
 				9B10603928DC337200CB9A60 /* TitleTextFieldCellViewModel.swift in Sources */,
 				9B6B3CE128D069FE00F79D57 /* RegisterModel.swift in Sources */,
@@ -605,6 +664,7 @@
 				9B10603E28DC33AF00CB9A60 /* PriceTextFieldCell.swift in Sources */,
 				9B725DD628B49C2C002F8BA3 /* LoginViewController.swift in Sources */,
 				9B77FE3028B5AF2F000CF701 /* Requestable.swift in Sources */,
+				9B39D14928FFB7B7009F4267 /* UserInfoViewModel.swift in Sources */,
 				9B77FE3328B5B121000CF701 /* Encodable +.swift in Sources */,
 				9B6AFBDE28FD372A0024597B /* MainTableViewCell.swift in Sources */,
 				9B10604C28DC34FE00CB9A60 /* RegisterItemModel.swift in Sources */,

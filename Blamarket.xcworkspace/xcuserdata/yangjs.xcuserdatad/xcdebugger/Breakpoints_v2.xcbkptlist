@@ -55,16 +55,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CE1D10C7-C978-488E-9B5C-BE553C673E05"
+            uuid = "6B292465-E757-43AB-A40C-185806EF6A4B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Blamarket/Scenes/MainScene/MainTableViewCell.swift"
+            filePath = "Blamarket/Scenes/MainScene/MainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "configCell(model:row:)"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "attribute()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

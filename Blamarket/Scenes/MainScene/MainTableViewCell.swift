@@ -25,7 +25,7 @@ class MainTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configCell(model:BoardEntity , row:Int ){
+    func configCell(model:PostEntity , row:Int ){
         log.debug("row = \(row)")
         guard let imageURL = URL(string: model.thumbnail) else {
             log.debug("Thumnail URL Invalied")

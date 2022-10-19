@@ -13,7 +13,7 @@ import SnapKit
 class MainViewController : UIViewController{
     let bag = DisposeBag()
     //test observable
-    let observable = Observable.of([BoardEntity(id: 1, title: "test", content: "testContent", thumbnail: "https://images.punkapi.com/v2/2.png", price: "10000원", createDate: "2022-10-17", usedDate: "3개월", viewCount: "111")])
+    let observable = Observable.of([PostEntity(id: 1, title: "test", content: "testContent", thumbnail: "https://images.punkapi.com/v2/2.png", price: "10000원", createDate: "2022-10-17", usedDate: "3개월", viewCount: "111")])
     
     let tableview = UITableView()
 
@@ -50,11 +50,11 @@ private extension MainViewController{
         self.title = UserDefaults.standard.string(forKey: UserConst.Company) ?? "게시판"
         self.navigationItem.hidesBackButton = true
         self.navigationItem.rightBarButtonItem = self.createButton
-        self.navigationController?.isToolbarHidden = false
+//        self.navigationController?.isToolbarHidden = false
         
         let nibName = UINib(nibName: "MainTableViewCell", bundle: nil)
         self.tableview.register(nibName, forCellReuseIdentifier: "mainCell")
-        
+        setToolbar()
         
     }
     
@@ -71,6 +71,18 @@ private extension MainViewController{
         }
     }
     
+    func setToolbar(){
+        self.navigationController?.isToolbarHidden = false
 
+        var items = [UIBarButtonItem]()
+
+        items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
+        items.append( UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add)) ) // replace add with your function
+
+        self.toolbarItems = items // this made the difference. setting the items to the controller, not the navigationcontroller
+    }
+    @objc func add(){
+        print("add")
+    }
 
 }
