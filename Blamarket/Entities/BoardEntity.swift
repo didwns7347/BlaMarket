@@ -8,7 +8,7 @@
 import Foundation
 
 // -MARK: 유저 공통 Response데이터 모델
-struct BoardNetworkEntity<R:Decodable> : Decodable,Entity{
+struct PostNetworkEntity<R:Decodable> : Decodable,Entity{
     typealias Item = R
     let status : Int
     let message : String

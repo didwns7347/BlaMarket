@@ -32,7 +32,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let mainVC = MainViewController()
             mainVC.bind(vm: mainVM)
-            
             let chatVC = ChatListViewController()
             let userInfoVC = UserInfoViewConroller()
             
@@ -96,7 +95,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate{
     func selectMainView() -> MainVC{
         #if DEBUG
-        return MainVC.boardVC
+        return MainVC.loginVC
         #endif
         if isAutoLoginAvailable(){
             return MainVC.boardVC

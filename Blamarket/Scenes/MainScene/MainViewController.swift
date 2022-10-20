@@ -33,6 +33,8 @@ class MainViewController : UIViewController{
     }
     
     func bind(vm: MainViewModel){
+        vm.loadFirstPage.onNext(())
+        
         observable.bind(to: self.tableview.rx.items(cellIdentifier: "mainCell",cellType: MainTableViewCell.self)){ (row, model, cell) in
             cell.configCell(model: model,row: row)
         }.disposed(by: bag)
@@ -40,6 +42,19 @@ class MainViewController : UIViewController{
         self.tableview.rx.itemSelected.subscribe(onNext:{
             self.tableview.deselectRow(at: $0, animated: true)
         }).disposed(by: bag)
+        
+        tableview.rx.didScroll.subscribe { [weak self] _ in
+                    guard let self = self else { return }
+                    let offSetY = self.tableview.contentOffset.y
+                    let contentHeight = self.tableview.contentSize.height
+
+                    if offSetY > (contentHeight - self.tableview.frame.size.height - 100) {
+                        vm.loadMorePost.onNext(())
+                    }
+                }
+                .disposed(by: bag)
+        
+      
     }
     
     

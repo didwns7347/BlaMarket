@@ -10,8 +10,26 @@ import UIKit
 import RxSwift
 import RxAlamofire
 import Alamofire
+
+
 struct PostEndPoint{
     static let boundary = "Boundary-\(UUID().uuidString)"
+    
+    static func getPosts(category: Category? = nil, keyword:String? = nil, page:Int)->Endpoint<PostNetworkEntity<[PostEntity]>>{
+        let companyId = UserDefaults.standard.string(forKey: UserConst.Company) ?? ""
+        let body = PostsRequestBody(category: category?.name ?? "", search: keyword ?? "", page: page)
+        return Endpoint(baseURL:PostConst.POST_SERVER_URL,
+                        path:"/post/view",
+                        method: .get,
+                        queryParameters: nil,
+                        bodyParameters: body,
+                        headers: nil,
+                        sampleData: nil
+
+                        )
+        
+    }
+    
     static func post(postModel:PostModel,images:[UIImage])->Endpoint<CommonResultData>{
       
         let parameters = ["title":postModel.title,

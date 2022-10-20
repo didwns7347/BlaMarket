@@ -57,3 +57,10 @@ class PostModel{
     
     
 }
+
+
+struct PostsRequestBody : Encodable{
+    let category :String
+    let search: String
+    let page : Int
+}
