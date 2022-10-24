@@ -16,16 +16,35 @@ class MainViewController : UIViewController{
     let observable = Observable.of([PostEntity(id: 1, title: "test", content: "testContent", thumbnail: "https://images.punkapi.com/v2/2.png", price: "10000원", createDate: "2022-10-17", usedDate: "3개월", viewCount: "111")])
     
     let tableview = UITableView()
-
+    var searchVC : SearchPostsViewController?
+    var categorySelectVC : CategorySelectViewController?
+    
     lazy var createButton : UIBarButtonItem  = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
         return UIBarButtonItem(customView: button)
     }()
+    
+    lazy var selectCategoryButton : UIBarButtonItem  = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "list.dash"), for: .normal)
+        button.addTarget(self, action: #selector(selectCategoryButtonTapped), for: .touchUpInside)
+        return UIBarButtonItem(customView: button)
+    }()
+    
+    lazy var searchButton : UIBarButtonItem = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        button.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
+        return UIBarButtonItem(customView: button)
+    }()
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         attribute()
         layout()
+  
     }
     
     required init?(coder: NSCoder) {
@@ -60,11 +79,32 @@ class MainViewController : UIViewController{
     
 }
 private extension MainViewController{
+    @objc func selectCategoryButtonTapped(){
+        self.categorySelectVC = CategorySelectViewController()
+        let vm = CategorySelectViewModel()
+        categorySelectVC?.bind(vm: vm)
+        self.show(categorySelectVC!, sender: self)
+    }
+    
+    
+    @objc func searchButtonTapped(){
+        self.searchVC = SearchPostsViewController()
+        let vm = SearchPostsViewModel()
+        self.show(searchVC!, sender: self)
+    }
+    
+    @objc func createButtonTapped(){
+        let vc = RegistItemViewController()
+        let vm = RegistItemViewModel()
+        vc.bind(viewModel: vm)
+        self.show(vc, sender: self)
+    }
+    
     func attribute(){
         view.backgroundColor = .systemBackground
         self.title = UserDefaults.standard.string(forKey: UserConst.Company) ?? "게시판"
         self.navigationItem.hidesBackButton = true
-        self.navigationItem.rightBarButtonItem = self.createButton
+        self.navigationItem.rightBarButtonItems = [self.createButton,self.searchButton,self.selectCategoryButton]
 
         
         let nibName = UINib(nibName: "MainTableViewCell", bundle: nil)

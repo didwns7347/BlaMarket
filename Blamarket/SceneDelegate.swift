@@ -95,7 +95,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate{
     func selectMainView() -> MainVC{
         #if DEBUG
-        return MainVC.loginVC
+        return MainVC.boardVC
         #endif
         if isAutoLoginAvailable(){
             return MainVC.boardVC
