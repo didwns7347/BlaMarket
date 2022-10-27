@@ -105,6 +105,7 @@ class RegistItemViewController : UIViewController{
         submitButton.rx.tap
             .bind(to:viewModel.submitButtonTapped)
             .disposed(by: disposeBag)
+        
         viewModel.imageListDrive
             .drive(collectionView.rx.items(cellIdentifier: ItemImageCollectionViewCell.id, cellType: ItemImageCollectionViewCell.self)){ index, provider, cell in
                 cell.configCell(provider: provider, row: index)
@@ -124,6 +125,10 @@ class RegistItemViewController : UIViewController{
         
         self.imageListSubject
             .bind(to: viewModel.imageListSubject)
+            .disposed(by: disposeBag)
+        self.imageListSubject.map { list in
+            return list.compactMap{$0}
+        }.bind(to: viewModel.selectedImages)
             .disposed(by: disposeBag)
             
         

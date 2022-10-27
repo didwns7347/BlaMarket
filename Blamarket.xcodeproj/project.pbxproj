@@ -68,6 +68,10 @@
 		9B8DB23528ACA03100E14443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B8DB23428ACA03100E14443 /* Assets.xcassets */; };
 		9B8DB23828ACA03100E14443 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B8DB23628ACA03100E14443 /* LaunchScreen.storyboard */; };
 		9B8DB24B28ACA45000E14443 /* LoginVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB24A28ACA45000E14443 /* LoginVIewModel.swift */; };
+		9B9ADA9A2907CC9D00014765 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9ADA992907CC9D00014765 /* CoreDataStorage.swift */; };
+		9B9ADA9C2907CF2600014765 /* SerchRecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9ADA9B2907CF2600014765 /* SerchRecode.swift */; };
+		9BAA7186290A1D310052506C /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA7184290A1D310052506C /* SearchTableViewCell.swift */; };
+		9BAA7187290A1D310052506C /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAA7185290A1D310052506C /* SearchTableViewCell.xib */; };
 		9BE2006028BF19C700866D73 /* EmailAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2005F28BF19C700866D73 /* EmailAuthViewController.swift */; };
 		9BE2006228BF19D800866D73 /* EmailAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2006128BF19D800866D73 /* EmailAuthViewModel.swift */; };
 		9BE2006828BF261C00866D73 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2006728BF261C00866D73 /* UIViewController+.swift */; };
@@ -157,6 +161,10 @@
 		9B8DB23928ACA03100E14443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B8DB24828ACA15600E14443 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9B8DB24A28ACA45000E14443 /* LoginVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVIewModel.swift; sourceTree = "<group>"; };
+		9B9ADA992907CC9D00014765 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		9B9ADA9B2907CF2600014765 /* SerchRecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerchRecode.swift; sourceTree = "<group>"; };
+		9BAA7184290A1D310052506C /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		9BAA7185290A1D310052506C /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		9BE2005F28BF19C700866D73 /* EmailAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthViewController.swift; sourceTree = "<group>"; };
 		9BE2006128BF19D800866D73 /* EmailAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthViewModel.swift; sourceTree = "<group>"; };
 		9BE2006728BF261C00866D73 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
@@ -357,7 +365,6 @@
 			children = (
 				9B6CF9BB28AF262E007FC2AD /* UserConst.swift */,
 				9B74AFB02900D7AA00864950 /* PostConst.swift */,
-				9B0A7B9728ACE6DA00EA95FB /* Network */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -429,6 +436,7 @@
 				9B10604D28DC394C00CB9A60 /* Category.swift */,
 				9B77FE3F28B5C4BA000CF701 /* UserNetworkEntitiy.swift */,
 				9B6AFBE228FD3F0F0024597B /* BoardEntity.swift */,
+				9B9ADA9B2907CF2600014765 /* SerchRecode.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -475,6 +483,8 @@
 		9B8DB22728ACA03000E14443 /* Blamarket */ = {
 			isa = PBXGroup;
 			children = (
+				9B0A7B9728ACE6DA00EA95FB /* Network */,
+				9B9ADA982907CC2F00014765 /* CoreDataService */,
 				9B2A269C28F6A4010041B96D /* Manager */,
 				9B8DB22828ACA03000E14443 /* AppDelegate.swift */,
 				9B8DB22A28ACA03000E14443 /* SceneDelegate.swift */,
@@ -500,6 +510,14 @@
 				9B8DB24A28ACA45000E14443 /* LoginVIewModel.swift */,
 			);
 			path = LoginScene;
+			sourceTree = "<group>";
+		};
+		9B9ADA982907CC2F00014765 /* CoreDataService */ = {
+			isa = PBXGroup;
+			children = (
+				9B9ADA992907CC9D00014765 /* CoreDataStorage.swift */,
+			);
+			path = CoreDataService;
 			sourceTree = "<group>";
 		};
 		9BE2006328BF19DD00866D73 /* EmailAuthScene */ = {
@@ -544,6 +562,8 @@
 			children = (
 				9BF418362902298C00F35963 /* SearchPostsViewController.swift */,
 				9BF418382902299900F35963 /* SearchPostsViewModel.swift */,
+				9BAA7184290A1D310052506C /* SearchTableViewCell.swift */,
+				9BAA7185290A1D310052506C /* SearchTableViewCell.xib */,
 			);
 			path = SearchScene;
 			sourceTree = "<group>";
@@ -655,6 +675,7 @@
 				9BF4185929065B8900F35963 /* manClothing.png in Resources */,
 				9B39D15228FFBB2F009F4267 /* 047-house.png in Resources */,
 				9B39D15028FFBB27009F4267 /* 011-user.png in Resources */,
+				9BAA7187290A1D310052506C /* SearchTableViewCell.xib in Resources */,
 				9B39D15428FFBB39009F4267 /* 098-message.png in Resources */,
 				9BF4186029065FBF00F35963 /* life.png in Resources */,
 				9BF4185429065B8900F35963 /* home.png in Resources */,
@@ -750,6 +771,7 @@
 				9B77FE3728B5B6E3000CF701 /* HttpMethod.swift in Sources */,
 				9B5E43E128D31C850020908F /* PostCell.swift in Sources */,
 				9B8DB24B28ACA45000E14443 /* LoginVIewModel.swift in Sources */,
+				9B9ADA9C2907CF2600014765 /* SerchRecode.swift in Sources */,
 				9B77FE3D28B5BEA5000CF701 /* Sessionable.swift in Sources */,
 				9B12F7B528D82A4B00207003 /* RegistItemViewModel.swift in Sources */,
 				9B39D15628FFC140009F4267 /* UIImage + .swift in Sources */,
@@ -772,7 +794,9 @@
 				9BF418392902299900F35963 /* SearchPostsViewModel.swift in Sources */,
 				9B6AFBDE28FD372A0024597B /* MainTableViewCell.swift in Sources */,
 				9B10604C28DC34FE00CB9A60 /* RegisterItemModel.swift in Sources */,
+				9B9ADA9A2907CC9D00014765 /* CoreDataStorage.swift in Sources */,
 				9B77FE2C28B5AD19000CF701 /* NetworkError.swift in Sources */,
+				9BAA7186290A1D310052506C /* SearchTableViewCell.swift in Sources */,
 				9BE2006828BF261C00866D73 /* UIViewController+.swift in Sources */,
 				9B68908628AF13EC001C109E /* PasswordResetViewModel.swift in Sources */,
 				9B10605328DC472600CB9A60 /* Reactive + .swift in Sources */,

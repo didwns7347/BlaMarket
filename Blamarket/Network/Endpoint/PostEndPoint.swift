@@ -14,18 +14,30 @@ import Alamofire
 
 struct PostEndPoint{
     static let boundary = "Boundary-\(UUID().uuidString)"
+    #if DEBUG
+    static let authorization = "Bearer eyJraWQiOiJrZXkyIiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJ0ZXN0MUBuYXZlci5jb20iLCJpYXQiOjE2NjY3Njg4MjAsImV4cCI6MTY2Njc3NDgyMH0.v7Tdp6jcWIF_GwrO0SKpxMsATDuBR86XsjCPijVnrcoqnUg3Cf4jsKCit_c5fGgKtCeYyP0b1Zq8zwr-RX12sA"
+    static let authKey = "JWT-AUTHENTICATION"
+    #endif
     
     static func getPosts(category: Category? = nil, keyword:String? = nil, page:Int)->Endpoint<PostNetworkEntity<[PostEntity]>>{
         let companyId = UserDefaults.standard.string(forKey: UserConst.Company) ?? ""
-        let body = PostsRequestBody(category: category?.name ?? "", search: keyword ?? "", page: page)
+        let query = PostsRequestBody(category: category?.name ?? "", search: keyword ?? "", page: page)
+        var param = [String:String]()
+//        if category != nil{
+//            param["category"] = category?.name
+//        }
+//        if keyword != nil {
+//            param["keyword"] = keyword
+//        }
+//        param["page"] = page
+        
         return Endpoint(baseURL:PostConst.POST_SERVER_URL,
                         path:"/post/view",
                         method: .get,
-                        queryParameters: nil,
-                        bodyParameters: body,
-                        headers: nil,
+                        queryParameters: [ "page":"\(query.page)"],
+                        bodyParameters: nil,
+                        headers: ["JWT-AUTHENTICATION":authorization],
                         sampleData: nil
-
                         )
         
     }
@@ -39,12 +51,13 @@ struct PostEndPoint{
                           "email":UserDefaults.standard.string(forKey: "email") ?? "didwns7347@naver.com"
                         ]
         let body = createBody(parameters: parameters as [String : Any], images: images, boundary: PostEndPoint.boundary)
-        return Endpoint(baseURL: UserConst.USER_SERVER_URL,
+        return Endpoint(baseURL: PostConst.POST_SERVER_URL,
                         path: "/post/write",
                         method: .post,
                         queryParameters: nil,
                         bodyParameters: body,
-                        headers: ["Content-Type":"multipart/form-data; boundary\(PostEndPoint.boundary)"
+                        headers: ["Content-Type":"multipart/form-data; boundary=\(PostEndPoint.boundary)",
+                                  authKey:authorization
                                   ],
                         sampleData: nil
         )
@@ -72,7 +85,7 @@ struct PostEndPoint{
         
 
         body.append(boundaryPrefix.data(using: .utf8)!)
-        
+        print(String(data: body, encoding: .utf8))
         return body
     }
     

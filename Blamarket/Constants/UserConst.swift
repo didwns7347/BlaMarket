@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 struct UserConst{
-    static let USER_SERVER_URL = "http://121.140.253.36:28080/blamarket-0.0.1-SNAPSHOT-plain"
+    static let USER_SERVER_URL = "http://112.171.104.87:28080/blamarket-0.0.1-SNAPSHOT-plain"
     static let ID_REGEX = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     static let PW_REGEX =  "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8}"
     static let ID_INPUT_ERROR = "근무중인 회사 이메일 주소를 입력해 주세요"

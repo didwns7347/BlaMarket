@@ -27,6 +27,7 @@ class PostModel{
     }
     
     private func loadImages(providers : [NSItemProvider] ){
+         print("LOAD IMAGES CALLED")
         var images = [UIImage]()
         for provider in providers {
             if provider.canLoadObject(ofClass: UIImage.self){

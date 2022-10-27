@@ -25,11 +25,32 @@ class NetworkProvider : Provider{
     
     //endPoint 와 Response가 같은경우 -> 파싱할데이터를 endPoint파라메터를 통해 주입받음.
     func request<R:Decodable, E: RequestResponsable>(with endPoint: E) -> Single<Result<R, Error>>  where E.Response == R {
-    
         guard var requset = try? endPoint.getUrlRequest() else {
             return .just(.failure(NetworkError.urlError))
         }
-        requset.timeoutInterval = TimeInterval(300)
+        
+        
+        let result = session.rx.response(request: requset)
+            .map(checkError)
+            .map{ result -> Result<R,Error> in
+                switch result{
+                case .success(let data):
+                    return self.decode(data: data)
+                case.failure(let error):
+                    return .failure(error)
+                }
+            }
+            .asSingle()
+        //result.catchErrorJustReturn(Result.)
+    
+        return result
+    }
+    
+    func multipartRequest<R:Decodable, E: RequestResponsable>(with endPoint: E) -> Single<Result<R, Error>>  where E.Response == R {
+        guard var requset = try? endPoint.getMultipartRequest() else {
+            return .just(.failure(NetworkError.urlError))
+        }
+        
         
         let result = session.rx.response(request: requset)
             .map(checkError)
@@ -49,6 +70,7 @@ class NetworkProvider : Provider{
     private func checkError(with response: HTTPURLResponse, _ data: Data)->Result<Data,Error>{
         #if DEBUG
         print("responseData = \n\(data.prettyPrintedJSONString ?? "FAILED")")
+        print(response.headers.value(for: "JWT-AUTHENTICATION"))
         #endif
         guard (200...299).contains(response.statusCode) else{
             return .failure(NetworkError.invalidHttpStatusCode(response.statusCode))

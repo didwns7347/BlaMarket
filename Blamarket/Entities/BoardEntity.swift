@@ -21,14 +21,15 @@ struct PostEntity : Decodable{
     let title : String
     let content : String
     let thumbnail : String
-    let price : String
+    let price : Int
     let createDate : String
-    let usedDate : String
-    let viewCount : String
+    let usedDate : String?
+    let viewCount : String?
     
     enum CodingKeys: String,CodingKey{
-        case id,title,content,thumbnail,price,usedDate
+        case id,title,content,thumbnail,price
         case createDate = "date"
-        case viewCount = "viewCnt"
+        case viewCount = "view_count"
+        case usedDate = "used_date"
     }
 }

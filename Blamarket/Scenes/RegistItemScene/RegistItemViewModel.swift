@@ -32,7 +32,7 @@ final class RegistItemViewModel{
     let selectedImages = BehaviorSubject<[NSItemProvider]>(value: [])
     let imageLoadedCompleted = PublishSubject<[UIImage]>()
     
-   
+    
     init(){
         let title = Observable.just("글 제목")
         let categoryViewModel = CategoryViewModel()
@@ -88,35 +88,68 @@ final class RegistItemViewModel{
             .asDriver(onErrorDriveWith: .empty())
         
         imageListDrive = imageListSubject.asDriver(onErrorJustReturn: [nil])
-        
-        let postDatas = Observable.combineLatest(
+        let inputs = Observable.combineLatest(
             selectedImages,titleTextFieldCellViewModel.titleText, categoryViewModel.selectedCategory,
             priceTextFieldCellViewModel.priceValue, detailWriteFormCellViewModel.contentValue)
+        
+        
+        let postDatas = submitButtonTapped.withLatestFrom(inputs)
             .map{ [weak self] info -> PostModel in
                 //guard let self = self else{return}
                 let postModel = PostModel(title: info.1 ,
-                                      category: info.2.name,
-                                      contents: info.3,
-                                      imageProviders: info.0,
-                                      price: info.4)
+                                          category: info.2.name,
+                                          contents: info.3,
+                                          imageProviders: info.0,
+                                          price: info.4)
                 guard let self = self else { return postModel}
                 postModel.loadedImagesSubject.bind(to: self.imageLoadedCompleted).disposed(by: self.bag)
                 return postModel
             }
         
-       
-
         let  submitData = submitButtonTapped.withLatestFrom(Observable.combineLatest(postDatas,errorMsg))
             .filter{$0.1.isEmpty}
             .map{$0.0}
-//
+#if DEBUG
+        submitButtonTapped.subscribe { _ in
+            print("tapped")
+        }.disposed(by: bag)
+        
+        postDatas.subscribe(onNext: {data in
+            print(data)
+        }).disposed(by: bag)
+        
+        Observable.combineLatest(postDatas,errorMsg)
+            .subscribe(onNext:{print($0,$1)}).disposed(by: bag)
+        submitData.subscribe(onNext:{print("submitData = ",$0.providers.count)}).disposed(by: bag)
+        
+        selectedImages.subscribe(onNext:{
+            print($0.count)
+        }).disposed(by: bag)
+        
+        imageLoadedCompleted.subscribe(onNext:{img in
+            print(img.count)
+        }).disposed(by: bag)
+        
+        submitData.subscribe(onNext:{ model in
+            print("이게 머야 ^^ㅣ발아")
+            
+        }).disposed(by: bag)
+#endif
+        //
         let postItemResult = Observable.combineLatest(submitData,imageLoadedCompleted)
             .flatMap{ (postModel,images) -> Single<Result<CommonResultData,Error>> in
                 let endpoint = PostEndPoint.post(postModel: postModel , images: images)
                 let provider = NetworkProvider()
-                return provider.request(with: endpoint)
+                return provider.multipartRequest(with: endpoint)
             }.share()
-
+        postItemResult.subscribe(onNext: { result in
+            switch result{
+            case .success(let data):
+                print(data)
+            case .failure(let error):
+                print(error)
+            }
+        }).disposed(by: bag)
         
     }
     

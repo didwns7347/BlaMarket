@@ -54,6 +54,8 @@ class CategorySelectViewController: UIViewController{
         
         collectionView.rx.modelSelected(Category.self).subscribe(onNext:{category in
             print(category.name)
+            vm.catetorySubject.onNext(category)
+            self.navigationController?.popViewController(animated: true)
         }).disposed(by: bag)
     }
 }

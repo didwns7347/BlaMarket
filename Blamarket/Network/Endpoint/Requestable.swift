@@ -21,10 +21,13 @@ extension Requestable{
         let url = try url()
         var urlRequest = URLRequest(url: url)
         urlRequest.timeoutInterval = TimeInterval(1)
+        
         if let bodyParameters = try bodyParameters?.toDictionary(){
             if !bodyParameters.isEmpty{
                 urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: bodyParameters)
             }
+        }else{
+            print("nono")
         }
         
         urlRequest.httpMethod = method.rawValue
@@ -33,7 +36,19 @@ extension Requestable{
         
         return urlRequest
     }
-    
+    func getMultipartRequest() throws -> URLRequest{
+        let url = try url()
+        var urlRequest = URLRequest(url: url)
+        urlRequest.timeoutInterval = TimeInterval(1)
+        
+        urlRequest.httpBody = self.bodyParameters as? Data
+        
+        urlRequest.httpMethod = method.rawValue
+        
+        headers?.forEach{urlRequest.setValue($1, forHTTPHeaderField: $0)}
+        
+        return urlRequest
+    }
     func url() throws -> URL{
         let fullPath = "\(baseURL)\(path)"
         guard var urlComponets = URLComponents(string: fullPath) else {

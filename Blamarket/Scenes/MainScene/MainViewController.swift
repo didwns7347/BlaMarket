@@ -12,8 +12,9 @@ import SnapKit
 
 class MainViewController : UIViewController{
     let bag = DisposeBag()
+    let categorySelected = PublishSubject<Category>()
     //test observable
-    let observable = Observable.of([PostEntity(id: 1, title: "test", content: "testContent", thumbnail: "https://images.punkapi.com/v2/2.png", price: "10000원", createDate: "2022-10-17", usedDate: "3개월", viewCount: "111")])
+    let observable = Observable.of([PostEntity(id: 1, title: "test", content: "testContent", thumbnail: "https://images.punkapi.com/v2/2.png", price: 100000, createDate: "2022-10-17", usedDate: "3개월", viewCount: "111")])
     
     let tableview = UITableView()
     var searchVC : SearchPostsViewController?
@@ -54,7 +55,7 @@ class MainViewController : UIViewController{
     func bind(vm: MainViewModel){
         vm.loadFirstPage.onNext(())
         
-        observable.bind(to: self.tableview.rx.items(cellIdentifier: "mainCell",cellType: MainTableViewCell.self)){ (row, model, cell) in
+        vm.postList.bind(to: self.tableview.rx.items(cellIdentifier: "mainCell",cellType: MainTableViewCell.self)){ (row, model, cell) in
             cell.configCell(model: model,row: row)
         }.disposed(by: bag)
         
@@ -73,8 +74,17 @@ class MainViewController : UIViewController{
                 }
                 .disposed(by: bag)
         
+        self.categorySelected
+            .map{catetory in
+                return LoadParameter(pageNum: 0, category: catetory, keyword: nil)
+            }
+            .bind(to: vm.loadPostUsingParameter)
+            .disposed(by: bag)
+        
       
     }
+    
+    
     
     
 }
@@ -83,6 +93,7 @@ private extension MainViewController{
         self.categorySelectVC = CategorySelectViewController()
         let vm = CategorySelectViewModel()
         categorySelectVC?.bind(vm: vm)
+        vm.catetorySubject.bind(to: self.categorySelected).disposed(by: bag)
         self.show(categorySelectVC!, sender: self)
     }
     
@@ -90,6 +101,10 @@ private extension MainViewController{
     @objc func searchButtonTapped(){
         self.searchVC = SearchPostsViewController()
         let vm = SearchPostsViewModel()
+        searchVC?.bind(vm: vm)
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+//        출처: https://zeddios.tistory.com/29 [ZeddiOS:티스토리]
         self.show(searchVC!, sender: self)
     }
     
