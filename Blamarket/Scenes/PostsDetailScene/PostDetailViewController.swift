@@ -11,16 +11,7 @@ import RxCocoa
 import RxSwift
 
 class PostDetailViewController : UIViewController{
-    let collectionView : UICollectionView = {
-        var layout = UICollectionViewFlowLayout()
-//        layout.minimumLineSpacing = 10
-        layout.scrollDirection = .horizontal
-//        layout.sectionInset = .zero
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .systemBackground
-        
-        return collectionView
-    }()
+
     
     let photoSliderView = PhotoSliderView()
     
@@ -53,8 +44,7 @@ class PostDetailViewController : UIViewController{
 
 private extension PostDetailViewController{
     func attribute(){
-        let nibName = UINib(nibName: "ImageCollectionViewCell", bundle: nil)
-        self.collectionView.register(nibName, forCellWithReuseIdentifier: "imageCollectionViewCell")
+
         
     }
     

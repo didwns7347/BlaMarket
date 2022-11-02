@@ -67,8 +67,6 @@
 		9B8677602910EEBE00C1F8F6 /* FilterPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86775F2910EEBE00C1F8F6 /* FilterPostsViewController.swift */; };
 		9B8677622910EECB00C1F8F6 /* FilterPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8677612910EECB00C1F8F6 /* FilterPostsViewModel.swift */; };
 		9B8677662911080200C1F8F6 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8677652911080200C1F8F6 /* PostDetailViewController.swift */; };
-		9B867769291109E900C1F8F6 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B867767291109E900C1F8F6 /* ImageCollectionViewCell.swift */; };
-		9B86776A291109E900C1F8F6 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B867768291109E900C1F8F6 /* ImageCollectionViewCell.xib */; };
 		9B86776C29110D1800C1F8F6 /* PostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86776B29110D1800C1F8F6 /* PostDetailViewModel.swift */; };
 		9B86776E29110D4C00C1F8F6 /* PostDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86776D29110D4C00C1F8F6 /* PostDetailModel.swift */; };
 		9B8DB22928ACA03000E14443 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB22828ACA03000E14443 /* AppDelegate.swift */; };
@@ -166,8 +164,6 @@
 		9B86775F2910EEBE00C1F8F6 /* FilterPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPostsViewController.swift; sourceTree = "<group>"; };
 		9B8677612910EECB00C1F8F6 /* FilterPostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPostsViewModel.swift; sourceTree = "<group>"; };
 		9B8677652911080200C1F8F6 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
-		9B867767291109E900C1F8F6 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		9B867768291109E900C1F8F6 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		9B86776B29110D1800C1F8F6 /* PostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModel.swift; sourceTree = "<group>"; };
 		9B86776D29110D4C00C1F8F6 /* PostDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailModel.swift; sourceTree = "<group>"; };
 		9B8DB22528ACA03000E14443 /* Blamarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blamarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -504,8 +500,6 @@
 			children = (
 				9B4DE6D4291251A2005CD231 /* PhotoSlideView */,
 				9B8677652911080200C1F8F6 /* PostDetailViewController.swift */,
-				9B867767291109E900C1F8F6 /* ImageCollectionViewCell.swift */,
-				9B867768291109E900C1F8F6 /* ImageCollectionViewCell.xib */,
 				9B86776B29110D1800C1F8F6 /* PostDetailViewModel.swift */,
 			);
 			path = PostsDetailScene;
@@ -728,7 +722,6 @@
 				9B39D15228FFBB2F009F4267 /* 047-house.png in Resources */,
 				9B39D15028FFBB27009F4267 /* 011-user.png in Resources */,
 				9BAA7187290A1D310052506C /* SearchTableViewCell.xib in Resources */,
-				9B86776A291109E900C1F8F6 /* ImageCollectionViewCell.xib in Resources */,
 				9B39D15428FFBB39009F4267 /* 098-message.png in Resources */,
 				9BF4186029065FBF00F35963 /* life.png in Resources */,
 				9BF4185429065B8900F35963 /* home.png in Resources */,
@@ -846,7 +839,6 @@
 				9B725DD628B49C2C002F8BA3 /* LoginViewController.swift in Sources */,
 				9B77FE3028B5AF2F000CF701 /* Requestable.swift in Sources */,
 				9B39D14928FFB7B7009F4267 /* UserInfoViewModel.swift in Sources */,
-				9B867769291109E900C1F8F6 /* ImageCollectionViewCell.swift in Sources */,
 				9B77FE3328B5B121000CF701 /* Encodable +.swift in Sources */,
 				9BF418392902299900F35963 /* SearchPostsViewModel.swift in Sources */,
 				9B6AFBDE28FD372A0024597B /* MainTableViewCell.swift in Sources */,
