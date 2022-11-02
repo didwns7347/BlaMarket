@@ -26,5 +26,5 @@ struct CategorySelectViewModel{
         Category(id: 11, name: "기타", iconURL: "etc.png")]
     )
     
-    let catetorySubject = PublishSubject<Category>()
+
 }

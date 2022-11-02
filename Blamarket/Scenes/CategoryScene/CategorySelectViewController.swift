@@ -54,8 +54,10 @@ class CategorySelectViewController: UIViewController{
         
         collectionView.rx.modelSelected(Category.self).subscribe(onNext:{category in
             print(category.name)
-            vm.catetorySubject.onNext(category)
-            self.navigationController?.popViewController(animated: true)
+            let vm = FilterPostsviewModel(category: category, keyword: nil, selectedType: .category)
+            let vc = FilterPostsViewController()
+            vc.bind(vm: vm)
+            self.show(vc, sender: nil)
         }).disposed(by: bag)
     }
 }
@@ -66,8 +68,6 @@ private extension CategorySelectViewController{
         let nibName = UINib(nibName: "CategoryCollectionViewCell", bundle: nil)
         collectionView.register(nibName, forCellWithReuseIdentifier: "categoryCell")
         [collectionView,copyRightlabel].forEach{view.addSubview($0)}
-        
-        
     }
     
     func layout(){
