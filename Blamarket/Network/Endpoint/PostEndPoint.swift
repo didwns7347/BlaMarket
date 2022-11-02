@@ -15,7 +15,7 @@ import Alamofire
 struct PostEndPoint{
     static let boundary = "Boundary-\(UUID().uuidString)"
     #if DEBUG
-    static let authorization = "Bearer eyJraWQiOiJrZXkyIiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJ0ZXN0MUBuYXZlci5jb20iLCJpYXQiOjE2NjY3Njg4MjAsImV4cCI6MTY2Njc3NDgyMH0.v7Tdp6jcWIF_GwrO0SKpxMsATDuBR86XsjCPijVnrcoqnUg3Cf4jsKCit_c5fGgKtCeYyP0b1Zq8zwr-RX12sA"
+    static let authorization = "Bearer eyJraWQiOiJrZXkxIiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJ0ZXN0MUBuYXZlci5jb20iLCJpYXQiOjE2NjcxMzI2OTEsImV4cCI6MTY2NzczMjY5MX0.VVkiqFZvOHanCKFngUNtnBNr9EkIm4mKcMBXiIwn0qZZT4rXgjXXMVuOdoCrK2BzV5Rz_bR0ZhYHHeMd-pmthA"
     static let authKey = "JWT-AUTHENTICATION"
     #endif
     
@@ -34,7 +34,7 @@ struct PostEndPoint{
         return Endpoint(baseURL:PostConst.POST_SERVER_URL,
                         path:"/post/view",
                         method: .get,
-                        queryParameters: [ "page":"\(query.page)"],
+                        queryParameters: [ "page":"\(query.page)", "companyId":"1"],
                         bodyParameters: nil,
                         headers: ["JWT-AUTHENTICATION":authorization],
                         sampleData: nil
@@ -48,7 +48,8 @@ struct PostEndPoint{
                           "category":postModel.category,
                           "price":postModel.price,
                           "contents":postModel.contents ?? "빈 내용",
-                          "email":UserDefaults.standard.string(forKey: "email") ?? "didwns7347@naver.com"
+                          "email":UserDefaults.standard.string(forKey: "email") ?? "didwns7347@naver.com",
+                          "companyId":"1"
                         ]
         let body = createBody(parameters: parameters as [String : Any], images: images, boundary: PostEndPoint.boundary)
         return Endpoint(baseURL: PostConst.POST_SERVER_URL,
