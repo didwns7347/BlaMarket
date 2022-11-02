@@ -33,3 +33,17 @@ struct PostEntity : Decodable{
         case usedDate = "used_date"
     }
 }
+
+
+struct PostDetailEntity: Decodable{
+    let id : Int
+    let title: String
+    let images: [String]
+    let price : String
+    let date: String
+    let email: String
+    let viewCount:Int
+    let category: String
+    let wish:Bool
+    
+}

@@ -16,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var loginVM = LoginViewModel()
     var mainVM = MainViewModel()
+    let testVM = PostDetailViewModel()
     //TEST
     //var registVM = RegistItemViewModel()
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -46,8 +47,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
           
             window?.rootViewController = tbc
         default:
-            let rootViewController = LoginViewController()
-            rootViewController.bind(vm: loginVM)
+            let rootViewController = PostDetailViewController()
+            rootViewController.bind(vm: testVM)
             window?.rootViewController = UINavigationController(rootViewController: rootViewController)
         }
       
@@ -95,7 +96,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate{
     func selectMainView() -> MainVC{
         #if DEBUG
-        return MainVC.boardVC
+        return MainVC.testVC
         #endif
         if isAutoLoginAvailable(){
             return MainVC.boardVC
