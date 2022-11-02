@@ -46,20 +46,54 @@ class CoreDataStorage{
         return []
     }
     
+    
+    
     func deleteData(recode:SearchRecode?){
         guard let recode =  recode else{
             return
         }
+        
+        context.delete(recode)
         do{
-            try context.delete(recode)
-            do{
-                try context.save()
-            }catch{
-                print(error.localizedDescription)
-            }
+            try context.save()
         }catch{
             print(error.localizedDescription)
         }
     }
+    
 
+    
+    @discardableResult func searchAndDelete(keyword:String)->Bool{
+        let deleteRequest: NSFetchRequest<NSFetchRequestResult> = filteredRequest(keyword: keyword)
+        do {
+            if let results: [SearchRecode] = try context.fetch(deleteRequest) as? [SearchRecode] {
+                if results.count != 0 {
+                    context.delete(results[0])
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fatch: \(error), \(error.userInfo)")
+        }
+        do {
+            try context.save()
+            print("코어데이터 삭제 성공")
+            return true
+        } catch {
+            context.rollback()
+            print("실행 불가능 합니다")
+            return false
+        }
+        return false
+    }
+    fileprivate func filteredRequest(keyword: String) -> NSFetchRequest<NSFetchRequestResult> {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>(entityName: "SearchRecode")
+        fetchRequest.predicate = NSPredicate(format: "keyword = %@", "\(keyword)")
+        return fetchRequest
+    }
+    
+    
 }
+
+
+
+
