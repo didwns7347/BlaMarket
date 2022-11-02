@@ -15,17 +15,17 @@ class SearchPostsViewController: UIViewController{
     let reloadData = PublishSubject<Void>()
     var tableview : UITableView = {
         let tableview = UITableView()
- 
         return tableview
-        
     }()
     
     let searchBar : UISearchBar = {
         let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 330, height: 0))
         searchBar.placeholder = "Search User"
-    
+        
         return searchBar
     }()
+    
+
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -48,6 +48,18 @@ class SearchPostsViewController: UIViewController{
                 }
             }.disposed(by: bag)
         
+        self.tableview.rx.modelSelected(SearchRecode.self)
+            .bind(to: vm.recordListSelected)
+            .disposed(by: bag)
+        
+        self.tableview.rx.modelSelected(SearchRecode.self)
+            .subscribe (onNext:{ recode in
+                let vm = FilterPostsviewModel(category: nil, keyword: recode.keyword ?? "", selectedType: .keyword)
+                let vc = FilterPostsViewController()
+                vc.bind(vm: vm)
+                self.show(vc, sender: nil)
+            }).disposed(by: bag)
+        
         self.deleteRecode
             .bind(to: vm.recodeDeleteRequset)
             .disposed(by: bag)
@@ -56,10 +68,20 @@ class SearchPostsViewController: UIViewController{
         
         let keywordSelected = self.searchBar.rx.searchButtonClicked.withLatestFrom(self.searchBar.rx.text)
         
-        keywordSelected.subscribe(onNext:{
-            print($0)
-        }).disposed(by: bag)
+        keywordSelected
+            .compactMap{$0}
+            .subscribe(onNext:{
+                print($0)
+                let vm = FilterPostsviewModel(category: nil, keyword: $0, selectedType: .keyword)
+                let vc = FilterPostsViewController()
+                vc.bind(vm: vm)
+                self.show(vc, sender: nil)
+            }).disposed(by: bag)
         
+        keywordSelected
+            .compactMap{$0}
+            .bind(to: vm.keywordSelected)
+            .disposed(by: bag)
     }
     
     

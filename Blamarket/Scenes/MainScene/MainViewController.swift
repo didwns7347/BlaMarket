@@ -12,31 +12,28 @@ import SnapKit
 
 class MainViewController : UIViewController{
     let bag = DisposeBag()
-    let categorySelected = PublishSubject<Category>()
-    //test observable
-    let observable = Observable.of([PostEntity(id: 1, title: "test", content: "testContent", thumbnail: "https://images.punkapi.com/v2/2.png", price: 100000, createDate: "2022-10-17", usedDate: "3개월", viewCount: "111")])
+
     
     let tableview = UITableView()
-    var searchVC : SearchPostsViewController?
-    var categorySelectVC : CategorySelectViewController?
+
     
     lazy var createButton : UIBarButtonItem  = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.setImage(UIImage(systemName: "plus")?.imageResized(to: CGSizeMake(26, 22)), for: .normal)
         button.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
         return UIBarButtonItem(customView: button)
     }()
     
     lazy var selectCategoryButton : UIBarButtonItem  = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "list.dash"), for: .normal)
+        button.setImage(UIImage(systemName: "list.dash")?.imageResized(to: CGSizeMake(26, 22)), for: .normal)
         button.addTarget(self, action: #selector(selectCategoryButtonTapped), for: .touchUpInside)
         return UIBarButtonItem(customView: button)
     }()
     
     lazy var searchButton : UIBarButtonItem = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        button.setImage(UIImage(systemName: "magnifyingglass")?.imageResized(to: CGSizeMake(26, 22)), for: .normal)
         button.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
         return UIBarButtonItem(customView: button)
     }()
@@ -74,12 +71,7 @@ class MainViewController : UIViewController{
                 }
                 .disposed(by: bag)
         
-        self.categorySelected
-            .map{catetory in
-                return LoadParameter(pageNum: 0, category: catetory, keyword: nil)
-            }
-            .bind(to: vm.loadPostUsingParameter)
-            .disposed(by: bag)
+
         
       
     }
@@ -90,22 +82,23 @@ class MainViewController : UIViewController{
 }
 private extension MainViewController{
     @objc func selectCategoryButtonTapped(){
-        self.categorySelectVC = CategorySelectViewController()
+        let categorySelectVC = CategorySelectViewController()
         let vm = CategorySelectViewModel()
-        categorySelectVC?.bind(vm: vm)
-        vm.catetorySubject.bind(to: self.categorySelected).disposed(by: bag)
-        self.show(categorySelectVC!, sender: self)
+        categorySelectVC.bind(vm: vm)
+    
+        self.show(categorySelectVC, sender: self)
     }
     
     
     @objc func searchButtonTapped(){
-        self.searchVC = SearchPostsViewController()
+        let searchVC = SearchPostsViewController()
         let vm = SearchPostsViewModel()
-        searchVC?.bind(vm: vm)
+        searchVC.bind(vm: vm)
+        
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = backBarButtonItem
 //        출처: https://zeddios.tistory.com/29 [ZeddiOS:티스토리]
-        self.show(searchVC!, sender: self)
+        self.show(searchVC, sender: self)
     }
     
     @objc func createButtonTapped(){
@@ -117,7 +110,14 @@ private extension MainViewController{
     
     func attribute(){
         view.backgroundColor = .systemBackground
+        let attrs = [
+            NSAttributedString.Key.foregroundColor: UIColor.black,
+            NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 26)!
+        ]
+
+        UINavigationBar.appearance().titleTextAttributes = attrs
         self.title = UserDefaults.standard.string(forKey: UserConst.Company) ?? "게시판"
+        
         self.navigationItem.hidesBackButton = true
         self.navigationItem.rightBarButtonItems = [self.createButton,self.searchButton,self.selectCategoryButton]
 

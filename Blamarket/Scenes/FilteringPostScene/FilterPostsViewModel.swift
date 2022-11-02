@@ -1,49 +1,47 @@
 //
-//  MainViewModel.swift
+//  FilterPostsViewModel.swift
 //  Blamarket
 //
-//  Created by yangjs on 2022/08/24.
+//  Created by yangjs on 2022/11/01.
 //
 
 import Foundation
 import RxSwift
 import RxCocoa
-struct LoadParameter{
-    let pageNum: Int
-    let category: Category?
-    let keyword: String?
-    
+enum SelectedType{
+    case keyword
+    case category
 }
-class MainViewModel {
-    var currentPage = 1
-    var lastPage = 20
-    
+class FilterPostsviewModel{
     let bag = DisposeBag()
-    //테이블뷰 페이징 관련
+    
+    let selectedCategoary : Observable<Category>
+    let selectedKeyword : Observable<String>
+    
     let postList = BehaviorRelay<[PostEntity]>(value: [])
     let loadMorePost = PublishSubject<Void>()
     let loadFirstPage = PublishSubject<Void>()
     let loadList = PublishSubject<[PostEntity]>()
-    //페이지 로딩(파라메터로)
     let loadPostUsingParameter = PublishSubject<LoadParameter>()
     
-    init(){
-        bind()
-    }
-    
-    private func bind(){
+    let category : Category?
+    let keyword : String?
+    var currentPage = 1
+    init(category: Category? , keyword:String? , selectedType:SelectedType){
+        selectedCategoary = Observable.just(category).compactMap{$0}.share()
+        selectedKeyword = Observable.just(keyword).compactMap{$0}.share()
+        self.category = category
+        self.keyword = keyword
         //첫페이지
         loadFirstPage.subscribe{ [weak self] _ in
-            self?.getPosts(page: 1)
+            self?.getPosts(category: category,keyword: keyword,page: 1)
         }.disposed(by: bag)
         
         //그다음
         loadMorePost.subscribe{ [weak self] _ in
             guard let self else {return}
-            self.getPosts(page: self.currentPage)
+            self.getPosts(category: category,keyword: keyword,page: self.currentPage)
         }.disposed(by: bag)
-        
-    
         
         loadList.subscribe(onNext:{ loadedList in
             self.currentPage+=1
@@ -53,7 +51,7 @@ class MainViewModel {
             self.postList.accept(oldList+loadedList)
         }).disposed(by: bag)
         
-        
+    
     }
     
     private func getPosts(category:Category? = nil,keyword:String? = nil ,page:Int )  {

@@ -16,6 +16,9 @@ struct SearchPostsViewModel{
     let recodeDeleteRequset = PublishSubject<SearchRecode>()
     let bag = DisposeBag()
     
+    let keywordSelected = PublishSubject<String>()
+    let recordListSelected = PublishSubject<SearchRecode>()
+    
     init(){
         bind()
     }
@@ -27,9 +30,26 @@ struct SearchPostsViewModel{
         recodeDeleteRequset.subscribe(onNext: {recode in
             storage.deleteData(recode: recode)
         }).disposed(by: bag)
+        
+        keywordBind()
+    }
+    
+    func keywordBind(){
+        keywordSelected.subscribe(onNext:{
+            print($0)
+            saveKeyword(keyword: $0)
+        })
+        .disposed(by: bag)
+        
+//        recordListSelected.compactMap{$0.keyword}
+//            .bind(to: keywordSelected)ㅇㅇㅇ
+//            .disposed(by: bag)
     }
     
     func saveKeyword(keyword:String){
+        if storage.searchAndDelete(keyword: keyword){
+            print("\(keyword) is 중복 키워드")
+        }
         storage.saveData(data: keyword)
         requestLoadData.onNext(())
     }
