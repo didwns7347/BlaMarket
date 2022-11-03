@@ -11,7 +11,6 @@ import RxSwift
 import RxAlamofire
 import Alamofire
 
-
 struct PostEndPoint{
     static let boundary = "Boundary-\(UUID().uuidString)"
     #if DEBUG
@@ -42,6 +41,14 @@ struct PostEndPoint{
         
     }
     
+    static func postDetail(param:PostDetailParameter)->Endpoint<PostNetworkEntity<PostDetailEntity>>{
+        return Endpoint(baseURL: PostConst.POST_SERVER_URL,
+                        method: .get,
+                        queryParameters: param,
+                        bodyParameters: nil,
+                        headers: ["JWT-AUTHENTICATION":authorization],
+                        sampleData: nil)
+    }
     static func post(postModel:PostModel,images:[UIImage])->Endpoint<CommonResultData>{
       
         let parameters = ["title":postModel.title,
@@ -86,10 +93,11 @@ struct PostEndPoint{
         
 
         body.append(boundaryPrefix.data(using: .utf8)!)
-        print(String(data: body, encoding: .utf8))
+        print(String(data: body, encoding: .utf8) ?? "NO DATA")
         return body
     }
     
+
     
 }
 

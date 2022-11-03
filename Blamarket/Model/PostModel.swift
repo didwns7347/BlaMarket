@@ -65,3 +65,7 @@ struct PostsRequestBody : Encodable{
     let search: String
     let page : Int
 }
+struct PostDetailParameter : Encodable{
+    let email: String
+    let itemId : Int
+}
