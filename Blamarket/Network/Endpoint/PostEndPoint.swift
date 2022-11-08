@@ -14,7 +14,7 @@ import Alamofire
 struct PostEndPoint{
     static let boundary = "Boundary-\(UUID().uuidString)"
     #if DEBUG
-    static let authorization = "Bearer eyJraWQiOiJrZXkxIiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJ0ZXN0MUBuYXZlci5jb20iLCJpYXQiOjE2NjcxMzI2OTEsImV4cCI6MTY2NzczMjY5MX0.VVkiqFZvOHanCKFngUNtnBNr9EkIm4mKcMBXiIwn0qZZT4rXgjXXMVuOdoCrK2BzV5Rz_bR0ZhYHHeMd-pmthA"
+    static let authorization = "Bearer eyJraWQiOiJrZXkyIiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJ0ZXN0MUBuYXZlci5jb20iLCJpYXQiOjE2Njc3MzYyMzIsImV4cCI6MTY2Nzc0MjIzMn0.slRolWKJIyZoWzZu6A2g7FsaaSqRVkNbgPlH3hcSQgYbzRD4PfyutXQK3gc7Ec_EsN_5MZyZruWDccOIPhzKoQ"
     static let authKey = "JWT-AUTHENTICATION"
     #endif
     
@@ -52,13 +52,14 @@ struct PostEndPoint{
     static func post(postModel:PostModel,images:[UIImage])->Endpoint<CommonResultData>{
       
         let parameters = ["title":postModel.title,
-                          "category":postModel.category,
+                          "category":1,
                           "price":postModel.price,
                           "contents":postModel.contents ?? "빈 내용",
                           "email":UserDefaults.standard.string(forKey: "email") ?? "didwns7347@naver.com",
-                          "companyId":"1"
-                        ]
+                          "companyId":1
+        ] as [String : Any]
         let body = createBody(parameters: parameters as [String : Any], images: images, boundary: PostEndPoint.boundary)
+        print(String(data: body, encoding: .utf8))
         return Endpoint(baseURL: PostConst.POST_SERVER_URL,
                         path: "/post/write",
                         method: .post,
@@ -67,8 +68,7 @@ struct PostEndPoint{
                         headers: ["Content-Type":"multipart/form-data; boundary=\(PostEndPoint.boundary)",
                                   authKey:authorization
                                   ],
-                        sampleData: nil
-        )
+                        sampleData: nil)
         
     }
     //멀티파트 바디 리턴

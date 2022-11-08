@@ -7,87 +7,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6F55824A-5CE1-4E65-BCE5-E87A7F6D8F2C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Blamarket/Scenes/RegistItemScene/RegistItemViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "init()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "07B98AAB-5EB2-4373-935E-B3CE1A3AB947"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Blamarket/Scenes/RegistItemScene/RegistItemViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "init()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "56B14FC7-303C-43C1-BD09-FDDA40D43122"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Blamarket/Network/Provider/NetworkProviderImpl.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "multipartRequest(with:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "56B14FC7-303C-43C1-BD09-FDDA40D43122 - 78d852118e0706d7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Blamarket.NetworkProvider.multipartRequest&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0 == &#x3c4;_0_1.Response, &#x3c4;_0_1: Blamarket.RequestResponsable&gt;(with: &#x3c4;_0_1) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;&gt;"
-                  moduleName = "Blamarket"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yangjs/Desktop/%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A1%E1%84%86%E1%85%A1%E1%84%8F%E1%85%A6%E1%86%BA/Blamarket/Blamarket/Network/Provider/NetworkProviderImpl.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "328">
-               </Location>
-               <Location
-                  uuid = "56B14FC7-303C-43C1-BD09-FDDA40D43122 - 78d852118e0706d7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Blamarket.NetworkProvider.multipartRequest&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0 == &#x3c4;_0_1.Response, &#x3c4;_0_1: Blamarket.RequestResponsable&gt;(with: &#x3c4;_0_1) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;&gt;"
-                  moduleName = "Blamarket"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yangjs/Desktop/%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A1%E1%84%86%E1%85%A1%E1%84%8F%E1%85%A6%E1%86%BA/Blamarket/Blamarket/Network/Provider/NetworkProviderImpl.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "436">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D0084F88-0849-4462-A49D-CD64E2091E0D"
+            uuid = "1157A788-B9F1-44F4-AB86-EF37D716851D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -103,64 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6E09DBDA-6D5D-4BD1-91B4-C9DB46D44FC4"
+            uuid = "6E619DDC-8A0D-4090-B586-554F4A54C1E6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Blamarket/Network/Endpoint/PostEndPoint.swift"
+            filePath = "Blamarket/Network/Provider/NetworkProviderImpl.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "createBody(parameters:images:boundary:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "99584CF0-2F21-4EE2-BD31-C32DECB1AC67"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Blamarket/CoreDataService/CoreDataStorage.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "deleteData(recode:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2DFE6DC7-919C-4D94-A08D-2012EDDF848E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Blamarket/Scenes/SearchScene/SearchPostsViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "saveKeyword(keyword:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "320342AD-2C29-47C7-BA39-7E39C9263411"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Blamarket/Scenes/SearchScene/SearchPostsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "bind(vm:)"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "checkError(with:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

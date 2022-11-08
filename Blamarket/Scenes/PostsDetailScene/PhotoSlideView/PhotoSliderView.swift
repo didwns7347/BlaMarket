@@ -30,7 +30,7 @@ class PhotoSliderView: UIView {
             imageView.clipsToBounds = false
             scrollView.addSubview(imageView)
         }
-        
+    
         // Set the scrollView contentSize
         scrollView.contentSize = CGSize(width: scrollView.frame.width * CGFloat(images.count),
                                         height: scrollView.frame.height)

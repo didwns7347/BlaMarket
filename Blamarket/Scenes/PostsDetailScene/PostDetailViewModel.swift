@@ -32,10 +32,5 @@ class PostDetailViewModel{
                     print(error.localizedDescription)
                 }
             }).disposed(by: bag)
-        
-        
-
-
-           
     }
 }

@@ -26,6 +26,8 @@
 		9B24BE8A28E3D8D600EB26BB /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B24BE8928E3D8D600EB26BB /* PostModel.swift */; };
 		9B2A269F28F6A4150041B96D /* KeychinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A269E28F6A4150041B96D /* KeychinManager.swift */; };
 		9B2A26A128F6A5280041B96D /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A26A028F6A5280041B96D /* LogManager.swift */; };
+		9B3810A42919F8D5008F37CA /* PostHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3810A32919F8D5008F37CA /* PostHeaderView.xib */; };
+		9B3810A62919F8E5008F37CA /* PostHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3810A52919F8E5008F37CA /* PostHeaderView.swift */; };
 		9B39D13528FF7D73009F4267 /* CommonToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B39D13428FF7D73009F4267 /* CommonToolbar.swift */; };
 		9B39D14328FFB78F009F4267 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B39D14228FFB78F009F4267 /* ChatListViewController.swift */; };
 		9B39D14528FFB79F009F4267 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B39D14428FFB79F009F4267 /* ChatListViewModel.swift */; };
@@ -124,6 +126,8 @@
 		9B24BE8928E3D8D600EB26BB /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		9B2A269E28F6A4150041B96D /* KeychinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychinManager.swift; sourceTree = "<group>"; };
 		9B2A26A028F6A5280041B96D /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		9B3810A32919F8D5008F37CA /* PostHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostHeaderView.xib; sourceTree = "<group>"; };
+		9B3810A52919F8E5008F37CA /* PostHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderView.swift; sourceTree = "<group>"; };
 		9B39D13428FF7D73009F4267 /* CommonToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonToolbar.swift; sourceTree = "<group>"; };
 		9B39D14228FFB78F009F4267 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		9B39D14428FFB79F009F4267 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
@@ -328,6 +332,15 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		9B3810A22919F85C008F37CA /* PostHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				9B3810A32919F8D5008F37CA /* PostHeaderView.xib */,
+				9B3810A52919F8E5008F37CA /* PostHeaderView.swift */,
+			);
+			path = PostHeaderView;
+			sourceTree = "<group>";
+		};
 		9B39D14028FFB760009F4267 /* ChatScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +511,7 @@
 		9B8677632911048400C1F8F6 /* PostsDetailScene */ = {
 			isa = PBXGroup;
 			children = (
+				9B3810A22919F85C008F37CA /* PostHeaderView */,
 				9B4DE6D4291251A2005CD231 /* PhotoSlideView */,
 				9B8677652911080200C1F8F6 /* PostDetailViewController.swift */,
 				9B86776B29110D1800C1F8F6 /* PostDetailViewModel.swift */,
@@ -714,6 +728,7 @@
 				9BF4184A29065B3B00F35963 /* child.png in Resources */,
 				9BF4185729065B8900F35963 /* beauty.png in Resources */,
 				9B4DE6D8291251FE005CD231 /* PhotoSliderView.xib in Resources */,
+				9B3810A42919F8D5008F37CA /* PostHeaderView.xib in Resources */,
 				9BF4185829065B8900F35963 /* womanClothing.png in Resources */,
 				9B6AFBDF28FD372A0024597B /* MainTableViewCell.xib in Resources */,
 				9BF4185C29065FA600F35963 /* etc.png in Resources */,
@@ -837,6 +852,7 @@
 				9B12F7B328D82A3C00207003 /* RegistItemViewController.swift in Sources */,
 				9B10603E28DC33AF00CB9A60 /* PriceTextFieldCell.swift in Sources */,
 				9B725DD628B49C2C002F8BA3 /* LoginViewController.swift in Sources */,
+				9B3810A62919F8E5008F37CA /* PostHeaderView.swift in Sources */,
 				9B77FE3028B5AF2F000CF701 /* Requestable.swift in Sources */,
 				9B39D14928FFB7B7009F4267 /* UserInfoViewModel.swift in Sources */,
 				9B77FE3328B5B121000CF701 /* Encodable +.swift in Sources */,
