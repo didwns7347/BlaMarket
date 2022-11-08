@@ -45,5 +45,6 @@ struct PostDetailEntity: Decodable{
     let viewCount:Int
     let category: String
     let wish:Bool
+    let content: String
     
 }

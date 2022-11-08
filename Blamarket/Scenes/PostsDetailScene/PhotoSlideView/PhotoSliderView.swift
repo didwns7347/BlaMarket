@@ -6,37 +6,37 @@
 //
 
 import UIKit
-
+import Kingfisher
 class PhotoSliderView: UIView {
 
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var contentView: UIView!
     
-    func configure(with images: [UIImage]) {
+    func configure(with imagesUrl: [String]) {
         
         // Get the scrollView width and height
         let scrollViewWidth: CGFloat = scrollView.frame.width
         let scrollViewHeight: CGFloat = scrollView.frame.height
         
         // Loop through all of the images and add them all to the scrollView
-        for (index, image) in images.enumerated() {
+        for (index, url) in imagesUrl.enumerated() {
             let imageView = UIImageView(frame: CGRect(x: scrollViewWidth * CGFloat(index),
                                                       y: 0,
                                                       width: scrollViewWidth,
                                                       height: scrollViewHeight))
-            imageView.image = image
+            imageView.kf.setImage(with: URL(string: url)!)
             imageView.contentMode = .scaleToFill
             imageView.clipsToBounds = false
             scrollView.addSubview(imageView)
         }
     
         // Set the scrollView contentSize
-        scrollView.contentSize = CGSize(width: scrollView.frame.width * CGFloat(images.count),
+        scrollView.contentSize = CGSize(width: scrollView.frame.width * CGFloat(imagesUrl.count),
                                         height: scrollView.frame.height)
         
         // Ensure that the pageControl knows the number of pages
-        pageControl.numberOfPages = images.count
+        pageControl.numberOfPages = imagesUrl.count
     }
     
     // MARK: Init Methods
@@ -54,6 +54,7 @@ class PhotoSliderView: UIView {
     private func commonInit() {
         Bundle.main.loadNibNamed(String(describing: PhotoSliderView.self), owner: self, options: nil)
         addSubview(contentView)
+
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
@@ -73,6 +74,10 @@ class PhotoSliderView: UIView {
         let slideToX: CGFloat = CGFloat(index) * pageWidth
         
         scrollView.scrollRectToVisible(CGRect(x: slideToX, y:0, width:pageWidth, height:scrollView.frame.height), animated: true)
+    }
+    
+    func configView(postModel:PostDetailEntity){
+        self.configure(with: postModel.images)
     }
 }
 

@@ -13,7 +13,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostHeaderView" customModule="Blamarket" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="CIO-Xx-YPG"/>
-                <outlet property="createdLabel" destination="Vvz-jU-veO" id="Jiy-Tb-kMd"/>
                 <outlet property="starButton" destination="rSV-Cg-pXV" id="hIF-2t-ADc"/>
                 <outlet property="titleLbael" destination="BWs-un-BTB" id="opL-5t-dr3"/>
                 <outlet property="viewCount" destination="gfP-y3-mhN" id="C0e-vA-rEB"/>
@@ -26,25 +25,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWs-un-BTB">
-                    <rect key="frame" x="43" y="21" width="42" height="28.666666666666671"/>
+                    <rect key="frame" x="10" y="21" width="42" height="32"/>
                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작성자" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UnT-mJ-pyf">
-                    <rect key="frame" x="43" y="85" width="26" height="12"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <color key="textColor" systemColor="secondaryLabelColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2022-11-07" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvz-jU-veO">
-                    <rect key="frame" x="302.33333333333331" y="87" width="56.333333333333314" height="12"/>
+                    <rect key="frame" x="15" y="85" width="26" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <color key="textColor" systemColor="secondaryLabelColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="조회수:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfP-y3-mhN">
-                    <rect key="frame" x="393.66666666666669" y="87" width="29.333333333333314" height="12"/>
+                    <rect key="frame" x="403.33333333333331" y="85" width="29.333333333333314" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -60,15 +53,14 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gfP-y3-mhN" secondAttribute="trailing" constant="46" id="132-uP-doE"/>
-                <constraint firstItem="Vvz-jU-veO" firstAttribute="centerY" secondItem="gfP-y3-mhN" secondAttribute="centerY" id="2uC-2b-XhO"/>
-                <constraint firstItem="gfP-y3-mhN" firstAttribute="leading" secondItem="Vvz-jU-veO" secondAttribute="trailing" constant="35" id="AAG-Lf-QZK"/>
-                <constraint firstItem="UnT-mJ-pyf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="43" id="EeX-uj-Pyv"/>
-                <constraint firstAttribute="bottom" secondItem="gfP-y3-mhN" secondAttribute="bottom" constant="14" id="RXY-xv-Wdn"/>
-                <constraint firstItem="BWs-un-BTB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="43" id="YjR-Ig-oKk"/>
+                <constraint firstItem="gfP-y3-mhN" firstAttribute="bottom" secondItem="UnT-mJ-pyf" secondAttribute="bottom" id="0fr-4k-keO"/>
+                <constraint firstItem="UnT-mJ-pyf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="EeX-uj-Pyv"/>
+                <constraint firstItem="BWs-un-BTB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="YjR-Ig-oKk"/>
+                <constraint firstItem="gfP-y3-mhN" firstAttribute="centerX" secondItem="rSV-Cg-pXV" secondAttribute="centerX" id="gA5-st-FdT"/>
                 <constraint firstItem="rSV-Cg-pXV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="hWy-J3-MkY"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rSV-Cg-pXV" secondAttribute="trailing" constant="25" id="n26-CM-vBw"/>
                 <constraint firstItem="BWs-un-BTB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="21" id="nhR-Op-dLp"/>
+                <constraint firstItem="rSV-Cg-pXV" firstAttribute="bottom" secondItem="BWs-un-BTB" secondAttribute="bottom" id="sne-n0-6jq"/>
                 <constraint firstAttribute="bottom" secondItem="UnT-mJ-pyf" secondAttribute="bottom" constant="16" id="tQg-xF-eJo"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
