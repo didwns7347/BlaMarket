@@ -25,7 +25,7 @@ class PhotoSliderView: UIView {
                                                       y: 0,
                                                       width: scrollViewWidth,
                                                       height: scrollViewHeight))
-            imageView.kf.setImage(with: URL(string: url)!)
+            imageView.kf.setImage(with: URL(string: url)!, placeholder: UIImage(systemName: "questionmark")!)
             imageView.contentMode = .scaleToFill
             imageView.clipsToBounds = false
             scrollView.addSubview(imageView)
@@ -54,7 +54,7 @@ class PhotoSliderView: UIView {
     private func commonInit() {
         Bundle.main.loadNibNamed(String(describing: PhotoSliderView.self), owner: self, options: nil)
         addSubview(contentView)
-
+        self.scrollView.delegate = self
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
@@ -88,5 +88,6 @@ extension PhotoSliderView: UIScrollViewDelegate {
         let pageWidth:CGFloat = scrollView.frame.width
         let currentPage:CGFloat = floor((scrollView.contentOffset.x-pageWidth/2)/pageWidth)+1
         pageControl.currentPage = Int(currentPage)
+        
     }
 }

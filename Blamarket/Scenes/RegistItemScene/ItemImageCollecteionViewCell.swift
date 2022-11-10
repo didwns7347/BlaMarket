@@ -3,7 +3,7 @@
 //  Blamarket
 //
 //  Created by yangjs on 2022/09/19.
-//
+//ㅋㅋ
 
 import UIKit
 import SnapKit
@@ -57,11 +57,7 @@ class ItemImageCollectionViewCell : UICollectionViewCell{
                     })
                 }
             }
-         
         }
-     
-      
-        
     }
     
     private func layout(){

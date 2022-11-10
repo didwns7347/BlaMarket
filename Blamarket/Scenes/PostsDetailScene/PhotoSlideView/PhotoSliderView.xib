@@ -27,6 +27,9 @@
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="9wN-xc-fv1">
                     <rect key="frame" x="129.66666666666666" y="254" width="115.66666666666666" height="26"/>
+                    <connections>
+                        <action selector="pageControlTap:" destination="-1" eventType="valueChanged" id="SNv-nb-w2R"/>
+                    </connections>
                 </pageControl>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
