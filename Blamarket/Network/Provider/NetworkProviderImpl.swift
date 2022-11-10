@@ -22,6 +22,20 @@ class NetworkProvider : Provider{
         return session.rx.response(request:request)
             .map(self.checkError).asSingle()
     }
+    func tokenRequest<E:RequestResponsable>(with endPoint: E)->Observable<String?>{
+        guard var requset = try? endPoint.getUrlRequest() else {
+            return .just(nil)
+        }
+        
+        return session.rx.response(request: requset)
+            .map{response -> String? in
+                let headers = response.response.value(forHTTPHeaderField: UserConst.jwtToken)
+                return headers
+            }
+        
+    }
+    
+    
     
     //endPoint 와 Response가 같은경우 -> 파싱할데이터를 endPoint파라메터를 통해 주입받음.
     func request<R:Decodable, E: RequestResponsable>(with endPoint: E) -> Single<Result<R, Error>>  where E.Response == R {

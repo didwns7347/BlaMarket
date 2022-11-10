@@ -23,6 +23,9 @@ struct UserConst{
     //키체인 로그인 토큰
     static let Authorize_key = "Authorize"
     static let Company = "companyName"
+    
+    static let AccessToken = "accessToken"
+    static let jwtToken = "JWT-AUTHENTICATION"
 }
 struct ColorConst{
     static let MAIN_COLOR = UIColor.systemBlue

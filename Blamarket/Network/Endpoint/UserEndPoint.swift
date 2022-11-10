@@ -44,6 +44,21 @@ struct UserEndPoint {
                         )
     }
     
+    /**
+     jwt 토큰 갱신
+     */
+    static func updateToken()->Endpoint<UserNetworkEntity<[String:String]>>{
+        let header = [UserConst.jwtToken : TokenManager.shared.readToken()]
+        return Endpoint(baseURL: UserConst.USER_SERVER_URL,
+                        path:"/user/token",
+                        method: .get,
+                        queryParameters: nil,
+                        bodyParameters: nil,
+                        headers: header,
+                        sampleData:nil
+                        )
+    }
+    
     static func register(nickname:String, email:String, pw: String)->Endpoint<UserNetworkEntity<RegistResultData>>{
         let body = ["email":email, "password":pw, "name":nickname]
         let header = ["Content-Type":"application/json"]

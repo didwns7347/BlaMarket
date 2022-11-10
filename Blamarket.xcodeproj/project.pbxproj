@@ -86,6 +86,7 @@
 		9BE2006828BF261C00866D73 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2006728BF261C00866D73 /* UIViewController+.swift */; };
 		9BE2006A28BF359300866D73 /* UIButton +.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2006928BF359300866D73 /* UIButton +.swift */; };
 		9BE2006C28BF4AD000866D73 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE2006B28BF4AD000866D73 /* String+.swift */; };
+		9BEC713D291C9523009ED845 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEC713C291C9522009ED845 /* TokenManager.swift */; };
 		9BF418372902298C00F35963 /* SearchPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF418362902298C00F35963 /* SearchPostsViewController.swift */; };
 		9BF418392902299900F35963 /* SearchPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF418382902299900F35963 /* SearchPostsViewModel.swift */; };
 		9BF4183C290231B200F35963 /* CategorySelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF4183B290231B200F35963 /* CategorySelectViewController.swift */; };
@@ -188,6 +189,7 @@
 		9BE2006728BF261C00866D73 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		9BE2006928BF359300866D73 /* UIButton +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton +.swift"; sourceTree = "<group>"; };
 		9BE2006B28BF4AD000866D73 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		9BEC713C291C9522009ED845 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		9BF418362902298C00F35963 /* SearchPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPostsViewController.swift; sourceTree = "<group>"; };
 		9BF418382902299900F35963 /* SearchPostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPostsViewModel.swift; sourceTree = "<group>"; };
 		9BF4183B290231B200F35963 /* CategorySelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectViewController.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 			children = (
 				9B2A269E28F6A4150041B96D /* KeychinManager.swift */,
 				9B2A26A028F6A5280041B96D /* LogManager.swift */,
+				9BEC713C291C9522009ED845 /* TokenManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -821,6 +824,7 @@
 				9B5EF32028B6FE83006D0AB8 /* NetworkProviderImpl.swift in Sources */,
 				9B39D14528FFB79F009F4267 /* ChatListViewModel.swift in Sources */,
 				9B74AFB12900D7AA00864950 /* PostConst.swift in Sources */,
+				9BEC713D291C9523009ED845 /* TokenManager.swift in Sources */,
 				9B3B723428E2CCD600A76984 /* PostEndPoint.swift in Sources */,
 				9B77FE4528B5FF76000CF701 /* LoginModel.swift in Sources */,
 				9B8DB23328ACA03000E14443 /* Blamarket.xcdatamodeld in Sources */,

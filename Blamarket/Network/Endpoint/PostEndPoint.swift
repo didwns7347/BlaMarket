@@ -35,7 +35,7 @@ struct PostEndPoint{
                         method: .get,
                         queryParameters: [ "page":"\(query.page)", "companyId":"1"],
                         bodyParameters: nil,
-                        headers: ["JWT-AUTHENTICATION":authorization],
+                        headers: [UserConst.jwtToken:authorization],
                         sampleData: nil
                         )
         

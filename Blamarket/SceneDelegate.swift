@@ -12,7 +12,7 @@ enum MainVC {
     case testVC
 }
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+   
     var window: UIWindow?
     var loginVM = LoginViewModel()
     var mainVM = MainViewModel()
@@ -98,28 +98,14 @@ extension SceneDelegate{
         #if DEBUG
         return MainVC.testVC
         #endif
-        if isAutoLoginAvailable(){
+        if TokenManager.shared.isAutoLoginAvailable(){
             return MainVC.boardVC
         }else{
+            
             return MainVC.loginVC
         }
     }
     
-    func isAutoLoginAvailable()->Bool{
-        guard let lastLoginDate = UserDefaults.standard.object(forKey: UserConst.LAST_LOGIN_DATE) as? Date
-        else{
-            return false
-        }
-        
-        var dateComponentDay = DateComponents()
-        dateComponentDay.day = UserConst.Login_Alive_Time
-        let expireDate = Calendar.current.date(byAdding: dateComponentDay, to: lastLoginDate) ?? Date()
-        //만료된경우 토큰값 삭제.
-        if expireDate <= Date(){
-            KeyChainManager.removedataInKeyChain(key: UserConst.Authorize_key)
-            return false
-        }
-        return true
-    }
+  
 
 }
