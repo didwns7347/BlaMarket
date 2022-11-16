@@ -14,7 +14,6 @@ class PhotoSliderView: UIView {
     @IBOutlet var contentView: UIView!
     
     func configure(with imagesUrl: [String]) {
-        
         // Get the scrollView width and height
         let scrollViewWidth: CGFloat = scrollView.frame.width
         let scrollViewHeight: CGFloat = scrollView.frame.height

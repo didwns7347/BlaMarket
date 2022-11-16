@@ -20,8 +20,10 @@ struct UserNetworkEntity<R:Decodable> : Decodable,Entity{
 // -MARK: 로그인 관련 데이터 모델
 struct LoginResultData : Decodable{
     let resultData : UserInfo
+    let token: String
     enum CodingKeys: String,CodingKey{
         case resultData = "data"
+        case token = "JWT_AUTHENTICATION"
     }
 }
 
@@ -66,6 +68,6 @@ struct RegistResultData: Decodable{
 }
 
 struct CommonResultData : Decodable{
-    let status:String
+    let status:Int
     let message:String
 }

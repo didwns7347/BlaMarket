@@ -27,6 +27,7 @@ struct LoginViewModel {
     let goMainPage : Signal<Bool>
     let emailAuthViewModel = EmailAuthViewModel()
     
+    
     let loginInputCheckSuccess = PublishRelay<Bool>()
     init(){
         let loginInfo = Observable.combineLatest(id,pw){id, pw -> LoginModel in
@@ -75,9 +76,18 @@ struct LoginViewModel {
             guard case let .success(value) = data else{
                 return nil
             }
-            UserDefaults.standard.set(Date(), forKey: UserConst.LAST_LOGIN_DATE)
             return value
-        }
+        }.share()
+        
+
+//        loginSuccess.map{ _ -> Endpoint<UserNetworkEntity<LoginResultData>> in
+//            guard let token = TokenManager.shared.readToken() else{
+//                return
+//            }
+//            
+//            let endPoint = UserEndPoint.getLoginInfo(token: token)
+//            return endPoint
+//        }
         
         goMainPage = loginSuccess.map{_ -> Bool in
             return true
@@ -91,6 +101,9 @@ struct LoginViewModel {
                 return nil
             }
         }
+        
+        
+        
         
         self.presentAlert = Observable.merge(inputError,loginError)
             .map{message -> Alert in

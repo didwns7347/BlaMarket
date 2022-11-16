@@ -53,6 +53,7 @@ class MainViewController : UIViewController{
         vm.loadFirstPage.onNext(())
         
         vm.postList.bind(to: self.tableview.rx.items(cellIdentifier: "mainCell",cellType: MainTableViewCell.self)){ (row, model, cell) in
+            print(model)
             cell.configCell(model: model,row: row)
         }.disposed(by: bag)
         

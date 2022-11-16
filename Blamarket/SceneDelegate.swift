@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import JWTDecode
 enum MainVC {
     case loginVC
     case boardVC
@@ -79,6 +80,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        if TokenManager.shared.isExpired(){
+            TokenManager.shared.updateToken()
+        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -96,14 +100,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate{
     func selectMainView() -> MainVC{
         #if DEBUG
-        return MainVC.testVC
-        #endif
-        if TokenManager.shared.isAutoLoginAvailable(){
-            return MainVC.boardVC
-        }else{
-            
-            return MainVC.loginVC
+        do{
+            let tokenDecode = try decode(jwt: PostEndPoint.authorization)
+            print(tokenDecode)
+        }catch
+        {
+            print(error.localizedDescription)
         }
+        print(TokenManager.shared.decode(jwtToken: PostEndPoint.authorization))
+        //print(tokenDecode ?? "TOKEN DECODE FAILED")
+        return MainVC.boardVC
+        #endif
+        if TokenManager.shared.readToken() != nil{
+            if TokenManager.shared.isExpired(){
+                TokenManager.shared.updateToken()
+            }
+            return MainVC.boardVC
+            
+        }
+        return MainVC.loginVC
+        
+        
     }
     
   

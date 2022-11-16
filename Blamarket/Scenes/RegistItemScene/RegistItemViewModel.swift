@@ -32,7 +32,8 @@ final class RegistItemViewModel{
     let selectedImages = BehaviorSubject<[NSItemProvider]>(value: [])
     let imageLoadedCompleted = PublishSubject<[UIImage]>()
     
-    
+    let uploadSuccess = PublishSubject<Void>()
+    let uploadFailed = PublishSubject<String>()
     init(){
         let title = Observable.just("글 제목")
         let categoryViewModel = CategoryViewModel()
@@ -88,27 +89,30 @@ final class RegistItemViewModel{
             .asDriver(onErrorDriveWith: .empty())
         
         imageListDrive = imageListSubject.asDriver(onErrorJustReturn: [nil])
+         
         let inputs = Observable.combineLatest(
             selectedImages,titleTextFieldCellViewModel.titleText, categoryViewModel.selectedCategory,
-            priceTextFieldCellViewModel.priceValue, detailWriteFormCellViewModel.contentValue)
+            priceTextFieldCellViewModel.priceValue, detailWriteFormCellViewModel.contentValue).share()
         
         
         let postDatas = submitButtonTapped.withLatestFrom(inputs)
             .map{ [weak self] info -> PostModel in
                 //guard let self = self else{return}
+                //title: String, category: Category, contents: String?, imageProviders: [NSItemProvider], price: String?, companyId:String)
                 let postModel = PostModel(title: info.1 ,
-                                          category: info.2.name,
-                                          contents: info.3,
+                                          category: info.2,
+                                          contents: info.4,
                                           imageProviders: info.0,
-                                          price: info.4)
+                                          price: info.3,
+                                        companyId: "1")
                 guard let self = self else { return postModel}
                 postModel.loadedImagesSubject.bind(to: self.imageLoadedCompleted).disposed(by: self.bag)
                 return postModel
-            }
+            }.share()
         
         let  submitData = submitButtonTapped.withLatestFrom(Observable.combineLatest(postDatas,errorMsg))
             .filter{$0.1.isEmpty}
-            .map{$0.0}
+            .map{$0.0}.share()
 #if DEBUG
         submitButtonTapped.subscribe { _ in
             print("tapped")
@@ -137,20 +141,23 @@ final class RegistItemViewModel{
 #endif
         //
         let postItemResult = Observable.combineLatest(submitData,imageLoadedCompleted)
-            .flatMap{ (postModel,images) -> Single<Result<CommonResultData,Error>> in
+            .flatMap{ (postModel,images)  in
                 let endpoint = PostEndPoint.post(postModel: postModel , images: images)
                 let provider = NetworkProvider()
-                return provider.multipartRequest(with: endpoint)
+                let result =  provider.multipartRequest(with: endpoint)
+                return result
             }.share()
-        postItemResult.subscribe(onNext: { result in
+    
+        postItemResult.subscribe(onNext:{ result in
             switch result{
-            case .success(let data):
-                print(data)
             case .failure(let error):
                 print(error)
+                self.uploadFailed.onNext(error.localizedDescription)
+            case .success(let data):
+                print(data)
+                self.uploadSuccess.onNext(())
             }
         }).disposed(by: bag)
-        
     }
     
 }

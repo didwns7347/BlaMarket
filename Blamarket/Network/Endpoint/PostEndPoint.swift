@@ -13,36 +13,36 @@ import Alamofire
 
 struct PostEndPoint{
     static let boundary = "Boundary-\(UUID().uuidString)"
-    #if DEBUG
-    static let authorization = "Bearer eyJraWQiOiJrZXkyIiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJ0ZXN0MUBuYXZlci5jb20iLCJpYXQiOjE2Njc3MzYyMzIsImV4cCI6MTY2Nzc0MjIzMn0.slRolWKJIyZoWzZu6A2g7FsaaSqRVkNbgPlH3hcSQgYbzRD4PfyutXQK3gc7Ec_EsN_5MZyZruWDccOIPhzKoQ"
+#if DEBUG
+    static let authorization = "Bearer eyJraWQiOiJrZXkxIiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJ0ZXN0MUBuYXZlci5jb20iLCJpYXQiOjE2Njg0NzIwNjIsImV4cCI6MTcyODQ3MjA2Mn0.1r5y2bXknkgN6l8OqGy5Z5Qt1JSq0SWSMoi94RrDH8wbMuM73Zb2XaYZrBB1I_Wfh9nt19ujlJXUDcIgu7Kfcw"
     static let authKey = "JWT-AUTHENTICATION"
-    #endif
+#endif
     
     static func getPosts(category: Category? = nil, keyword:String? = nil, page:Int)->Endpoint<PostNetworkEntity<[PostEntity]>>{
         let companyId = UserDefaults.standard.string(forKey: UserConst.Company) ?? ""
         let query = PostsRequestBody(category: category?.name ?? "", search: keyword ?? "", page: page)
         var param = [String:String]()
-//        if category != nil{
-//            param["category"] = category?.name
-//        }
-//        if keyword != nil {
-//            param["keyword"] = keyword
-//        }
-//        param["page"] = page
+        //        if category != nil{
+        //            param["category"] = category?.name
+        //        }
+        //        if keyword != nil {
+        //            param["keyword"] = keyword
+        //        }
+        //        param["page"] = page
         
-        return Endpoint(baseURL:PostConst.POST_SERVER_URL,
+        return Endpoint(baseURL:PostConst.SERVER_URL,
                         path:"/post/view",
                         method: .get,
                         queryParameters: [ "page":"\(query.page)", "companyId":"1"],
                         bodyParameters: nil,
                         headers: [UserConst.jwtToken:authorization],
                         sampleData: nil
-                        )
+        )
         
     }
     
     static func postDetail(param:PostDetailParameter)->Endpoint<PostNetworkEntity<PostDetailEntity>>{
-        return Endpoint(baseURL: PostConst.POST_SERVER_URL,
+        return Endpoint(baseURL: PostConst.SERVER_URL,
                         method: .get,
                         queryParameters: param,
                         bodyParameters: nil,
@@ -50,27 +50,30 @@ struct PostEndPoint{
                         sampleData: nil)
     }
     static func post(postModel:PostModel,images:[UIImage])->Endpoint<CommonResultData>{
-      
+        
         let parameters = ["title":postModel.title,
-                          "category":1,
-                          "price":postModel.price,
+                          "category":"\(postModel.category)",
+                          "price":"\(postModel.price ?? "??")" ,
                           "contents":postModel.contents ?? "빈 내용",
                           "email":UserDefaults.standard.string(forKey: "email") ?? "didwns7347@naver.com",
-                          "companyId":1
-        ] as [String : Any]
-        let body = createBody(parameters: parameters as [String : Any], images: images, boundary: PostEndPoint.boundary)
-        print(String(data: body, encoding: .utf8))
-        return Endpoint(baseURL: PostConst.POST_SERVER_URL,
+                          "companyId":"\(1)",
+                          
+        ] as [String: String]
+        
+        return Endpoint(baseURL: PostConst.SERVER_URL,
                         path: "/post/write",
                         method: .post,
                         queryParameters: nil,
-                        bodyParameters: body,
+                        bodyParameters: parameters,
                         headers: ["Content-Type":"multipart/form-data; boundary=\(PostEndPoint.boundary)",
                                   authKey:authorization
-                                  ],
-                        sampleData: nil)
+                                 ],
+                        sampleData: nil,
+                        uploadImages: images)
         
     }
+    
+    //삭제 예정
     //멀티파트 바디 리턴
     static func createBody(parameters: [String:Any], images:[UIImage],boundary:String)->Data{
         var body = Data()
@@ -83,21 +86,22 @@ struct PostEndPoint{
         }
         var count = 1
         for image in images {
+            print(image.pngData()?.count ?? "NO DATA")
             body.append(boundaryPrefix.data(using: .utf8)!)
-            body.append("Content-Disposition: form-data; name=\"images\(count)\"; filename=\"images\(count)\"\r\n".data(using: .utf8)!)
+            body.append("Content-Disposition: form-data; name=\"imageList\"; filename=\"images\(count)\"\r\n".data(using: .utf8)!)
             body.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
             body.append(image.pngData() ?? Data())
             body.append("\r\n".data(using: .utf8)!)
             count += 1
         }
         
-
+        
         body.append(boundaryPrefix.data(using: .utf8)!)
         print(String(data: body, encoding: .utf8) ?? "NO DATA")
         return body
     }
     
-
+    
     
 }
 

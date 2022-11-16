@@ -102,8 +102,10 @@ class RegistItemViewController : UIViewController{
             .bind(to: viewModel.itemSelected)
             .disposed(by: disposeBag)
         
+       
+        
         submitButton.rx.tap
-            .bind(to:viewModel.submitButtonTapped)
+            .bind(to: viewModel.submitButtonTapped)
             .disposed(by: disposeBag)
         
         viewModel.imageListDrive
@@ -131,7 +133,13 @@ class RegistItemViewController : UIViewController{
         }.bind(to: viewModel.selectedImages)
             .disposed(by: disposeBag)
             
+        viewModel.uploadSuccess.subscribe(onNext:{
+            self.navigationController?.popViewController(animated: true)
+        }).disposed(by: disposeBag)
         
+        viewModel.uploadFailed.map { msg -> Alert in
+            Alert(title: "업로드 실패", message:msg)
+        }.bind(to: self.rx.setAlert).disposed(by: disposeBag)
     }
     
     

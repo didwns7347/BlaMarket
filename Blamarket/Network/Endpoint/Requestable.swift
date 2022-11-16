@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import UIKit.UIImage
 protocol Requestable{
     var baseURL : String {get}
     var path : String {get}
@@ -15,6 +15,7 @@ protocol Requestable{
     var bodyParameters : Encodable? {get}
     var headers : [String:String]? {get}
     var sampleData: Data? {get}
+    var uploadImages: [UIImage]? {get}
 }
 extension Requestable{
     func getUrlRequest() throws -> URLRequest{
@@ -49,6 +50,10 @@ extension Requestable{
         
         return urlRequest
     }
+    func urlString()->String{
+        return "\(baseURL)\(path)"
+    }
+    
     func url() throws -> URL{
         let fullPath = "\(baseURL)\(path)"
         guard var urlComponets = URLComponents(string: fullPath) else {

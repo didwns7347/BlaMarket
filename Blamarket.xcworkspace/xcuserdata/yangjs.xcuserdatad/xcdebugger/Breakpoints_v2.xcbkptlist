@@ -7,32 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1157A788-B9F1-44F4-AB86-EF37D716851D"
+            uuid = "19FB1315-43B6-4AAB-B9F6-3E55CB1AFFBB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Blamarket/Network/Provider/NetworkProviderImpl.swift"
+            filePath = "Blamarket/Scenes/RegistItemScene/RegistItemViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "multipartRequest(with:)"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "bind(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6E619DDC-8A0D-4090-B586-554F4A54C1E6"
+            uuid = "8E06BDDB-5D29-4AAF-B464-3C8B99E8A9D3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Blamarket/Network/Provider/NetworkProviderImpl.swift"
+            filePath = "Blamarket/Scenes/MainScene/MainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "checkError(with:_:)"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "bind(vm:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

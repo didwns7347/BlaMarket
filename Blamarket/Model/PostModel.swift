@@ -10,20 +10,21 @@ import RxSwift
 import RxCocoa
 class PostModel{
     let title:String
-    let category:String
+    let category:Int
     let contents :String?
     let providers: [NSItemProvider]
     let price : String?
+    let companyId : Int
     let loadedImagesSubject = PublishSubject<[UIImage]>()
     
-    init(title: String, category: String, contents: String?, imageProviders: [NSItemProvider], price: String?) {
+    init(title: String, category: Category, contents: String?, imageProviders: [NSItemProvider], price: String?, companyId:String) {
         self.title = title
-        self.category = category
+        self.category = category.id
         self.contents = contents
         self.providers = imageProviders
         self.price = price
+        self.companyId = 1
         self.loadImages(providers:self.providers)
-       
     }
     
     private func loadImages(providers : [NSItemProvider] ){
@@ -55,6 +56,8 @@ class PostModel{
         UIGraphicsEndImageContext()
         return newImage ?? image
     }
+    
+    
     
     
 }
