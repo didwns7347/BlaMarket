@@ -26,6 +26,11 @@ struct UserConst{
     
     static let AccessToken = "accessToken"
     static let jwtToken = ""
+    
+    //UserDefaults
+    static let loginedID = "email"
+    static let companyID = "companyID"
+    static let userName = "name"
 }
 struct ColorConst{
     static let MAIN_COLOR = UIColor.systemBlue

@@ -31,10 +31,10 @@ struct UserInfo: Decodable{
     let email: String
     let company: String
     let name : String
-    let isEnable : String
+//    let isEnable : String
     enum CodingKeys: String,CodingKey{
         case email,company,name
-        case isEnable = "is_enable"
+//        case isEnable = "is_enable"
     }
 }
 

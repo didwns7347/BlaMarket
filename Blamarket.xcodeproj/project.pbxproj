@@ -71,6 +71,9 @@
 		9B8677662911080200C1F8F6 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8677652911080200C1F8F6 /* PostDetailViewController.swift */; };
 		9B86776C29110D1800C1F8F6 /* PostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86776B29110D1800C1F8F6 /* PostDetailViewModel.swift */; };
 		9B86776E29110D4C00C1F8F6 /* PostDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86776D29110D4C00C1F8F6 /* PostDetailModel.swift */; };
+		9B8B6639292B5651002676BC /* BlamarketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B6638292B5651002676BC /* BlamarketTests.swift */; };
+		9B8B6646292B57B1002676BC /* BlamarketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B6645292B57B1002676BC /* BlamarketUITests.swift */; };
+		9B8B6648292B57B1002676BC /* BlamarketUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B6647292B57B1002676BC /* BlamarketUITestsLaunchTests.swift */; };
 		9B8DB22928ACA03000E14443 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB22828ACA03000E14443 /* AppDelegate.swift */; };
 		9B8DB22B28ACA03000E14443 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB22A28ACA03000E14443 /* SceneDelegate.swift */; };
 		9B8DB23328ACA03000E14443 /* Blamarket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB23128ACA03000E14443 /* Blamarket.xcdatamodeld */; };
@@ -106,6 +109,23 @@
 		9BF4186029065FBF00F35963 /* life.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BF4185F29065FBF00F35963 /* life.png */; };
 		9BF418622906612900F35963 /* books.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BF418612906612900F35963 /* books.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9B8B663A292B5651002676BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B8DB21D28ACA03000E14443 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B8DB22428ACA03000E14443;
+			remoteInfo = Blamarket;
+		};
+		9B8B6649292B57B1002676BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B8DB21D28ACA03000E14443 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B8DB22428ACA03000E14443;
+			remoteInfo = Blamarket;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		7EDAE8D42BFCC845F142E9F9 /* Pods-Blamarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blamarket.debug.xcconfig"; path = "Target Support Files/Pods-Blamarket/Pods-Blamarket.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +191,11 @@
 		9B8677652911080200C1F8F6 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		9B86776B29110D1800C1F8F6 /* PostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModel.swift; sourceTree = "<group>"; };
 		9B86776D29110D4C00C1F8F6 /* PostDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailModel.swift; sourceTree = "<group>"; };
+		9B8B6636292B5651002676BC /* BlamarketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlamarketTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B8B6638292B5651002676BC /* BlamarketTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlamarketTests.swift; sourceTree = "<group>"; };
+		9B8B6643292B57B1002676BC /* BlamarketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlamarketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B8B6645292B57B1002676BC /* BlamarketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlamarketUITests.swift; sourceTree = "<group>"; };
+		9B8B6647292B57B1002676BC /* BlamarketUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlamarketUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9B8DB22528ACA03000E14443 /* Blamarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blamarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8DB22828ACA03000E14443 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B8DB22A28ACA03000E14443 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +238,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9B8B6633292B5651002676BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B8B6640292B57B1002676BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9B8DB22228ACA03000E14443 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -522,10 +561,29 @@
 			path = PostsDetailScene;
 			sourceTree = "<group>";
 		};
+		9B8B6637292B5651002676BC /* BlamarketTests */ = {
+			isa = PBXGroup;
+			children = (
+				9B8B6638292B5651002676BC /* BlamarketTests.swift */,
+			);
+			path = BlamarketTests;
+			sourceTree = "<group>";
+		};
+		9B8B6644292B57B1002676BC /* BlamarketUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9B8B6645292B57B1002676BC /* BlamarketUITests.swift */,
+				9B8B6647292B57B1002676BC /* BlamarketUITestsLaunchTests.swift */,
+			);
+			path = BlamarketUITests;
+			sourceTree = "<group>";
+		};
 		9B8DB21C28ACA03000E14443 = {
 			isa = PBXGroup;
 			children = (
 				9B8DB22728ACA03000E14443 /* Blamarket */,
+				9B8B6637292B5651002676BC /* BlamarketTests */,
+				9B8B6644292B57B1002676BC /* BlamarketUITests */,
 				9B8DB22628ACA03000E14443 /* Products */,
 				51719F7932C75580D4131C9B /* Pods */,
 				9B1B192CB9DB3906DB96D25A /* Frameworks */,
@@ -536,6 +594,8 @@
 			isa = PBXGroup;
 			children = (
 				9B8DB22528ACA03000E14443 /* Blamarket.app */,
+				9B8B6636292B5651002676BC /* BlamarketTests.xctest */,
+				9B8B6643292B57B1002676BC /* BlamarketUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -671,6 +731,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9B8B6635292B5651002676BC /* BlamarketTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B8B663E292B5651002676BC /* Build configuration list for PBXNativeTarget "BlamarketTests" */;
+			buildPhases = (
+				9B8B6632292B5651002676BC /* Sources */,
+				9B8B6633292B5651002676BC /* Frameworks */,
+				9B8B6634292B5651002676BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B8B663B292B5651002676BC /* PBXTargetDependency */,
+			);
+			name = BlamarketTests;
+			productName = BlamarketTests;
+			productReference = 9B8B6636292B5651002676BC /* BlamarketTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9B8B6642292B57B1002676BC /* BlamarketUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B8B664B292B57B1002676BC /* Build configuration list for PBXNativeTarget "BlamarketUITests" */;
+			buildPhases = (
+				9B8B663F292B57B1002676BC /* Sources */,
+				9B8B6640292B57B1002676BC /* Frameworks */,
+				9B8B6641292B57B1002676BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B8B664A292B57B1002676BC /* PBXTargetDependency */,
+			);
+			name = BlamarketUITests;
+			productName = BlamarketUITests;
+			productReference = 9B8B6643292B57B1002676BC /* BlamarketUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		9B8DB22428ACA03000E14443 /* Blamarket */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B8DB23C28ACA03100E14443 /* Build configuration list for PBXNativeTarget "Blamarket" */;
@@ -697,9 +793,17 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					9B8B6635292B5651002676BC = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = 9B8DB22428ACA03000E14443;
+					};
+					9B8B6642292B57B1002676BC = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = 9B8DB22428ACA03000E14443;
+					};
 					9B8DB22428ACA03000E14443 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -719,11 +823,27 @@
 			projectRoot = "";
 			targets = (
 				9B8DB22428ACA03000E14443 /* Blamarket */,
+				9B8B6635292B5651002676BC /* BlamarketTests */,
+				9B8B6642292B57B1002676BC /* BlamarketUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9B8B6634292B5651002676BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B8B6641292B57B1002676BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9B8DB22328ACA03000E14443 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -798,6 +918,23 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9B8B6632292B5651002676BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B8B6639292B5651002676BC /* BlamarketTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B8B663F292B57B1002676BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B8B6648292B57B1002676BC /* BlamarketUITestsLaunchTests.swift in Sources */,
+				9B8B6646292B57B1002676BC /* BlamarketUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9B8DB22128ACA03000E14443 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -882,6 +1019,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9B8B663B292B5651002676BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B8DB22428ACA03000E14443 /* Blamarket */;
+			targetProxy = 9B8B663A292B5651002676BC /* PBXContainerItemProxy */;
+		};
+		9B8B664A292B57B1002676BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B8DB22428ACA03000E14443 /* Blamarket */;
+			targetProxy = 9B8B6649292B57B1002676BC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		9B8DB23628ACA03100E14443 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -894,6 +1044,90 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9B8B663C292B5651002676BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DR2C4G73MR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yangjs.BlamarketTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blamarket.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Blamarket";
+			};
+			name = Debug;
+		};
+		9B8B663D292B5651002676BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DR2C4G73MR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yangjs.BlamarketTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blamarket.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Blamarket";
+			};
+			name = Release;
+		};
+		9B8B664C292B57B1002676BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DR2C4G73MR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yangjs.BlamarketUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Blamarket;
+			};
+			name = Debug;
+		};
+		9B8B664D292B57B1002676BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DR2C4G73MR;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = yangjs.BlamarketUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Blamarket;
+			};
+			name = Release;
+		};
 		9B8DB23A28ACA03100E14443 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1075,6 +1309,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9B8B663E292B5651002676BC /* Build configuration list for PBXNativeTarget "BlamarketTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B8B663C292B5651002676BC /* Debug */,
+				9B8B663D292B5651002676BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B8B664B292B57B1002676BC /* Build configuration list for PBXNativeTarget "BlamarketUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B8B664C292B57B1002676BC /* Debug */,
+				9B8B664D292B57B1002676BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9B8DB22028ACA03000E14443 /* Build configuration list for PBXProject "Blamarket" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

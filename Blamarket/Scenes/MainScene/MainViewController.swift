@@ -50,7 +50,15 @@ class MainViewController : UIViewController{
     }
     
     func bind(vm: MainViewModel){
-        vm.loadFirstPage.onNext(())
+        self.rx.viewWillAppear
+            .map{ _ in
+                ()
+            }
+            .bind(to: vm.loadFirstPage)
+            .disposed(by: bag)
+        
+        //vm.loadFirstPage.onNext(())
+        
         
         vm.postList.bind(to: self.tableview.rx.items(cellIdentifier: "mainCell",cellType: MainTableViewCell.self)){ (row, model, cell) in
             print(model)

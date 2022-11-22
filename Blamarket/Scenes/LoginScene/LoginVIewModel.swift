@@ -79,12 +79,20 @@ struct LoginViewModel {
             return value
         }.share()
         
+        loginSuccess.subscribe(onNext:{ result in
+            TokenManager.shared.createToken(token: result.result.token)
+            UserDefaults.standard.setValue(result.result.resultData.email, forKey: UserConst.loginedID)
+            UserDefaults.standard.setValue(result.result.resultData.company, forKey: UserConst.companyID)
+            UserDefaults.standard.setValue(result.result.resultData.name, forKey: UserConst.userName)
+            
+        }).disposed(by: bag)
+        
 
 //        loginSuccess.map{ _ -> Endpoint<UserNetworkEntity<LoginResultData>> in
 //            guard let token = TokenManager.shared.readToken() else{
 //                return
 //            }
-//            
+//
 //            let endPoint = UserEndPoint.getLoginInfo(token: token)
 //            return endPoint
 //        }

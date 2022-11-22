@@ -20,7 +20,7 @@ class MainViewModel {
     
     let bag = DisposeBag()
     //테이블뷰 페이징 관련
-    let postList = BehaviorRelay<[PostEntity]>(value: [])
+    var postList = BehaviorRelay<[PostEntity]>(value: [])
     let loadMorePost = PublishSubject<Void>()
     let loadFirstPage = PublishSubject<Void>()
     let loadList = PublishSubject<[PostEntity]>()
@@ -34,6 +34,8 @@ class MainViewModel {
     private func bind(){
         //첫페이지
         loadFirstPage.subscribe{ [weak self] _ in
+            self?.postList.accept([])
+            self?.currentPage = 1
             self?.getPosts(page: 1)
         }.disposed(by: bag)
         
@@ -48,8 +50,8 @@ class MainViewModel {
         loadList.subscribe(onNext:{ loadedList in
             self.currentPage+=1
             let oldList = self.postList.value
-            print("oldList = \(oldList)")
-            print("loadedList = \(loadedList)")
+            print("oldList = \(oldList.map{$0.title})")
+            print("page=\(self.currentPage) loadedList = \(loadedList.map{$0.title})")
             self.postList.accept(oldList+loadedList)
         }).disposed(by: bag)
         

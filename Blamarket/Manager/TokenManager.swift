@@ -49,8 +49,7 @@ class TokenManager{
                 return
             }
             print("Token = \(token)")
-            KeyChainManager.saveWithKey(key: UserConst.AccessToken, value: token)
-            self.renewDate()
+            self.createToken(token: token)
         }).disposed(by: bag)
         
     }
