@@ -53,11 +53,25 @@ class PostDetailViewController : UIViewController{
                                                    UIImage(systemName: "medal")!,
                                                    UIImage(systemName: "link")!])
         //testData.subscribe(onNext:{self.photoSliderView.configure(with: $0)}).disposed(by: bag)
-        vm.postDetailEntity.subscribe(onNext:{ model in
-            self.postHeaderView.configView(postModel: model)
-            self.photoSliderView.configView(postModel: model)
-            self.contentTextView.text = model.content
-        }).disposed(by: bag)
+        vm.postDetailEntity
+            .asDriver(onErrorJustReturn: PostDetailEntity(id: -1,
+                                                          email: "unknown",
+                                                          title: "Notitle",
+                                                          content: "NO",
+                                                          price: 0,
+                                                          date: "0000-00-00",
+                                                          viewCount: nil,
+                                                          category: "0",
+                                                          images: []))
+            .drive(onNext:{ model in
+                if model.id == -1{
+                    self.rx.completeAlert.onNext( Alert(title:"실패" , message:"잠시후 다시 시도해 주세요." ))
+                    return
+                }
+                self.postHeaderView.configView(postModel: model)
+                self.photoSliderView.configView(postModel: model)
+                self.contentTextView.text = model.content
+            }).disposed(by: bag)
         
 #endif
         let postModel = vm.postDetailEntity.share()
