@@ -37,14 +37,39 @@ struct PostEntity : Decodable{
 
 struct PostDetailEntity: Decodable{
     let id : Int
-    let title: String
-    let images: [String]
-    let price : String
-    let date: String
     let email: String
-    let viewCount:Int
-    let category: String
-    let wish:Bool
+    let title: String
     let content: String
-    
+    let price : Int?
+    let date: String
+    let viewCount:String?
+    let category: String
+//    let wish: Dictionary
+    let images: [String]
+   
+    enum CodingKeys: String,CodingKey{
+        
+        case id,email,title,content,price,date,category,images
+        case viewCount = "view_count"
+    }
 }
+/**
+ id": 32529,
+ "email": "firejs123@naver.com",
+ "title": "폴더생성테스트",
+ "content": "폴더생성테스트다이말이야",
+ "price": 123456,
+ "used_date": null,
+ "date": "2022-12-04",
+ "status": null,
+ "view_count": null,
+ "category": "4",
+ "images":[
+ "/usr/local/tomcat/temp/test/32529/mountain_1.jpg",
+ "/usr/local/tomcat/temp/test/32529/mountain_2.jpg",
+ "/usr/local/tomcat/temp/test/32529/mountain_3.jpg"
+ ],
+ "wish":{
+ }
+ }
+ */

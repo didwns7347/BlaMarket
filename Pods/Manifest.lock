@@ -2,11 +2,14 @@ PODS:
   - Alamofire (5.6.1)
   - JWTDecode (3.0.0)
   - Kingfisher (7.2.1)
+  - Nimble (11.1.0)
   - RxAlamofire (6.1.1):
     - RxAlamofire/Core (= 6.1.1)
   - RxAlamofire/Core (6.1.1):
     - Alamofire (~> 5.4)
     - RxSwift (~> 6.0)
+  - RxBlocking (6.5.0):
+    - RxSwift (= 6.5.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
@@ -16,40 +19,55 @@ PODS:
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
+  - RxTest (6.5.0):
+    - RxSwift (= 6.5.0)
   - SnapKit (5.6.0)
+  - Stubber (1.5.3)
 
 DEPENDENCIES:
   - JWTDecode (~> 3.0)
   - Kingfisher (~> 7.0)
+  - Nimble
   - RxAlamofire
+  - RxBlocking (= 6.5.0)
   - RxCocoa (= 6.5.0)
   - RxGesture
   - RxSwift (= 6.5.0)
+  - RxTest (= 6.5.0)
   - SnapKit (~> 5.6.0)
+  - Stubber
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - JWTDecode
     - Kingfisher
+    - Nimble
     - RxAlamofire
+    - RxBlocking
     - RxCocoa
     - RxGesture
     - RxRelay
     - RxSwift
+    - RxTest
     - SnapKit
+    - Stubber
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
   JWTDecode: 82480a7173f8a811954e7e14a2b59f688ca4222a
   Kingfisher: 7c084bebf7d548c623ad41bcf765fb200efed369
+  Nimble: 81a6ab1afd3d84a75b18b910825f247ce5d3686a
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
+  RxBlocking: 04b5fd28bb5ea49f7d64b80db8bbfe50d9cc1c7d
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  Stubber: 3ea4080870feeaf5b1637314a92245eef9b8c8e7
 
-PODFILE CHECKSUM: f490ee969525d51db7cbff0a497da25b0166053b
+PODFILE CHECKSUM: 0bf1ff71accb4a96d697a9a40f2a988fe0278ad3
 
 COCOAPODS: 1.10.2

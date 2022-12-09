@@ -14,18 +14,19 @@ class PostDetailViewModel{
     let postDetailParams = PublishSubject<PostDetailParameter>()
     
     let testModel = Observable<PostDetailEntity>.just(PostDetailEntity(id: 1,
+                                                                       email: "didwns7347",
                                                                        title: "이게 당근당근당근 내당근",
+                                                                     
+                                                                       content: "hello my name is Joon Soo im very happy ",
+                                                                       price: 10000,
+                                                                       date: "2022-11-07",
+                                                                       viewCount: "100",
+                                                                       category: "1",
+//                                                                       wish: true,
                                                                        images: ["https://images.punkapi.com/v2/227.png",
                                                                                 "https://images.punkapi.com/v2/229.png",
-                                                                                "https://images.punkapi.com/v2/keg.png"
-                                                                               ],
-                                                                       price: "10000",
-                                                                       date: "2022-11-07",
-                                                                       email: "didwns7347",
-                                                                       viewCount: 100,
-                                                                       category: "1",
-                                                                       wish: true,
-                                                                      content: "hello my name is Joon Soo im very happy "))
+                                                                                "https://images.punkapi.com/v2/keg.png"]
+                                                                      ))
     
     let bag = DisposeBag()
     init(){

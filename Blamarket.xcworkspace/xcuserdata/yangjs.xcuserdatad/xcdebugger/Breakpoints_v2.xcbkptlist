@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "19FB1315-43B6-4AAB-B9F6-3E55CB1AFFBB"
+            uuid = "467E97D3-A28F-405A-8710-C48161BA5B9D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Blamarket/Scenes/RegistItemScene/RegistItemViewController.swift"
+            filePath = "Blamarket/Network/Provider/NetworkProviderImpl.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "bind(viewModel:)"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "decode(data:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

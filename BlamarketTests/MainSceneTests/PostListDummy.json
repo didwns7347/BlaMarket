@@ -1,0 +1,42 @@
+/* 
+ PostListDummy.strings
+ Blamarket
+ 
+ Created by yangjs on 2022/11/22.
+ 
+ */
+
+[
+{
+    "id": 32414,
+    "title": "RTX 3080 ti",
+    "content": "곧 4090 출시해서 팔아요. 가격 싸니까 네고 사절이요",
+    "thumbnail": "/src/images/32414/rtx_3090_1.jpeg",
+    "price": 1590000,
+    "date": "2022-12-31",
+    "used_date": "3개월",
+    "view_count": 0
+},
+{
+    "id": 32415,
+    "title": "M2 맥북 프로(MEM 16GB)",
+    "content": "사주세요",
+    "thumbnail": "/src/images/32415/mac_m2_1.jpeg",
+    "price": 2599999,
+    "date": "2022-12-25",
+    "used_date": "0개월",
+    "view_count": 0
+},
+{
+    "id": 32436,
+    "title": "test220922",
+    "content": "test220922 입니다",
+    "thumbnail": "C:/Users/oja96/OneDrive/Pictures/snow.png",
+    "price": 100000,
+    "date": "2022-10-23",
+    "used_date": "0개월",
+    "view_count": 100
+}
+]
+
+

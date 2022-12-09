@@ -14,7 +14,7 @@ import Alamofire
 struct PostEndPoint{
     static let boundary = "Boundary-\(UUID().uuidString)"
 #if DEBUG
-    static let authorization = "Bearer eyJraWQiOiJrZXkxIiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJ0ZXN0MUBuYXZlci5jb20iLCJpYXQiOjE2Njg0NzIwNjIsImV4cCI6MTcyODQ3MjA2Mn0.1r5y2bXknkgN6l8OqGy5Z5Qt1JSq0SWSMoi94RrDH8wbMuM73Zb2XaYZrBB1I_Wfh9nt19ujlJXUDcIgu7Kfcw"
+    static let authorization = "Bearer eyJraWQiOiJrZXkyIiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJ0ZXN0MUBuYXZlci5jb20iLCJpYXQiOjE2NzA0ODY0ODQsImV4cCI6MTczMDQ4NjQ4NH0.0g5ywvHdoOAu9hif7kWOq4B-X1zzv9AqtKAkMiKcaxIQBaeHiwgwwQfzw06N7E6MheSD0Spntke7TjOo8nqX9w"
     static let authKey = "JWT-AUTHENTICATION"
 #endif
     
@@ -43,6 +43,7 @@ struct PostEndPoint{
     
     static func postDetail(param:PostDetailParameter)->Endpoint<PostNetworkEntity<PostDetailEntity>>{
         return Endpoint(baseURL: PostConst.SERVER_URL,
+                        path: "/post/viewDetail",
                         method: .get,
                         queryParameters: param,
                         bodyParameters: nil,

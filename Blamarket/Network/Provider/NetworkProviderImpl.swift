@@ -12,19 +12,25 @@ import RxAlamofire
 import Alamofire
 class NetworkProvider : Provider{
     let bag = DisposeBag()
-    let session : URLSession
-    init(session: URLSession = URLSession.shared){
+    let session : URLSessionable
+    init(session: URLSessionable = URLSession.shared){
         self.session = session
         
     }
     
     func request(_ url: URL) -> Single<Result<Data, Error>> {
+        guard let session = session as? URLSession else{
+            return .just(.failure(NetworkError.sessionError))
+        }
         var request = URLRequest(url: url)
         request.timeoutInterval = TimeInterval(300)
         return session.rx.response(request:request)
             .map(self.checkError).asSingle()
     }
     func tokenRequest<E:RequestResponsable>(with endPoint: E)->Observable<String?>{
+        guard let session = session as? URLSession else{
+            return .just(nil)
+        }
         guard let requset = try? endPoint.getUrlRequest() else {
             return .just(nil)
         }
@@ -41,6 +47,9 @@ class NetworkProvider : Provider{
     
     //endPoint 와 Response가 같은경우 -> 파싱할데이터를 endPoint파라메터를 통해 주입받음.
     func request<R:Decodable, E: RequestResponsable>(with endPoint: E) -> Single<Result<R, Error>>  where E.Response == R {
+        guard let session = session as? URLSession else{
+            return .just(.failure(NetworkError.sessionError))
+        }
         guard let requset = try? endPoint.getUrlRequest() else {
             return .just(.failure(NetworkError.urlError))
         }
@@ -119,6 +128,10 @@ class NetworkProvider : Provider{
     
     
     private func decode<R:Decodable>(data:Data) -> Result<R,Error>{
+        #if DEBUG
+        print("JSON STRING => data")
+        print(String(data: data, encoding: .utf8))
+        #endif
         do{
             let decoded = try JSONDecoder().decode(R.self, from: data)
             return .success(decoded)

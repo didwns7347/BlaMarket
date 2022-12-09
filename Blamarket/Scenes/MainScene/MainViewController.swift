@@ -69,6 +69,18 @@ class MainViewController : UIViewController{
             self.tableview.deselectRow(at: $0, animated: true)
         }).disposed(by: bag)
         
+        
+        //테이블뷰 아이템 실렉트
+        tableview.rx.modelSelected(PostEntity.self).subscribe(onNext:{ item in
+            
+            let vc = PostDetailViewController()
+            vm.postModelSelected.onNext(item)
+            vc.bind(vm: vm.postDetailVM)
+            self.show(vc, sender: self)
+        }).disposed(by: bag)
+        
+        
+        
         tableview.rx.didScroll.subscribe { [weak self] _ in
                     guard let self = self else { return }
                     let offSetY = self.tableview.contentOffset.y

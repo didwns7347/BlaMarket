@@ -9,6 +9,7 @@ import Foundation
 
 
 enum NetworkError: LocalizedError{
+    case sessionError
     case unknownError
     case invalidHttpStatusCode(Int)
     case components
@@ -19,6 +20,8 @@ enum NetworkError: LocalizedError{
     case urlError
     var errorDescription: String?{
         switch self{
+        case .sessionError:
+            return "URLSession 타입이 아닙니다."
         case .unknownError :
              return "알수 없는 에러입니다."
         case .invalidHttpStatusCode(let statuscode):

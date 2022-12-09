@@ -17,7 +17,7 @@ struct LoadParameter{
 class MainViewModel {
     var currentPage = 1
     var lastPage = 20
-    
+    let postDetailVM = PostDetailViewModel()
     let bag = DisposeBag()
     //테이블뷰 페이징 관련
     var postList = BehaviorRelay<[PostEntity]>(value: [])
@@ -26,6 +26,9 @@ class MainViewModel {
     let loadList = PublishSubject<[PostEntity]>()
     //페이지 로딩(파라메터로)
     let loadPostUsingParameter = PublishSubject<LoadParameter>()
+    
+    //모델 선텍
+    let postModelSelected = PublishSubject<PostEntity>()
     
     init(){
         bind()
@@ -55,7 +58,11 @@ class MainViewModel {
             self.postList.accept(oldList+loadedList)
         }).disposed(by: bag)
         
-        
+        postModelSelected.map { model -> PostDetailParameter in
+            PostDetailParameter(
+                email: UserDefaults.standard.string(forKey: UserConst.loginedID) ?? "didwns7347@naver.com",
+                itemId: model.id)
+        }.bind(to: postDetailVM.postDetailParams).disposed(by: bag)
     }
     
     private func getPosts(category:Category? = nil,keyword:String? = nil ,page:Int )  {

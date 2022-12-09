@@ -53,7 +53,7 @@ class PostDetailViewController : UIViewController{
                                                    UIImage(systemName: "medal")!,
                                                    UIImage(systemName: "link")!])
         //testData.subscribe(onNext:{self.photoSliderView.configure(with: $0)}).disposed(by: bag)
-        vm.testModel.subscribe(onNext:{ model in
+        vm.postDetailEntity.subscribe(onNext:{ model in
             self.postHeaderView.configView(postModel: model)
             self.photoSliderView.configView(postModel: model)
             self.contentTextView.text = model.content

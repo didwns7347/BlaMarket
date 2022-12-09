@@ -33,7 +33,8 @@ class PostHeaderView: UIView{
     
     func configView(postModel:PostDetailEntity){
         self.titleLbael.text = postModel.title
-        let starImage = postModel.wish ? "star.fill":"star"
+//        let starImage = postModel.wish ? "star.fill":"star"
+        let starImage = true ? "star.fill":"star"
         self.starButton.setImage(UIImage(systemName: starImage), for: .normal)
         self.writerName.text = "\(postModel.email) | \(postModel.date)"
         self.viewCount.text = "\(postModel.viewCount) views"

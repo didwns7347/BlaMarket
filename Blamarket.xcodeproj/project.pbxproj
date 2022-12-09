@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		485A97D1D83BF5CFA42FAED6 /* Pods_Blamarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B89B6BA28B76A07840E2E545 /* Pods_Blamarket.framework */; };
+		9ACBB7708A1A3ACDCAF32ADA /* Pods_BlamarketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 165849504F197CAF64CD2B34 /* Pods_BlamarketTests.framework */; };
 		9B10603928DC337200CB9A60 /* TitleTextFieldCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10603728DC337200CB9A60 /* TitleTextFieldCellViewModel.swift */; };
 		9B10603A28DC337200CB9A60 /* TitleTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10603828DC337200CB9A60 /* TitleTextFieldCell.swift */; };
 		9B10603E28DC33AF00CB9A60 /* PriceTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10603C28DC33AF00CB9A60 /* PriceTextFieldCell.swift */; };
@@ -23,6 +24,10 @@
 		9B12F7B328D82A3C00207003 /* RegistItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12F7B228D82A3C00207003 /* RegistItemViewController.swift */; };
 		9B12F7B528D82A4B00207003 /* RegistItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12F7B428D82A4B00207003 /* RegistItemViewModel.swift */; };
 		9B12F7B728D8393200207003 /* ItemImageCollecteionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12F7B628D8393200207003 /* ItemImageCollecteionViewCell.swift */; };
+		9B1F4B5E292C8F5500F12842 /* PostListDummy.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B1F4B5D292C8F5500F12842 /* PostListDummy.json */; };
+		9B1F4B60292C904100F12842 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F4B5F292C904100F12842 /* Dummy.swift */; };
+		9B1F4B62292C95B900F12842 /* PostNetworkStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F4B61292C95B900F12842 /* PostNetworkStub.swift */; };
+		9B1F4B64292C97BB00F12842 /* PostSceneModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F4B63292C97BB00F12842 /* PostSceneModelTest.swift */; };
 		9B24BE8A28E3D8D600EB26BB /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B24BE8928E3D8D600EB26BB /* PostModel.swift */; };
 		9B2A269F28F6A4150041B96D /* KeychinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A269E28F6A4150041B96D /* KeychinManager.swift */; };
 		9B2A26A128F6A5280041B96D /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A26A028F6A5280041B96D /* LogManager.swift */; };
@@ -128,6 +133,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		165849504F197CAF64CD2B34 /* Pods_BlamarketTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlamarketTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		216E70FB2E06C80EC5267DC6 /* Pods-BlamarketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlamarketTests.debug.xcconfig"; path = "Target Support Files/Pods-BlamarketTests/Pods-BlamarketTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7EDAE8D42BFCC845F142E9F9 /* Pods-Blamarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blamarket.debug.xcconfig"; path = "Target Support Files/Pods-Blamarket/Pods-Blamarket.debug.xcconfig"; sourceTree = "<group>"; };
 		9B10603728DC337200CB9A60 /* TitleTextFieldCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTextFieldCellViewModel.swift; sourceTree = "<group>"; };
 		9B10603828DC337200CB9A60 /* TitleTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTextFieldCell.swift; sourceTree = "<group>"; };
@@ -144,6 +151,10 @@
 		9B12F7B228D82A3C00207003 /* RegistItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistItemViewController.swift; sourceTree = "<group>"; };
 		9B12F7B428D82A4B00207003 /* RegistItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistItemViewModel.swift; sourceTree = "<group>"; };
 		9B12F7B628D8393200207003 /* ItemImageCollecteionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImageCollecteionViewCell.swift; sourceTree = "<group>"; };
+		9B1F4B5D292C8F5500F12842 /* PostListDummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PostListDummy.json; sourceTree = "<group>"; };
+		9B1F4B5F292C904100F12842 /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
+		9B1F4B61292C95B900F12842 /* PostNetworkStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkStub.swift; sourceTree = "<group>"; };
+		9B1F4B63292C97BB00F12842 /* PostSceneModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSceneModelTest.swift; sourceTree = "<group>"; };
 		9B24BE8928E3D8D600EB26BB /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		9B2A269E28F6A4150041B96D /* KeychinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychinManager.swift; sourceTree = "<group>"; };
 		9B2A26A028F6A5280041B96D /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
@@ -235,6 +246,7 @@
 		9BF418612906612900F35963 /* books.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = books.png; sourceTree = "<group>"; };
 		B89B6BA28B76A07840E2E545 /* Pods_Blamarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blamarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF2D6162959F0CE278F1BCC0 /* Pods-Blamarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blamarket.release.xcconfig"; path = "Target Support Files/Pods-Blamarket/Pods-Blamarket.release.xcconfig"; sourceTree = "<group>"; };
+		FB44CE51A781F003F935F7FF /* Pods-BlamarketTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlamarketTests.release.xcconfig"; path = "Target Support Files/Pods-BlamarketTests/Pods-BlamarketTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ACBB7708A1A3ACDCAF32ADA /* Pods_BlamarketTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +281,8 @@
 			children = (
 				7EDAE8D42BFCC845F142E9F9 /* Pods-Blamarket.debug.xcconfig */,
 				BF2D6162959F0CE278F1BCC0 /* Pods-Blamarket.release.xcconfig */,
+				216E70FB2E06C80EC5267DC6 /* Pods-BlamarketTests.debug.xcconfig */,
+				FB44CE51A781F003F935F7FF /* Pods-BlamarketTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -302,6 +317,7 @@
 			children = (
 				9B10603828DC337200CB9A60 /* TitleTextFieldCell.swift */,
 				9B10603728DC337200CB9A60 /* TitleTextFieldCellViewModel.swift */,
+				9B12F7B228D82A3C00207003 /* RegistItemViewController.swift */,
 			);
 			path = TitleTextFeildCell;
 			sourceTree = "<group>";
@@ -348,7 +364,6 @@
 				9B10604028DC33BF00CB9A60 /* DetailWriteFormCell */,
 				9B10603B28DC337900CB9A60 /* PriceTextFiledCell */,
 				9B10603628DC32DE00CB9A60 /* TitleTextFeildCell */,
-				9B12F7B228D82A3C00207003 /* RegistItemViewController.swift */,
 				9B12F7B428D82A4B00207003 /* RegistItemViewModel.swift */,
 				9B12F7B628D8393200207003 /* ItemImageCollecteionViewCell.swift */,
 				9B10604B28DC34FE00CB9A60 /* RegisterItemModel.swift */,
@@ -360,8 +375,20 @@
 			isa = PBXGroup;
 			children = (
 				B89B6BA28B76A07840E2E545 /* Pods_Blamarket.framework */,
+				165849504F197CAF64CD2B34 /* Pods_BlamarketTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B1F4B5C292C8F3D00F12842 /* MainSceneTests */ = {
+			isa = PBXGroup;
+			children = (
+				9B1F4B5D292C8F5500F12842 /* PostListDummy.json */,
+				9B1F4B5F292C904100F12842 /* Dummy.swift */,
+				9B1F4B61292C95B900F12842 /* PostNetworkStub.swift */,
+				9B1F4B63292C97BB00F12842 /* PostSceneModelTest.swift */,
+			);
+			path = MainSceneTests;
 			sourceTree = "<group>";
 		};
 		9B2A269C28F6A4010041B96D /* Manager */ = {
@@ -564,6 +591,7 @@
 		9B8B6637292B5651002676BC /* BlamarketTests */ = {
 			isa = PBXGroup;
 			children = (
+				9B1F4B5C292C8F3D00F12842 /* MainSceneTests */,
 				9B8B6638292B5651002676BC /* BlamarketTests.swift */,
 			);
 			path = BlamarketTests;
@@ -735,9 +763,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B8B663E292B5651002676BC /* Build configuration list for PBXNativeTarget "BlamarketTests" */;
 			buildPhases = (
+				A97781660E134CD90F6CED55 /* [CP] Check Pods Manifest.lock */,
 				9B8B6632292B5651002676BC /* Sources */,
 				9B8B6633292B5651002676BC /* Frameworks */,
 				9B8B6634292B5651002676BC /* Resources */,
+				F5FFFA493824B4D3C14F3C8C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -834,6 +864,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B1F4B5E292C8F5500F12842 /* PostListDummy.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -915,6 +946,45 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Blamarket/Pods-Blamarket-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A97781660E134CD90F6CED55 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BlamarketTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5FFFA493824B4D3C14F3C8C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BlamarketTests/Pods-BlamarketTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BlamarketTests/Pods-BlamarketTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlamarketTests/Pods-BlamarketTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -922,6 +992,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B1F4B64292C97BB00F12842 /* PostSceneModelTest.swift in Sources */,
+				9B1F4B60292C904100F12842 /* Dummy.swift in Sources */,
+				9B1F4B62292C95B900F12842 /* PostNetworkStub.swift in Sources */,
 				9B8B6639292B5651002676BC /* BlamarketTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1046,6 +1119,7 @@
 /* Begin XCBuildConfiguration section */
 		9B8B663C292B5651002676BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 216E70FB2E06C80EC5267DC6 /* Pods-BlamarketTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1069,6 +1143,7 @@
 		};
 		9B8B663D292B5651002676BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB44CE51A781F003F935F7FF /* Pods-BlamarketTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
