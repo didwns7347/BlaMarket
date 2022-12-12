@@ -79,6 +79,7 @@
 		9B8B6639292B5651002676BC /* BlamarketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B6638292B5651002676BC /* BlamarketTests.swift */; };
 		9B8B6646292B57B1002676BC /* BlamarketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B6645292B57B1002676BC /* BlamarketUITests.swift */; };
 		9B8B6648292B57B1002676BC /* BlamarketUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B6647292B57B1002676BC /* BlamarketUITestsLaunchTests.swift */; };
+		9B8B7DB82946F35A0046DD4C /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B7DB72946F35A0046DD4C /* UserProfileView.swift */; };
 		9B8DB22928ACA03000E14443 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB22828ACA03000E14443 /* AppDelegate.swift */; };
 		9B8DB22B28ACA03000E14443 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB22A28ACA03000E14443 /* SceneDelegate.swift */; };
 		9B8DB23328ACA03000E14443 /* Blamarket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB23128ACA03000E14443 /* Blamarket.xcdatamodeld */; };
@@ -207,6 +208,7 @@
 		9B8B6643292B57B1002676BC /* BlamarketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlamarketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8B6645292B57B1002676BC /* BlamarketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlamarketUITests.swift; sourceTree = "<group>"; };
 		9B8B6647292B57B1002676BC /* BlamarketUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlamarketUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9B8B7DB72946F35A0046DD4C /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		9B8DB22528ACA03000E14443 /* Blamarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blamarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8DB22828ACA03000E14443 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B8DB22A28ACA03000E14443 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 		9B39D14128FFB76C009F4267 /* UserInfoScene */ = {
 			isa = PBXGroup;
 			children = (
+				9B8B7DB92946F9290046DD4C /* ProfieScene */,
 				9B39D14628FFB7AB009F4267 /* UserInfoViewController.swift */,
 				9B39D14828FFB7B7009F4267 /* UserInfoViewModel.swift */,
 			);
@@ -606,6 +609,14 @@
 			path = BlamarketUITests;
 			sourceTree = "<group>";
 		};
+		9B8B7DB92946F9290046DD4C /* ProfieScene */ = {
+			isa = PBXGroup;
+			children = (
+				9B8B7DB72946F35A0046DD4C /* UserProfileView.swift */,
+			);
+			path = ProfieScene;
+			sourceTree = "<group>";
+		};
 		9B8DB21C28ACA03000E14443 = {
 			isa = PBXGroup;
 			children = (
@@ -631,6 +642,7 @@
 		9B8DB22728ACA03000E14443 /* Blamarket */ = {
 			isa = PBXGroup;
 			children = (
+				9B6CF9BA28AF2539007FC2AD /* Constants */,
 				9B8DB22828ACA03000E14443 /* AppDelegate.swift */,
 				9B8DB22A28ACA03000E14443 /* SceneDelegate.swift */,
 				9B77FE4328B5FF5E000CF701 /* Model */,
@@ -641,7 +653,6 @@
 				9B10604F28DC45AA00CB9A60 /* DelegateProxy */,
 				9B77FE3128B5B114000CF701 /* Extension */,
 				9B725DD128B46D7A002F8BA3 /* Resources */,
-				9B6CF9BA28AF2539007FC2AD /* Constants */,
 				9B8DB23428ACA03100E14443 /* Assets.xcassets */,
 				9B8DB23628ACA03100E14443 /* LaunchScreen.storyboard */,
 				9B8DB23928ACA03100E14443 /* Info.plist */,
@@ -1055,6 +1066,7 @@
 				9BF4183F290231C700F35963 /* CategorySelectViewModel.swift in Sources */,
 				9B2A269F28F6A4150041B96D /* KeychinManager.swift in Sources */,
 				9B10604328DC33F900CB9A60 /* DetailWriteFormCell.swift in Sources */,
+				9B8B7DB82946F35A0046DD4C /* UserProfileView.swift in Sources */,
 				9B86776C29110D1800C1F8F6 /* PostDetailViewModel.swift in Sources */,
 				9B10603F28DC33AF00CB9A60 /* PriceTextFieldCellViewModel.swift in Sources */,
 				9B39D14728FFB7AB009F4267 /* UserInfoViewController.swift in Sources */,

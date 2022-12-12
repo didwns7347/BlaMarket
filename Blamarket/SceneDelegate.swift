@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var loginVM = LoginViewModel()
     var mainVM = MainViewModel()
+    
     let testVM = PostDetailViewModel()
     //TEST
     //var registVM = RegistItemViewModel()
@@ -34,15 +35,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let mainVC = MainViewController()
             mainVC.bind(vm: mainVM)
+            
             let chatVC = ChatListViewController()
+            
             let userInfoVC = UserInfoViewConroller()
+            userInfoVC.bind(vm: UserInfoViewModel())
             
 
             let imgSize = CGSize(width: 30, height: 30)
             mainVC.tabBarItem = UITabBarItem(title: "게시판",image:UIImage(named: "047-house.png")!.imageResized(to:imgSize),tag: 0)
             chatVC.tabBarItem = UITabBarItem(title: "채팅", image:UIImage(named: "098-message.png")!.imageResized(to: imgSize), tag: 0)
             userInfoVC.tabBarItem = UITabBarItem(title: "내 정보", image: UIImage(named:"011-user.png")!.imageResized(to: imgSize), tag: 0)
-            tbc.setViewControllers([chatVC,UINavigationController(rootViewController: mainVC),userInfoVC], animated: false)
+            tbc.setViewControllers([UINavigationController(rootViewController:  chatVC),
+                                    UINavigationController(rootViewController: mainVC),
+                                    UINavigationController(rootViewController:  userInfoVC)],
+                                   animated: false)
+//            let tabTitles = ["게시판","채팅", "내정보"]
+            
             tbc.selectedIndex = 1
             
           

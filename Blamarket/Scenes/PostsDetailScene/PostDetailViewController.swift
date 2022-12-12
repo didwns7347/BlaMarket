@@ -25,6 +25,7 @@ class PostDetailViewController : UIViewController{
     
     let contentTextView : UITextView = {
         let text = UITextView()
+        text.font = .boldSystemFont(ofSize: 20)
         return text
     }()
     
@@ -75,8 +76,7 @@ class PostDetailViewController : UIViewController{
         
 #endif
         let postModel = vm.postDetailEntity.share()
-        
-        
+//        self.postHeaderView.starButton
     }
     
     
@@ -111,9 +111,9 @@ private extension PostDetailViewController{
         }
         
         contentTextView.snp.makeConstraints{
-            $0.top.equalTo(postHeaderView.snp.bottom)
-            $0.left.equalToSuperview()
-            $0.width.equalToSuperview()
+            $0.top.equalTo(postHeaderView.snp.bottom).offset(20)
+            $0.left.equalToSuperview().inset(10)
+            $0.width.equalToSuperview().inset(10)
             $0.height.equalTo(500)
         }
         commentsView.snp.makeConstraints{
