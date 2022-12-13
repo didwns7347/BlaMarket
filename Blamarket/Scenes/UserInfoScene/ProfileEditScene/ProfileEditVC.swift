@@ -9,11 +9,16 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
-
+import RxGesture
+import Kingfisher
+import PhotosUI
 class ProfileEditVC : UIViewController{
+  
     let bag = DisposeBag()
     let submitButton = UIBarButtonItem()
     let backButton = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: nil, action: nil)
+    
+    var selectedImage = BehaviorSubject<UIImage?>(value: nil)
     
     let profileImageView : UIImageView = {
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
@@ -39,6 +44,15 @@ class ProfileEditVC : UIViewController{
         return textfeild
     }()
     
+    private lazy var imagePicker : PHPickerViewController = {
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 1
+        config.filter = .any(of: [.livePhotos, .images])
+        let pickerVC = PHPickerViewController(configuration: config)
+        pickerVC.delegate = self
+        return pickerVC
+    }()
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         layout()
@@ -57,14 +71,33 @@ class ProfileEditVC : UIViewController{
                 
             })
             .disposed(by: bag)
+        
+        vm.userInfo
+            .asDriver(onErrorJustReturn: ProfileModel(profileImage: nil, name: nil))
+            .drive(onNext:{model in
+                self.profileImageView.kf.setImage(with: URL(string: model.profileImage ?? "") , placeholder: UIImage(systemName: "person.fill"))
+                self.nameTextFeild.text = model.name ?? ""
+            }).disposed(by: bag)
+        
+        profileImageView.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext:{ _ in
+                print("tapppppd1!")
+                self.present(self.imagePicker, animated: true)
+            }).disposed(by: bag)
+        
+        selectedImage
+            .asDriver(onErrorJustReturn: UIImage(systemName: "person.fill"))
+            .drive(onNext:{ img in
+                self.profileImageView.image = img ?? UIImage(systemName: "pserson.fill")
+            }).disposed(by: bag)
     }
     
 }
 private extension ProfileEditVC {
     func attribute(){
         view.backgroundColor = .systemBackground
-        setImageCircle()
-        
+ 
         submitButton.title = "제출"
         submitButton.style = .done
         submitButton.tintColor = .label
@@ -92,8 +125,20 @@ private extension ProfileEditVC {
             make.leading.trailing.equalTo(nameLabel)
         }
     }
-    
-    func setImageCircle(){
-       
+ 
+}
+extension ProfileEditVC : UINavigationControllerDelegate,
+                          PHPickerViewControllerDelegate{
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        var provider :NSItemProvider? = results.first?.itemProvider
+        provider?.loadObject(ofClass: UIImage.self, completionHandler: { img, error in
+            if let loadImage = img as? UIImage{
+                self.selectedImage.onNext(loadImage)
+            }else{
+                print(error?.localizedDescription ?? "이미지 로딩 에러")
+            }
+        })
     }
+    
 }

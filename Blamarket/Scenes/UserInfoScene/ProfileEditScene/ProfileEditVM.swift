@@ -10,5 +10,12 @@ import RxCocoa
 import RxSwift
 
 struct ProfileEditVM {
-    let userInfo : Single<>
+    let userInfo : Single<ProfileModel>
+    
+    init(){
+        userInfo = Single.just(ProfileModel(
+            profileImage: "https://github.com/ReactiveX/RxSwift/raw/main/assets/RxSwift_Logo.png",
+            name: "자이언트바퀴벌래"))
+        
+    }
 }

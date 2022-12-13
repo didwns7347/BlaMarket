@@ -7,7 +7,7 @@
 
 import Foundation
 struct ProfileModel{
-    let profileImage :String
-    let name : String
+    let profileImage :String?
+    let name : String?
     
 }
