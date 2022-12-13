@@ -9,9 +9,11 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
-/**
- like, sales, buy
- */
+enum SelectCase : Int{
+    case heartList
+    case postList
+    case buyList
+}
 class UserInfoViewConroller : UIViewController{
     let bag = DisposeBag()
     
@@ -19,7 +21,7 @@ class UserInfoViewConroller : UIViewController{
         let label = UILabel()
         label.text = "내 활동"
         label.tintColor = .secondaryLabel
-        label.font = .systemFont(ofSize: 35, weight: .bold)
+        label.font = .systemFont(ofSize: 28, weight: .bold)
         return label
     }()
     
@@ -41,8 +43,9 @@ class UserInfoViewConroller : UIViewController{
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        attribute()
+        
         layout()
+        attribute()
     }
     
     required init?(coder: NSCoder) {
@@ -59,6 +62,31 @@ class UserInfoViewConroller : UIViewController{
                 cell.textLabel?.font = .systemFont(ofSize: 20, weight: .semibold)
                 return cell
             }.disposed(by: bag)
+        
+        tableView.rx.itemSelected.subscribe( onNext:{ indexPath in
+            guard let selectType = SelectCase(rawValue: indexPath.row) else{
+                return
+            }
+            switch selectType{
+            case .heartList:
+                break
+                
+            case .buyList:
+                break
+                
+            case .postList:
+                break
+
+            }
+        }).disposed(by: bag)
+        
+        userProfileView.editProfile.rx.tap.subscribe(onNext:{
+            let vm = ProfileEditVM()
+            let vc = ProfileEditVC()
+            vc.bind(vm: vm)
+            
+            self.show(vc, sender: self)
+        }).disposed(by: bag)
     }
 }
 private extension UserInfoViewConroller{

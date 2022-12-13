@@ -44,14 +44,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             let imgSize = CGSize(width: 30, height: 30)
             mainVC.tabBarItem = UITabBarItem(title: "게시판",image:UIImage(named: "047-house.png")!.imageResized(to:imgSize),tag: 0)
+            
             chatVC.tabBarItem = UITabBarItem(title: "채팅", image:UIImage(named: "098-message.png")!.imageResized(to: imgSize), tag: 0)
+            
             userInfoVC.tabBarItem = UITabBarItem(title: "내 정보", image: UIImage(named:"011-user.png")!.imageResized(to: imgSize), tag: 0)
             tbc.setViewControllers([UINavigationController(rootViewController:  chatVC),
                                     UINavigationController(rootViewController: mainVC),
                                     UINavigationController(rootViewController:  userInfoVC)],
                                    animated: false)
 //            let tabTitles = ["게시판","채팅", "내정보"]
-            
+            tbc.tabBar.tintColor = .mainColor
             tbc.selectedIndex = 1
             
           

@@ -33,5 +33,5 @@ struct UserConst{
     static let userName = "name"
 }
 struct ColorConst{
-    static let MAIN_COLOR = UIColor.systemBlue
+    static let MAIN_COLOR = UIColor.mainColor
 }
