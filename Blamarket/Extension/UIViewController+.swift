@@ -10,6 +10,15 @@ import RxSwift
 import UIKit
 import Alamofire
 typealias Alert = (title:String, message:String?)
+//typealias AlertAction = (title:String , style : UIAlertAction.Style)
+struct AlertAction {
+    var title: String
+    var style: UIAlertAction.Style
+
+    static func action(title: String, style: UIAlertAction.Style = .default) -> AlertAction {
+        return AlertAction(title: title, style: style)
+    }
+}
 
 
 extension Reactive where Base : UIViewController{
@@ -24,6 +33,16 @@ extension Reactive where Base : UIViewController{
             let action = UIAlertAction(title: "확인", style: .cancel)
             alertController.addAction(action)
             base.present(alertController, animated:true , completion: nil)
+        }
+    }
+    
+    var actionSheetAlert : Binder<[UIAlertAction]> {
+        return Binder(base){ base , actions in
+            let alertConroller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            for action in actions{
+                alertConroller.addAction(action)
+            }
+            base.present(alertConroller,animated: true, completion: nil)
         }
     }
     

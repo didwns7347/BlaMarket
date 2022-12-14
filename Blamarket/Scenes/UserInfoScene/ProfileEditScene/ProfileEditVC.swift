@@ -12,13 +12,21 @@ import RxCocoa
 import RxGesture
 import Kingfisher
 import PhotosUI
+enum ProfileAction{
+    case Album
+    case delete
+    case cancel
+}
+
 class ProfileEditVC : UIViewController{
-  
+    
     let bag = DisposeBag()
     let submitButton = UIBarButtonItem()
     let backButton = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: nil, action: nil)
     
     var selectedImage = BehaviorSubject<UIImage?>(value: nil)
+    
+
     
     let profileImageView : UIImageView = {
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
@@ -57,7 +65,7 @@ class ProfileEditVC : UIViewController{
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         layout()
         attribute()
-      
+        
     }
     
     required init?(coder: NSCoder) {
@@ -75,29 +83,70 @@ class ProfileEditVC : UIViewController{
         vm.userInfo
             .asDriver(onErrorJustReturn: ProfileModel(profileImage: nil, name: nil))
             .drive(onNext:{model in
-                self.profileImageView.kf.setImage(with: URL(string: model.profileImage ?? "") , placeholder: UIImage(systemName: "person.fill"))
+                self.profileImageView.kf.setImage(with: URL(string: model.profileImage ?? "") , placeholder: UIImage(systemName: "person.fill")) { [weak self] result in
+                    switch result{
+                    case .success(let image):
+                        self?.selectedImage.onNext(image.image as UIImage)
+                    case .failure(let error):
+                        print(error)
+                    }
+                    
+                }
                 self.nameTextFeild.text = model.name ?? ""
+                
             }).disposed(by: bag)
         
         profileImageView.rx.tapGesture()
             .when(.recognized)
-            .subscribe(onNext:{ _ in
-                print("tapppppd1!")
+            .map{_ in
+                [
+                    UIAlertAction(title: "앨범에서 선택",
+                                  style: .default,
+                                  handler: { _ in vm.selectedProfileAction.onNext(.Album)}),
+                    
+                    UIAlertAction(title: "프로파일 사진 삭제",
+                                  style: .destructive,
+                                  handler: { _ in vm.selectedProfileAction.onNext(.delete)}),
+                    
+                    UIAlertAction(title: "취소", style: .cancel)
+                ]
+            }
+            .asDriver(onErrorJustReturn: [UIAlertAction(title: "취소", style: .cancel)])
+            .drive(self.rx.actionSheetAlert)
+            .disposed(by: bag)
+        
+        vm.albumSelected
+            .subscribe(onNext:{_ in
                 self.present(self.imagePicker, animated: true)
             }).disposed(by: bag)
+   
         
         selectedImage
             .asDriver(onErrorJustReturn: UIImage(systemName: "person.fill"))
-            .drive(onNext:{ img in
-                self.profileImageView.image = img ?? UIImage(systemName: "pserson.fill")
-            }).disposed(by: bag)
+            .map{
+                $0 ?? UIImage(systemName: "pserson.fill")
+            }
+            .drive(self.profileImageView.rx.image)
+            .disposed(by: bag)
+        
+        submitButton.rx.tap
+            .withLatestFrom(
+                Observable.combineLatest(selectedImage, nameTextFeild.rx.text)
+            )
+            .subscribe(onNext:{ event in
+                print(event.0)
+                print(event)
+                print(self.profileImageView.image)
+            })
+            .disposed(by: bag)
+        
     }
     
 }
 private extension ProfileEditVC {
     func attribute(){
         view.backgroundColor = .systemBackground
- 
+        
         submitButton.title = "제출"
         submitButton.style = .done
         submitButton.tintColor = .label
@@ -125,12 +174,13 @@ private extension ProfileEditVC {
             make.leading.trailing.equalTo(nameLabel)
         }
     }
- 
+    
 }
 extension ProfileEditVC : UINavigationControllerDelegate,
                           PHPickerViewControllerDelegate{
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)
+        
         var provider :NSItemProvider? = results.first?.itemProvider
         provider?.loadObject(ofClass: UIImage.self, completionHandler: { img, error in
             if let loadImage = img as? UIImage{
