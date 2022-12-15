@@ -14,8 +14,7 @@ import Alamofire
 struct PostEndPoint{
     static let boundary = "Boundary-\(UUID().uuidString)"
 #if DEBUG
-    static let authorization = "Bearer eyJraWQiOiJrZXkyIiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiJ0ZXN0MUBuYXZlci5jb20iLCJpYXQiOjE2NzA0ODY0ODQsImV4cCI6MTczMDQ4NjQ4NH0.0g5ywvHdoOAu9hif7kWOq4B-X1zzv9AqtKAkMiKcaxIQBaeHiwgwwQfzw06N7E6MheSD0Spntke7TjOo8nqX9w"
-    static let authKey = "JWT-AUTHENTICATION"
+
 #endif
     
     static func getPosts(category: Category? = nil, keyword:String? = nil, page:Int)->Endpoint<PostNetworkEntity<[PostEntity]>>{
@@ -35,7 +34,7 @@ struct PostEndPoint{
                         method: .get,
                         queryParameters: [ "page":"\(query.page)", "companyId":"1"],
                         bodyParameters: nil,
-                        headers: [UserConst.jwtToken:authorization],
+                        headers: [UserConst.jwtToken:NetworkConst.authorization],
                         sampleData: nil
         )
         
@@ -47,7 +46,7 @@ struct PostEndPoint{
                         method: .get,
                         queryParameters: param,
                         bodyParameters: nil,
-                        headers: ["JWT-AUTHENTICATION":authorization],
+                        headers: [NetworkConst.TokenHeaderKey:NetworkConst.authorization],
                         sampleData: nil)
     }
     static func post(postModel:PostModel,images:[UIImage])->Endpoint<CommonResultData>{
@@ -67,7 +66,7 @@ struct PostEndPoint{
                         queryParameters: nil,
                         bodyParameters: parameters,
                         headers: ["Content-Type":"multipart/form-data; boundary=\(PostEndPoint.boundary)",
-                                  authKey:authorization
+                                  NetworkConst.TokenHeaderKey:NetworkConst.authorization
                                  ],
                         sampleData: nil,
                         uploadImages: images)

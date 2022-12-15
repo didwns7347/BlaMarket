@@ -61,6 +61,16 @@ class ProfileEditVC : UIViewController{
         return pickerVC
     }()
     
+    private lazy var indicator : UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.style = .large
+        
+        indicator.hidesWhenStopped = true
+        indicator.stopAnimating()
+        return indicator
+    }()
+    
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         layout()
@@ -79,11 +89,11 @@ class ProfileEditVC : UIViewController{
                 
             })
             .disposed(by: bag)
-        
+     
         vm.userInfo
-            .asDriver(onErrorJustReturn: ProfileModel(profileImage: nil, name: nil))
+            .asDriver(onErrorJustReturn: ProfileModel(profileImageURL: nil, name: nil, profileImage: nil))
             .drive(onNext:{model in
-                self.profileImageView.kf.setImage(with: URL(string: model.profileImage ?? "") , placeholder: UIImage(systemName: "person.fill")) { [weak self] result in
+                self.profileImageView.kf.setImage(with: URL(string: model.profileImageURL ?? "") , placeholder: UIImage(systemName: "person.fill")) { [weak self] result in
                     switch result{
                     case .success(let image):
                         self?.selectedImage.onNext(image.image as UIImage)
@@ -131,15 +141,21 @@ class ProfileEditVC : UIViewController{
         
         submitButton.rx.tap
             .withLatestFrom(
-                Observable.combineLatest(selectedImage, nameTextFeild.rx.text)
+                Observable.combineLatest(selectedImage, nameTextFeild.rx.text).debug()
             )
-            .subscribe(onNext:{ event in
-                print(event.0)
-                print(event)
-                print(self.profileImageView.image)
-            })
+            .map{ model in
+                ProfileModel(profileImageURL: nil, name: model.1, profileImage: model.0)
+            }.bind(to: vm.profileSubmitted)
             .disposed(by: bag)
         
+        vm.lodingControl.bind(to: self.indicator.rx.isAnimating).disposed(by: bag)
+        
+        vm.profileEditFinished
+            .map{_ in false}
+            .bind(to: self.indicator.rx.isAnimating)
+            .disposed(by: bag)
+        
+        vm.showAelrt.bind(to: self.rx.setAlert)
     }
     
 }
@@ -157,7 +173,7 @@ private extension ProfileEditVC {
         
     }
     func layout(){
-        [profileImageView,nameLabel,nameTextFeild].forEach { sv in
+        [profileImageView,nameLabel,nameTextFeild,indicator].forEach { sv in
             view.addSubview(sv)
         }
         profileImageView.snp.makeConstraints { make in
@@ -172,6 +188,9 @@ private extension ProfileEditVC {
         nameTextFeild.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(10)
             make.leading.trailing.equalTo(nameLabel)
+        }
+        indicator.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
         }
     }
     

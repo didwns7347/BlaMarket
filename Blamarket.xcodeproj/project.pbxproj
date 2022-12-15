@@ -90,6 +90,9 @@
 		9B8DB23528ACA03100E14443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B8DB23428ACA03100E14443 /* Assets.xcassets */; };
 		9B8DB23828ACA03100E14443 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B8DB23628ACA03100E14443 /* LaunchScreen.storyboard */; };
 		9B8DB24B28ACA45000E14443 /* LoginVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB24A28ACA45000E14443 /* LoginVIewModel.swift */; };
+		9B8FBCD7294AD8FB0099BDB9 /* NetworkConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8FBCD6294AD8FB0099BDB9 /* NetworkConst.swift */; };
+		9B8FBCD9294ADB570099BDB9 /* MultipartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8FBCD8294ADB570099BDB9 /* MultipartManager.swift */; };
+		9B8FBCDA294ADB570099BDB9 /* MultipartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8FBCD8294ADB570099BDB9 /* MultipartManager.swift */; };
 		9B9ADA9A2907CC9D00014765 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9ADA992907CC9D00014765 /* CoreDataStorage.swift */; };
 		9B9ADA9C2907CF2600014765 /* SerchRecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9ADA9B2907CF2600014765 /* SerchRecode.swift */; };
 		9BAA7186290A1D310052506C /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA7184290A1D310052506C /* SearchTableViewCell.swift */; };
@@ -226,6 +229,8 @@
 		9B8DB23928ACA03100E14443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B8DB24828ACA15600E14443 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9B8DB24A28ACA45000E14443 /* LoginVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVIewModel.swift; sourceTree = "<group>"; };
+		9B8FBCD6294AD8FB0099BDB9 /* NetworkConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConst.swift; sourceTree = "<group>"; };
+		9B8FBCD8294ADB570099BDB9 /* MultipartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartManager.swift; sourceTree = "<group>"; };
 		9B9ADA992907CC9D00014765 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		9B9ADA9B2907CF2600014765 /* SerchRecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerchRecode.swift; sourceTree = "<group>"; };
 		9BAA7184290A1D310052506C /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -407,6 +412,7 @@
 				9B2A269E28F6A4150041B96D /* KeychinManager.swift */,
 				9B2A26A028F6A5280041B96D /* LogManager.swift */,
 				9BEC713C291C9522009ED845 /* TokenManager.swift */,
+				9B8FBCD8294ADB570099BDB9 /* MultipartManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -482,6 +488,7 @@
 			children = (
 				9B6CF9BB28AF262E007FC2AD /* UserConst.swift */,
 				9B74AFB02900D7AA00864950 /* PostConst.swift */,
+				9B8FBCD6294AD8FB0099BDB9 /* NetworkConst.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1026,6 +1033,7 @@
 				9B1F4B64292C97BB00F12842 /* PostSceneModelTest.swift in Sources */,
 				9B1F4B60292C904100F12842 /* Dummy.swift in Sources */,
 				9B1F4B62292C95B900F12842 /* PostNetworkStub.swift in Sources */,
+				9B8FBCDA294ADB570099BDB9 /* MultipartManager.swift in Sources */,
 				9B8B6639292B5651002676BC /* BlamarketTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1077,9 +1085,11 @@
 				9B6CF9C128AF2918007FC2AD /* RegistViewModel.swift in Sources */,
 				9B10604428DC33F900CB9A60 /* DetailWriteFormCellViewModel.swift in Sources */,
 				9BE2006A28BF359300866D73 /* UIButton +.swift in Sources */,
+				9B8FBCD9294ADB570099BDB9 /* MultipartManager.swift in Sources */,
 				9B77FE3728B5B6E3000CF701 /* HttpMethod.swift in Sources */,
 				9B5E43E128D31C850020908F /* PostCell.swift in Sources */,
 				9B8DB24B28ACA45000E14443 /* LoginVIewModel.swift in Sources */,
+				9B8FBCD7294AD8FB0099BDB9 /* NetworkConst.swift in Sources */,
 				9B9ADA9C2907CF2600014765 /* SerchRecode.swift in Sources */,
 				9B77FE3D28B5BEA5000CF701 /* Sessionable.swift in Sources */,
 				9B12F7B528D82A4B00207003 /* RegistItemViewModel.swift in Sources */,

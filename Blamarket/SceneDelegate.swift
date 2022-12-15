@@ -112,13 +112,13 @@ extension SceneDelegate{
     func selectMainView() -> MainVC{
         #if DEBUG
         do{
-            let tokenDecode = try decode(jwt: PostEndPoint.authorization)
+            let tokenDecode = try decode(jwt: NetworkConst.authorization)
             print(tokenDecode)
         }catch
         {
             print(error.localizedDescription)
         }
-        print(TokenManager.shared.decode(jwtToken: PostEndPoint.authorization))
+        print(TokenManager.shared.decode(jwtToken: NetworkConst.authorization))
         //print(tokenDecode ?? "TOKEN DECODE FAILED")
         return MainVC.boardVC
         #endif

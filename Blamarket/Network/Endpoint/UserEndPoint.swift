@@ -85,4 +85,19 @@ struct UserEndPoint {
                         )
         
     }
+    
+    static func editProfile(profileModel:ProfileModel) -> Endpoint<UserNetworkEntity<CommonResultData>>{
+        let header = ["Content-Type":"application/json", NetworkConst.TokenHeaderKey:NetworkConst.authorization ]
+//        let body = profileModel.
+        return Endpoint(baseURL: PostConst.SERVER_URL,
+                        path: "/user/profile",
+                        method: .post,
+                        queryParameters: nil,
+                        bodyParameters: ["name":profileModel.name] ,
+                        headers: ["Content-Type":"multipart/form-data; boundary=\(PostEndPoint.boundary)",
+                                  NetworkConst.TokenHeaderKey:NetworkConst.authorization
+                                 ],
+                        sampleData: nil,
+                        uploadImages: [profileModel.profileImage!])
+    }
 }
